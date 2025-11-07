@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portifolio - Thales Alves</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script src="js/lightmode.js" defer></script>
+    <script src="js/text-typing.js" defer></script>
+    <script src="js/mascara.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="botao-header">
+        <a href="#inicio-site">Inicio</a>
+        <p>//</p>
+        <a href="#main">Habilidades</a>
+        <p>//</p>
+        <a href="#projetos">Projetos</a>
+        <p>//</p>
+        <a href="#contato">Contato</a>
+        </div>
+        
+    <div class="header-modos">
+        <label class="switch">
+            <input type="checkbox" id="light" onclick="lightmode()">
+            <span class="bolinha"></span>
+        </label>
+        <a class="botao-curriculo" href="assets/Currículo Thales Alves.pdf" target="_blank">Meu Curriculo</a>
+    </div>
+    </header>
+
+    <div id="inicio-site">
+        <div>
+            <h2 id="texto"></h2>
+            <h1 id="texto-nome"></h1>
+            <h3 id="texto-cargo"></h3>
+        </div>    
+    </div>
+    <div class="inicio-icon">
+        <a href="#main"><i class="fa-solid fa-angles-down"></i></a>    
+    </div>
+
+    <main id="main">
+        <h2>Habilidades</h2>
+        <div class="icons-habilidades">
+            <div class="caixa-habilidades">
+                <img src="Images/html.png">
+            </div>
+                <div class="caixa-habilidades">
+                <img src="Images/cs.png">
+            </div>
+                <div class="caixa-habilidades">
+                <img src="Images/mysql.png">
+            </div>
+                <div class="caixa-habilidades">
+                <img src="Images/js.png">
+            </div>
+                <div class="caixa-habilidades">
+                <img src="Images/java.png">
+            </div>
+                <div class="caixa-habilidades">
+                <img src="Images/photoshop.png">
+            </div>
+        </div>
+    </main>
+
+    <div id="projetos">
+        <h2>Projetos</h2>
+        <div class="container-projetos">
+        <div class="caixa-projetos">
+            <div class="imagem-projeto"><img src="Images/Bitmap.png"></div>
+            <div class="linguagens-detalhe">
+                <h3>Html</h3>
+                <h3>Css</h3>
+            </div>
+            <h4>Bitmap</h4>
+            <p>Reprodução do site Bitmap, um blog sobre fotografias, feito usando apenas Html e Css (Flexbox)</p>
+            <a target="_blank" href="https://github.com/thalesalvs21/Site-Flex">Ver no GitHub</a>
+        </div>
+        <div class="caixa-projetos">
+            <div class="imagem-projeto"><img src="Images/CoreTech.png"></div>
+            <div class="linguagens-detalhe">
+                <h3>Html</h3>
+                <h3>Css</h3>
+            </div>
+            <h4>CoreTech</h4>
+            <p>Site estático desenvolvido em Html e Css para prática de estruturação e estilização web. Apresenta produtos de hardware e páginas básicas como Início, Sobre e Contato.</p>
+            <a id="btn-texto" target="_blank" href="https://github.com/thalesalvs21/Site-Hardware">Ver no GitHub</a>
+        </div>
+        <div class="caixa-projetos">
+            <div class="imagem-projeto"><img src="Images/calculadora.png"></div>
+            <div class="linguagens-detalhe">
+                <h3>Java</h3>
+            </div>
+            <h4>Calculadora</h4>
+            <p>Projeto simples para praticar a linguagem Java. A calculadora realiza apenas soma, subtração, multiplicação e divisão, diretamente pelo terminal, sem interface gráfica.</p>
+            <a id="btn-texto" target="_blank" href="https://github.com/thalesalvs21/Calculadora">Ver no GitHub</a>
+        </div>
+        </div>
+    </div>
+
+    <div id="contato">
+        <h2>Entre em contato</h2>
+        <div class="container-contato">
+            <form action="">
+                <h3>Formulário de contato</h3>
+                <label for="">Nome</label>
+                <input type="text">
+                <label for="">Telefone</label>
+                <input id="tel" maxlength="14" oninput="telefone()" type="text">
+                <label for="">Mensagem</label>
+                <input class="mensagem" type="text">
+                <a href="">Enviar</a>
+            </form>
+            <div class="redes-sociais">
+                <h3>Redes Sociais</h3>
+                <div class="icons-contato">
+                    <a target="_blank" href="https://www.instagram.com/thales.alvs_"><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                    <a target="_blank" href="https://github.com/thalesalvs21"><i class="fa-brands fa-github"></i></a>
+                    <a target="_blank" href="https://www.behance.net/thalesgomes21"><i class="fa-brands fa-square-behance"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <h3>Thales Alves // 2025</h3>
+    </footer>
+
+</body>
+</html>

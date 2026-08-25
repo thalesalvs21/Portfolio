@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thales Alves — Desenvolvedor em formação</title>
+
+<meta name="description" content="Portfólio de Thales Alves — estudante do 3º ano de Técnico em Informática e estagiário de suporte técnico. Projetos em Python, Flask, C#, HTML e CSS.">
+<meta name="author" content="Thales Alves">
+<meta name="theme-color" content="#0B0B0B">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Thales Alves — Desenvolvedor em formação">
+<meta property="og:description" content="Técnico em Informática em formação e estagiário de suporte técnico. Projetos em Python, Flask, C#, HTML e CSS.">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230B0B0B'/><text x='50' y='71' font-size='58' font-family='monospace' font-weight='bold' fill='%236B8CFF' text-anchor='middle'>T</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="link-pular" href="#main">Pular para o conteúdo</a>
+
+
+<header class="menu" id="menu">
+  <div class="container menu-conteudo">
+    <a href="#hero" class="marca" aria-label="Início">
+      <span class="marca-simbolo">&lt;/&gt;</span>
+      <span class="marca-nome">thales<span class="cor-destaque">.dev</span></span>
+    </a>
+
+    <nav class="menu-links" id="menu-links" aria-label="Navegação principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#experiencia">Experiência</a>
+      <a href="#competencias">Competências</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#formacao">Formação</a>
+      <a href="#contato">Contato</a>
+      <a href="assets/cv-thales-alves.pdf" class="botao botao-pequeno botao-vazado menu-curriculo" download>Currículo</a>
+    </nav>
+
+    <button class="menu-botao" id="menu-botao" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-links">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+
+<section class="topo" id="hero">
+  <div class="container topo-conteudo">
+
+    <div class="topo-texto">
+      <p class="topo-aviso"><span class="bolinha"></span> Procurando estágio em desenvolvimento</p>
+
+      <h1 class="topo-nome">Thales Alves</h1>
+
+      <p class="topo-cargo">
+        <span class="fonte-mono">&gt;</span>
+        <span id="texto-digitado"></span><span class="cursor-digitacao" aria-hidden="true"></span>
+      </p>
+
+      <p class="topo-descricao">
+        Estou no 3º ano do curso Técnico em Informática no Cotemig, com formatura prevista para
+        dezembro de 2026. Trabalho como estagiário de suporte técnico numa empresa de sistemas
+        para cardiologia diagnóstica e, em paralelo, estudo desenvolvimento — principalmente
+        Python com Flask e front-end com HTML e CSS.
+      </p>
+
+      <div class="topo-botoes">
+        <a href="#projetos" class="botao botao-cheio">Ver projetos</a>
+        <a href="#contato" class="botao botao-vazado">Entrar em contato</a>
+      </div>
+
+      <ul class="topo-redes" aria-label="Links">
+        <li><a href="https://github.com/thalesalvs21" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.1.82-.26.82-.58v-2.2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.1-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.13-.3-.54-1.53.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.23 0 4.63-2.8 5.65-5.48 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"/></svg>
+        </a></li>
+        <li><a href="https://www.behance.net/thalesgomes21" target="_blank" rel="noopener" aria-label="Behance">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.2 5.5c1.9 0 3.4.6 3.4 2.6 0 1.1-.6 1.8-1.5 2.2 1.3.4 2 1.4 2 2.8 0 2.3-1.9 3.2-4 3.2H2V5.5h6.2Zm-.4 4.3c.9 0 1.4-.4 1.4-1.2 0-.9-.6-1.1-1.4-1.1H4.6v2.3h3.2Zm.2 4.7c1 0 1.7-.4 1.7-1.4 0-1-.6-1.4-1.7-1.4H4.6v2.8h3.4ZM18.6 8.4c2.4 0 3.9 1.7 3.9 4.3v.6h-5.9c.1 1.2.8 1.9 2 1.9.8 0 1.4-.3 1.7-.9h2c-.5 1.7-1.9 2.6-3.8 2.6-2.5 0-4.1-1.7-4.1-4.2 0-2.5 1.7-4.3 4.2-4.3Zm1.8 3.4c-.1-1.1-.8-1.7-1.8-1.7s-1.8.6-1.9 1.7h3.7ZM21.4 6.2v1.3h-4.7V6.2h4.7Z"/></svg>
+        </a></li>
+        <li><a href="mailto:thalesalvs21@gmail.com" aria-label="E-mail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="3"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
+        </a></li>
+        <li><a href="tel:+5531991599422" aria-label="Telefone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 5.5 5.5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3Z"/></svg>
+        </a></li>
+      </ul>
+    </div>
+
+    <div class="topo-terminal" aria-hidden="true">
+      <div class="terminal">
+        <div class="terminal-barra">
+          <span class="terminal-ponto terminal-ponto-vermelho"></span><span class="terminal-ponto terminal-ponto-amarelo"></span><span class="terminal-ponto terminal-ponto-verde"></span>
+          <span class="terminal-titulo">thales@dev: ~</span>
+        </div>
+<pre class="terminal-codigo"><code><span class="terminal-prompt">$</span> <span class="terminal-comando">whoami</span>
+<span class="terminal-saida">thales alves — técnico em informática</span>
+
+<span class="terminal-prompt">$</span> <span class="terminal-comando">ls projetos/</span>
+<span class="terminal-saida">api-gestao-escolar  varejo-csharp  coretech</span>
+
+<span class="terminal-prompt">$</span> <span class="terminal-comando">cat stack.txt</span>
+<span class="terminal-saida">python · flask · c# · sql · html · css</span>
+
+<span class="terminal-prompt">$</span> <span class="terminal-comando">echo $OBJETIVO</span>
+<span class="terminal-saida">estágio em desenvolvimento</span></code></pre>
+      </div>
+
+      <div class="cartao-flutuante cartao-flutuante-1">
+        <span class="cartao-flutuante-rotulo">Estágio</span>
+        <span class="cartao-flutuante-valor">HW Sistemas · Suporte</span>
+      </div>
+      <div class="cartao-flutuante cartao-flutuante-2">
+        <span class="cartao-flutuante-rotulo">Formatura</span>
+        <span class="cartao-flutuante-valor">Dez / 2026</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="secao" id="sobre">
+  <div class="container">
+    <header class="secao-cabecalho">
+      <p class="secao-etiqueta"><span class="fonte-mono">01</span> — Sobre</p>
+      <h2 class="secao-titulo">Sobre mim</h2>
+    </header>
+
+    <div class="sobre">
+      <div class="sobre-texto">
+        <p class="paragrafo-destaque">
+          Estou no último ano do técnico em informática no Cotemig e trabalho como estagiário
+          de suporte. Procuro um estágio em desenvolvimento.
+        </p>
+        <p>
+          No estágio eu atendo clínica, hospital e médico que usam os sistemas de
+          eletrocardiograma da empresa. Boa parte é por telefone e acesso remoto, com alguém
+          do outro lado que não é da área de TI e está com paciente esperando. Aprendi a
+          perguntar antes de mexer: metade dos chamados que chegam como "o programa travou"
+          é outra coisa.
+        </p>
+        <p>
+          No código, meu foco é Python com Flask. O projeto mais completo que fiz é uma API
+          de gestão escolar separada em camadas. Também fiz um sistema em C# com Windows Forms
+          e MySQL. Front-end é onde eu me viro melhor: HTML e CSS eu faço sem ficar consultando.
+        </p>
+        <p>
+          Fora isso, monto computador. Três máquinas completas desde 2025, uma delas pra cliente.
+        </p>
+        <p>
+          E faço um curso de design gráfico na Escola Zion, o que ajuda mais do que eu esperava
+          na hora de montar uma tela.
+        </p>
+      </div>
+
+      <aside class="sobre-lateral">
+        <div class="numeros">
+          <div class="numero"><span class="numero-valor">17</span><span class="numero-rotulo">repositórios no GitHub</span></div>
+          <div class="numero"><span class="numero-valor">4</span><span class="numero-rotulo">cursos e certificações</span></div>
+          <div class="numero"><span class="numero-valor">3</span><span class="numero-rotulo">anos de curso técnico</span></div>
+          <div class="numero"><span class="numero-valor">3</span><span class="numero-rotulo">computadores montados</span></div>
+        </div>
+
+        <ul class="lista-dados">
+          <li><span class="dado-nome">Localização</span><span class="dado-valor">Floresta — Belo Horizonte, MG</span></li>
+          <li><span class="dado-nome">Curso</span><span class="dado-valor">Téc. Informática — Cotemig</span></li>
+          <li><span class="dado-nome">Formatura</span><span class="dado-valor">Dezembro de 2026</span></li>
+          <li><span class="dado-nome">Procurando</span><span class="dado-valor">Estágio em desenvolvimento</span></li>
+        </ul>
+
+        <a href="assets/cv-thales-alves.pdf" class="botao botao-cheio botao-largura-total" download>Baixar currículo (PDF)</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+
+<section class="secao secao-alternada" id="experiencia">
+  <div class="container">
+    <header class="secao-cabecalho">
+      <p class="secao-etiqueta"><span class="fonte-mono">02</span> — Experiência</p>
+      <h2 class="secao-titulo">Experiência</h2>
+    </header>
+
+    <div class="lista-experiencia">
+
+      <article class="card-experiencia">
+        <div class="experiencia-cabecalho">
+          <div>
+            <h3 class="experiencia-cargo">Estagiário de Suporte Técnico</h3>
+            <p class="experiencia-empresa">HW Sistemas HeartWare Ltda · Belo Horizonte, MG</p>
+            <p class="experiencia-area">Sistemas para cardiologia diagnóstica</p>
+          </div>
+          <div class="experiencia-periodo">
+            <span class="experiencia-situacao"><span class="bolinha"></span> Atual</span>
+            <span class="experiencia-data">mai/2026 — hoje</span>
+          </div>
+        </div>
+
+        <ul class="experiencia-tarefas">
+          <li>Suporte a clínicas, hospitais e profissionais de saúde usuários dos sistemas ECG V6, Ergo 13 e ErgoMET</li>
+          <li>Instalação, configuração e atualização dos softwares nas estações dos clientes</li>
+          <li>Atendimento por telefone e acesso remoto, orientando usuários da área da saúde na utilização dos sistemas</li>
+        </ul>
+
+        <ul class="etiquetas">
+          <li class="etiqueta">Suporte ao usuário</li>
+          <li class="etiqueta">Acesso remoto</li>
+          <li class="etiqueta">Windows</li>
+          <li class="etiqueta">Atendimento</li>
+        </ul>
+      </article>
+
+      <article class="card-experiencia">
+        <div class="experiencia-cabecalho">
+          <div>
+            <h3 class="experiencia-cargo">Montagem e Manutenção de Computadores</h3>
+            <p class="experiencia-empresa">Autônomo</p>
+          </div>
+          <div class="experiencia-periodo">
+            <span class="experiencia-situacao"><span class="bolinha"></span> Atual</span>
+            <span class="experiencia-data">2025 — hoje</span>
+          </div>
+        </div>
+
+        <ul class="experiencia-tarefas">
+          <li>Montagem de 3 computadores completos, incluindo um projeto para cliente</li>
+          <li>Seleção de componentes conforme orçamento e finalidade de uso</li>
+          <li>Instalação de sistema operacional, drivers e configuração de ambiente</li>
+          <li>Diagnóstico e substituição de peças com defeito</li>
+        </ul>
+
+        <ul class="etiquetas">
+          <li class="etiqueta">Hardware</li>
+          <li class="etiqueta">Montagem</li>
+          <li class="etiqueta">Diagnóstico</li>
+          <li class="etiqueta">Manutenção</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="secao" id="competencias">
+  <div class="container">
+    <header class="secao-cabecalho">
+      <p class="secao-etiqueta"><span class="fonte-mono">03</span> — Competências</p>
+      <h2 class="secao-titulo">Competências</h2>
+      <p class="secao-subtitulo">
+        Nível real de cada coisa, sem inflar.
+      </p>
+
+      <ul class="legenda-niveis" aria-label="Legenda dos níveis">
+        <li><span class="nivel nivel-intermediario">Intermediário</span> consigo trabalhar sozinho</li>
+        <li><span class="nivel nivel-basico">Básico</span> consigo fazer consultando material</li>
+      </ul>
+    </header>
+
+    <div class="competencias">
+
+      <article class="card-competencia">
+        <div class="competencia-icone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m8 6-5 6 5 6M16 6l5 6-5 6M13.5 4l-3 16"/></svg>
+        </div>
+        <h3>Desenvolvimento</h3>
+        <ul class="lista-niveis">
+          <li class="item-nivel"><span class="item-nome">HTML5 <em>semântica, responsivo</em></span><span class="nivel nivel-intermediario">Intermediário</span></li>
+          <li class="item-nivel"><span class="item-nome">CSS3 <em>Flexbox, Grid</em></span><span class="nivel nivel-intermediario">Intermediário</span></li>
+          <li class="item-nivel"><span class="item-nome">Python <em>Flask, SQLAlchemy, API REST</em></span><span class="nivel nivel-basico">Básico</span></li>
+          <li class="item-nivel"><span class="item-nome">C# <em>POO, Windows Forms</em></span><span class="nivel nivel-basico">Básico</span></li>
+          <li class="item-nivel"><span class="item-nome">JavaScript</span><span class="nivel nivel-basico">Básico</span></li>
+          <li class="item-nivel"><span class="item-nome">Git e GitHub</span><span class="nivel nivel-basico">Básico</span></li>
+        </ul>
+      </article>
+
+      <article class="card-competencia">
+        <div class="competencia-icone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>
+        </div>
+        <h3>Banco de dados</h3>
+        <ul class="lista-niveis">
+          <li class="item-nivel"><span class="item-nome">MySQL</span><span class="nivel nivel-basico">Básico</span></li>
+          <li class="item-nivel"><span class="item-nome">SQLite</span><span class="nivel nivel-basico">Básico</span></li>
+          <li class="item-nivel"><span class="item-nome">Consultas, JOIN e agregações</span><span class="nivel nivel-basico">Básico</span></li>
+          <li class="item-nivel"><span class="item-nome">Modelagem relacional</span><span class="nivel nivel-basico">Básico</span></li>
+        </ul>
+      </article>
+
+      <article class="card-competencia">
+        <div class="competencia-icone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9.5 2.5v3.5M14.5 2.5v3.5M9.5 18v3.5M14.5 18v3.5M2.5 9.5H6M2.5 14.5H6M18 9.5h3.5M18 14.5h3.5"/></svg>
+        </div>
+        <h3>Suporte e infraestrutura</h3>
+        <ul class="lista-niveis">
+          <li class="item-nivel"><span class="item-nome">Montagem de computadores</span><span class="nivel nivel-intermediario">Intermediário</span></li>
+          <li class="item-nivel"><span class="item-nome">Manutenção preventiva e corretiva</span><span class="nivel nivel-intermediario">Intermediário</span></li>
+          <li class="item-nivel"><span class="item-nome">Diagnóstico de hardware</span><span class="nivel nivel-intermediario">Intermediário</span></li>
+          <li class="item-nivel"><span class="item-nome">Instalação e configuração do Windows</span><span class="nivel nivel-intermediario">Intermediário</span></li>
+          <li class="item-nivel"><span class="item-nome">Atendimento a usuários</span><span class="nivel nivel-intermediario">Intermediário</span></li>
+          <li class="item-nivel"><span class="item-nome">Sistemas de arquivos e particionamento</span><span class="nivel nivel-basico">Básico</span></li>
+          <li class="item-nivel"><span class="item-nome">Fundamentos de redes TCP/IP</span><span class="nivel nivel-basico">Básico</span></li>
+        </ul>
+      </article>
+
+      <article class="card-competencia">
+        <div class="competencia-icone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2.5a9.5 9.5 0 1 0 0 19c1.4 0 2-.9 2-1.8 0-1.4-1.2-1.6-1.2-2.7 0-.8.7-1.5 1.6-1.5h1.9a4.7 4.7 0 0 0 4.7-4.7c0-4.6-4-8.3-9-8.3Z"/><circle cx="7.5" cy="10.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="11" cy="7" r="1.2" fill="currentColor" stroke="none"/><circle cx="15.5" cy="8.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <h3>Design e ferramentas</h3>
+        <ul class="lista-niveis">
+          <li class="item-nivel"><span class="item-nome">Edição profissional de imagem</span><span class="nivel nivel-intermediario">Intermediário</span></li>
+          <li class="item-nivel"><span class="item-nome">Pacote Office <em>Word, Excel, PowerPoint</em></span><span class="nivel nivel-intermediario">Intermediário</span></li>
+          <li class="item-nivel"><span class="item-nome">Design gráfico <em>vetor e raster</em></span><span class="nivel nivel-basico">Básico</span></li>
+          <li class="item-nivel"><span class="item-nome">Cores RGB e CMYK</span><span class="nivel nivel-basico">Básico</span></li>
+          <li class="item-nivel"><span class="item-nome">Arquivos para impressão e web</span><span class="nivel nivel-basico">Básico</span></li>
+          <li class="item-nivel"><span class="item-nome">Inglês</span><span class="nivel nivel-basico">Básico</span></li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="secao secao-alternada" id="projetos">
+  <div class="container">
+    <header class="secao-cabecalho">
+      <p class="secao-etiqueta"><span class="fonte-mono">04</span> — Projetos</p>
+      <h2 class="secao-titulo">Projetos</h2>
+      <p class="secao-subtitulo">
+        Cinco. Os dois de cima são os que deram mais trabalho.
+      </p>
+    </header>
+
+    <div class="filtros" role="tablist" aria-label="Filtrar projetos">
+      <button class="filtro link-ativo" data-filtro="todos" role="tab" aria-selected="true">Todos</button>
+      <button class="filtro" data-filtro="backend" role="tab" aria-selected="false">Back-end</button>
+      <button class="filtro" data-filtro="frontend" role="tab" aria-selected="false">Front-end</button>
+      <button class="filtro" data-filtro="banco" role="tab" aria-selected="false">Banco de dados</button>
+    </div>
+
+    <div class="projetos" id="lista-projetos">
+
+      <article class="card-projeto card-projeto-destaque" data-categorias="backend banco">
+        <div class="projeto-cabecalho">
+          <span class="projeto-selo">Destaque</span>
+          <div class="projeto-links">
+            <a href="https://github.com/thalesalvs21/mvc" target="_blank" rel="noopener" aria-label="Ver a API de Gestão Escolar no GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.1.82-.26.82-.58v-2.2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.1-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.13-.3-.54-1.53.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.23 0 4.63-2.8 5.65-5.48 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"/></svg>
+            </a>
+          </div>
+        </div>
+        <h3 class="projeto-titulo">API REST de Gestão Escolar</h3>
+        <p class="projeto-descricao">
+          Cadastro de alunos com CRUD completo, ativação e desativação de registros e um endpoint
+          que devolve estatísticas agregadas. O código é separado em rotas, controllers,
+          repositories e models — cada camada só faz o que é dela. Valida o que chega e devolve
+          o status HTTP certo quando dá erro, em vez de estourar uma exceção na cara de quem chamou.
+        </p>
+        <ul class="projeto-tecnologias"><li>Python</li><li>Flask</li><li>SQLAlchemy</li><li>API REST</li></ul>
+      </article>
+
+      <article class="card-projeto card-projeto-destaque" data-categorias="backend banco">
+        <div class="projeto-cabecalho">
+          <span class="projeto-selo">Destaque</span>
+          <div class="projeto-links">
+            <a href="https://github.com/thalesalvs21/ProjetoCrud" target="_blank" rel="noopener" aria-label="Ver o Sistema de Varejo no GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.1.82-.26.82-.58v-2.2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.1-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.13-.3-.54-1.53.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.23 0 4.63-2.8 5.65-5.48 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"/></svg>
+            </a>
+          </div>
+        </div>
+        <h3 class="projeto-titulo">Sistema de Varejo — CRUD</h3>
+        <p class="projeto-descricao">
+          Aplicação desktop em C# para cadastrar clientes e fornecedores, com os dados num banco
+          MySQL. Windows Forms, orientação a objetos e as consultas SQL escritas na mão.
+        </p>
+        <ul class="projeto-tecnologias"><li>C#</li><li>Windows Forms</li><li>MySQL</li></ul>
+      </article>
+
+      <article class="card-projeto" data-categorias="frontend">
+        <div class="projeto-cabecalho">
+          <span class="projeto-marca">&lt;/&gt;</span>
+          <div class="projeto-links">
+            <a href="https://thalesalvs21.github.io/Site-Hardware/" target="_blank" rel="noopener" aria-label="Abrir o site CoreTech">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6M20 4l-8.5 8.5"/><path d="M18 13.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5.5"/></svg>
+            </a>
+            <a href="https://github.com/thalesalvs21/Site-Hardware" target="_blank" rel="noopener" aria-label="Ver o CoreTech no GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.1.82-.26.82-.58v-2.2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.1-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.13-.3-.54-1.53.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.23 0 4.63-2.8 5.65-5.48 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"/></svg>
+            </a>
+          </div>
+        </div>
+        <h3 class="projeto-titulo">CoreTech</h3>
+        <p class="projeto-descricao">
+          Loja de hardware em HTML e CSS puro. Peguei o tema porque é o que eu conheço fora do código.
+        </p>
+        <ul class="projeto-tecnologias"><li>HTML5</li><li>CSS3</li></ul>
+      </article>
+
+      <article class="card-projeto" data-categorias="frontend">
+        <div class="projeto-cabecalho">
+          <span class="projeto-marca">&lt;/&gt;</span>
+          <div class="projeto-links">
+            <a href="https://thalesalvs21.github.io/Site-Flex/" target="_blank" rel="noopener" aria-label="Abrir o site Bitmap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6M20 4l-8.5 8.5"/><path d="M18 13.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5.5"/></svg>
+            </a>
+            <a href="https://github.com/thalesalvs21/Site-Flex" target="_blank" rel="noopener" aria-label="Ver o Bitmap no GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.1.82-.26.82-.58v-2.2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.1-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.13-.3-.54-1.53.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.23 0 4.63-2.8 5.65-5.48 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"/></svg>
+            </a>
+          </div>
+        </div>
+        <h3 class="projeto-titulo">Bitmap</h3>
+        <p class="projeto-descricao">
+          Um blog de fotografia copiado no olho, só com Flexbox.
+        </p>
+        <ul class="projeto-tecnologias"><li>HTML5</li><li>CSS3</li><li>Flexbox</li></ul>
+      </article>
+
+      <article class="card-projeto" data-categorias="frontend">
+        <div class="projeto-cabecalho">
+          <span class="projeto-marca">JS</span>
+          <div class="projeto-links">
+            <a href="https://github.com/thalesalvs21/darkmode-e-modal" target="_blank" rel="noopener" aria-label="Ver Dark mode e modal no GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.1.82-.26.82-.58v-2.2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.1-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.13-.3-.54-1.53.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.23 0 4.63-2.8 5.65-5.48 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"/></svg>
+            </a>
+          </div>
+        </div>
+        <h3 class="projeto-titulo">Dark mode e modal</h3>
+        <p class="projeto-descricao">
+          Botão que troca o tema da página e uma janela que abre por cima do conteúdo.
+          Sem biblioteca: é DOM e variável CSS na mão.
+        </p>
+        <ul class="projeto-tecnologias"><li>JavaScript</li><li>CSS</li><li>DOM</li></ul>
+      </article>
+
+    </div>
+
+    <p class="projetos-vazio" id="projetos-vazio" hidden>Nenhum projeto nesta categoria.</p>
+
+    <p class="projetos-mais">
+      <a href="https://github.com/thalesalvs21?tab=repositories" target="_blank" rel="noopener" class="botao botao-vazado">
+        Ver meus outros repositórios no GitHub
+      </a>
+    </p>
+  </div>
+</section>
+
+
+<section class="secao" id="formacao">
+  <div class="container">
+    <header class="secao-cabecalho">
+      <p class="secao-etiqueta"><span class="fonte-mono">05</span> — Formação</p>
+      <h2 class="secao-titulo">Formação e cursos</h2>
+    </header>
+
+    <ol class="linha-do-tempo">
+
+      <li class="item-formacao item-formacao-atual">
+        <div class="formacao-bolinha"></div>
+        <div class="formacao-conteudo">
+          <span class="formacao-data">2024 — atual</span>
+          <h3 class="formacao-titulo">Técnico em Informática</h3>
+          <p class="formacao-instituicao">Cotemig — Colégio e Faculdade · Unidade Floresta</p>
+          <p class="formacao-descricao">Previsão de formatura: dezembro de 2026.</p>
+        </div>
+      </li>
+
+      <li class="item-formacao item-formacao-atual">
+        <div class="formacao-bolinha"></div>
+        <div class="formacao-conteudo">
+          <span class="formacao-data">2025 — atual</span>
+          <h3 class="formacao-titulo">Curso Técnico de Design Gráfico</h3>
+          <p class="formacao-instituicao">Escola Zion</p>
+        </div>
+      </li>
+
+      <li class="item-formacao">
+        <div class="formacao-bolinha"></div>
+        <div class="formacao-conteudo">
+          <span class="formacao-data">2025</span>
+          <h3 class="formacao-titulo">Edição Profissional de Imagem</h3>
+          <p class="formacao-instituicao">Certificado · 8 horas</p>
+        </div>
+      </li>
+
+      <li class="item-formacao">
+        <div class="formacao-bolinha"></div>
+        <div class="formacao-conteudo">
+          <span class="formacao-data">2025</span>
+          <h3 class="formacao-titulo">Code Club</h3>
+          <p class="formacao-instituicao">Certificado</p>
+        </div>
+      </li>
+
+      <li class="item-formacao">
+        <div class="formacao-bolinha"></div>
+        <div class="formacao-conteudo">
+          <span class="formacao-data">2024</span>
+          <h3 class="formacao-titulo">MCC — Montagem e Configuração de Computadores</h3>
+          <p class="formacao-instituicao">Certificado</p>
+        </div>
+      </li>
+
+      <li class="item-formacao">
+        <div class="formacao-bolinha"></div>
+        <div class="formacao-conteudo">
+          <span class="formacao-data">2024</span>
+          <h3 class="formacao-titulo">Robótica</h3>
+          <p class="formacao-instituicao">Certificado</p>
+        </div>
+      </li>
+
+    </ol>
+  </div>
+</section>
+
+
+<section class="secao secao-alternada" id="contato">
+  <div class="container">
+    <header class="secao-cabecalho">
+      <p class="secao-etiqueta"><span class="fonte-mono">06</span> — Contato</p>
+      <h2 class="secao-titulo">Contato</h2>
+      <p class="secao-subtitulo">
+        Respondo e-mail no mesmo dia. Telefone eu atendo se não estiver em atendimento.
+      </p>
+    </header>
+
+    <div class="contato">
+      <div class="contato-lateral">
+        <a class="card-contato" href="mailto:thalesalvs21@gmail.com">
+          <span class="contato-icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="4.5" width="19" height="15" rx="3"/><path d="m3.5 7 8.5 6 8.5-6"/></svg></span>
+          <span class="contato-tipo">E-mail</span>
+          <span class="contato-valor">thalesalvs21@gmail.com</span>
+        </a>
+
+        <a class="card-contato" href="tel:+5531991599422">
+          <span class="contato-icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 5.5 5.5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3Z"/></svg></span>
+          <span class="contato-tipo">Telefone</span>
+          <span class="contato-valor">(31) 99159-9422</span>
+        </a>
+
+        <a class="card-contato" href="https://github.com/thalesalvs21" target="_blank" rel="noopener">
+          <span class="contato-icone"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.1.82-.26.82-.58v-2.2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.1-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.13-.3-.54-1.53.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.23 0 4.63-2.8 5.65-5.48 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"/></svg></span>
+          <span class="contato-tipo">GitHub</span>
+          <span class="contato-valor">@thalesalvs21</span>
+        </a>
+
+        <a class="card-contato" href="https://www.behance.net/thalesgomes21" target="_blank" rel="noopener">
+          <span class="contato-icone"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.2 5.5c1.9 0 3.4.6 3.4 2.6 0 1.1-.6 1.8-1.5 2.2 1.3.4 2 1.4 2 2.8 0 2.3-1.9 3.2-4 3.2H2V5.5h6.2Zm-.4 4.3c.9 0 1.4-.4 1.4-1.2 0-.9-.6-1.1-1.4-1.1H4.6v2.3h3.2Zm.2 4.7c1 0 1.7-.4 1.7-1.4 0-1-.6-1.4-1.7-1.4H4.6v2.8h3.4ZM18.6 8.4c2.4 0 3.9 1.7 3.9 4.3v.6h-5.9c.1 1.2.8 1.9 2 1.9.8 0 1.4-.3 1.7-.9h2c-.5 1.7-1.9 2.6-3.8 2.6-2.5 0-4.1-1.7-4.1-4.2 0-2.5 1.7-4.3 4.2-4.3Zm1.8 3.4c-.1-1.1-.8-1.7-1.8-1.7s-1.8.6-1.9 1.7h3.7ZM21.4 6.2v1.3h-4.7V6.2h4.7Z"/></svg></span>
+          <span class="contato-tipo">Behance</span>
+          <span class="contato-valor">thalesgomes21</span>
+        </a>
+      </div>
+
+
+      <form class="formulario" id="formulario" novalidate>
+        <div class="campo">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" required autocomplete="name" placeholder="Seu nome">
+          <span class="campo-erro"></span>
+        </div>
+
+        <div class="campo">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required autocomplete="email" placeholder="voce@email.com">
+          <span class="campo-erro"></span>
+        </div>
+
+        <div class="campo">
+          <label for="assunto">Assunto</label>
+          <input type="text" id="assunto" name="assunto" placeholder="Vaga, projeto, dúvida...">
+          <span class="campo-erro"></span>
+        </div>
+
+        <div class="campo">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Escreva sua mensagem aqui"></textarea>
+          <span class="campo-erro"></span>
+        </div>
+
+        <button type="submit" class="botao botao-cheio botao-largura-total">Enviar mensagem</button>
+        <p class="formulario-aviso" id="formulario-aviso" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<footer class="rodape">
+  <div class="container rodape-conteudo">
+    <p class="rodape-marca">thales<span class="cor-destaque">.dev</span></p>
+    <p class="rodape-nota">Site feito por mim com HTML, CSS e JavaScript.</p>
+    <p class="rodape-direitos">© <span id="ano">2026</span> Thales Alves.</p>
+  </div>
+</footer>
+
+<button class="botao-voltar-topo" id="botao-topo" aria-label="Voltar ao topo">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 14 6-6 6 6"/></svg>
+</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>

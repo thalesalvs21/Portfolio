@@ -223,3 +223,12 @@ formulario.addEventListener('submit', function (evento) {
   avisoDoFormulario.textContent = 'Abrindo seu aplicativo de e-mail com a mensagem preenchida...';
   avisoDoFormulario.className = 'formulario-aviso aviso-sucesso';
 });
+
+
+  fetch("https://api.github.com/users/thalesalvs21")
+    .then(resposta => resposta.json())
+    .then(dados => {
+      document.getElementById("repos-github").textContent = dados.public_repos;
+    })
+    .catch(() => {
+    });

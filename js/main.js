@@ -231,3 +231,11 @@ formulario.addEventListener('submit', function (evento) {
     })
     .catch(() => {
     });
+    
+    
+    fetch("https://api.github.com/search/commits?q=author:thalesalvs21&per_page=1")
+  .then(resposta => resposta.json())
+  .then(dados => {
+    document.getElementById("commits-github").textContent = dados.total_count;
+  })
+  .catch(() => {});

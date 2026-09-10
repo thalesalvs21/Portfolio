@@ -15,6 +15,11 @@
   --accent-line: rgba(107, 140, 255, .36);
   --sobre-accent: #0B1024;
 
+  --cor1:      #ff4b4b;
+  --cor-linha: rgba(255, 0, 0, 0.36);
+  --cor2: rgba(255, 83, 83, 0.247);
+
+
   --erro:       #F2635F;
   --erro-texto: #FF8A85;
 
@@ -523,8 +528,21 @@ strong { color: var(--text); font-weight: 600; }
   background: rgba(255, 255, 255, .03);
   white-space: nowrap;
 }
-.nivel-intermediario { color: var(--accent);  border-color: var(--accent-line); background: var(--accent-soft); }
-.nivel-basico { color: var(--text-2); border-color: var(--border-2);    background: transparent; }
+.nivel-avancado {
+   color: var(--cor1);  
+   border-color: var(--cor-linha); 
+   background: var(--cor2); 
+  }
+.nivel-intermediario { 
+  color: var(--accent);  
+  border-color: var(--accent-line); 
+  background: var(--accent-soft); 
+}
+.nivel-basico { 
+  color: var(--text-2); 
+  border-color: var(--border-2);    
+  background: transparent; 
+}
 
 .legenda-niveis {
   display: flex; flex-wrap: wrap; gap: 10px 22px;

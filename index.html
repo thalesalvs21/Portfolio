@@ -66,10 +66,9 @@
       </p>
 
       <p class="topo-descricao">
-        Estou no 3º ano do curso Técnico em Informática no Cotemig, com formatura prevista para
-        dezembro de 2026. Trabalho como estagiário de suporte técnico numa empresa de sistemas
-        para cardiologia diagnóstica e, em paralelo, estudo desenvolvimento — principalmente
-        Python com Flask e front-end com HTML e CSS.
+        Estou no 3º ano do curso Técnico em Informática no Cotemig, com formatura prevista para dezembro de 2026. 
+        Trabalho como estagiário de suporte técnico numa empresa de sistemas para cardiologia diagnóstica e, em paralelo, 
+        estudo desenvolvimento — Python com Flask, Java com JavaFX e front-end com HTML e CSS.
       </p>
 
       <div class="topo-botoes">
@@ -103,10 +102,10 @@
 <span class="terminal-saida">thales alves — técnico em informática</span>
 
 <span class="terminal-prompt">$</span> <span class="terminal-comando">ls projetos/</span>
-<span class="terminal-saida">api-gestao-escolar  varejo-csharp  coretech</span>
+<span class="terminal-saida">hw-atendimento api-gestao-escolar  varejo-csharp  coretech</span>
 
 <span class="terminal-prompt">$</span> <span class="terminal-comando">cat stack.txt</span>
-<span class="terminal-saida">python · flask · c# · sql · html · css</span>
+<span class="terminal-saida">python · flask · java · javafx · c# · sql · html · css</span>
 
 <span class="terminal-prompt">$</span> <span class="terminal-comando">echo $OBJETIVO</span>
 <span class="terminal-saida">estágio em desenvolvimento</span></code></pre>
@@ -149,9 +148,7 @@
           é outra coisa.
         </p>
         <p>
-          No código, meu foco é Python com Flask. O projeto mais completo que fiz é uma API
-          de gestão escolar separada em camadas. Também fiz um sistema em C# com Windows Forms
-          e MySQL. Front-end é onde eu me viro melhor: HTML e CSS eu faço sem ficar consultando.
+          No código, meu foco é Python com Flask. O projeto mais completo que fiz é uma API de gestão escolar separada em camadas. Agora estou construindo em Java com JavaFX um sistema de registro de atendimentos, com MySQL — é o primeiro que faço para resolver um problema do meu próprio trabalho. Também fiz um sistema em C# com Windows Forms e MySQL
         </p>
         <p>
           Fora isso, monto computador. Três máquinas completas desde 2025, uma delas pra cliente.
@@ -278,6 +275,7 @@
           <li class="item-nivel"><span class="item-nome">HTML5 <em>semântica, responsivo</em></span><span class="nivel nivel-intermediario">Intermediário</span></li>
           <li class="item-nivel"><span class="item-nome">CSS3 <em>Flexbox, Grid</em></span><span class="nivel nivel-intermediario">Intermediário</span></li>
           <li class="item-nivel"><span class="item-nome">Python <em>Flask, SQLAlchemy, API REST</em></span><span class="nivel nivel-basico">Básico</span></li>
+          <li class="item-nivel"><span class="item-nome">Java <em>JavaFX, FXML, JDBC</em></span><span class="nivel nivel-basico">Básico</span></li>
           <li class="item-nivel"><span class="item-nome">C# <em>POO, Windows Forms</em></span><span class="nivel nivel-basico">Básico</span></li>
           <li class="item-nivel"><span class="item-nome">JavaScript</span><span class="nivel nivel-basico">Básico</span></li>
           <li class="item-nivel"><span class="item-nome">Git e GitHub</span><span class="nivel nivel-basico">Básico</span></li>
@@ -350,6 +348,24 @@
     </div>
 
     <div class="projetos" id="lista-projetos">
+      <article class="card-projeto card-projeto-destaque" data-categorias="backend banco">
+        <div class="projeto-cabecalho">
+          <span class="projeto-selo">Em desenvolvimento</span>
+          <div class="projeto-links">
+            <a href="https://github.com/thalesalvs21/hw-atendimento" target="_blank" rel="noopener" aria-label="Ver o HW Atendimento no GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.1.82-.26.82-.58v-2.2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.1-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.13-.3-.54-1.53.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.23 0 4.63-2.8 5.65-5.48 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"/></svg>
+            </a>
+          </div>
+        </div>
+      <h3 class="projeto-titulo">HW Atendimento</h3>
+      <p class="projeto-descricao">
+        Sistema desktop para registrar os atendimentos técnicos que eu faço no estágio. Cadastro de
+        cliente e equipamento, controle de início e término, e tela de pesquisa. A interface é feita
+        em FXML com CSS próprio e o acesso ao banco fica isolado em repositories, separado das telas.
+        É o primeiro projeto que eu faço para resolver um problema do meu próprio trabalho.
+      </p>
+      <ul class="projeto-tecnologias"><li>Java 17</li><li>JavaFX</li><li>MySQL</li><li>JDBC</li></ul>
+      </article>
 
       <article class="card-projeto card-projeto-destaque" data-categorias="backend banco">
         <div class="projeto-cabecalho">
@@ -370,9 +386,9 @@
         <ul class="projeto-tecnologias"><li>Python</li><li>Flask</li><li>SQLAlchemy</li><li>API REST</li></ul>
       </article>
 
-      <article class="card-projeto card-projeto-destaque" data-categorias="backend banco">
+      <article class="card-projeto" data-categorias="backend banco">
         <div class="projeto-cabecalho">
-          <span class="projeto-selo">Destaque</span>
+          <span class="projeto-marca">&lt;/&gt;</span>
           <div class="projeto-links">
             <a href="https://github.com/thalesalvs21/ProjetoCrud" target="_blank" rel="noopener" aria-label="Ver o Sistema de Varejo no GitHub">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.1.82-.26.82-.58v-2.2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.1-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.13-.3-.54-1.53.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.23 0 4.63-2.8 5.65-5.48 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"/></svg>
@@ -423,23 +439,6 @@
           Um blog de fotografia copiado no olho, só com Flexbox.
         </p>
         <ul class="projeto-tecnologias"><li>HTML5</li><li>CSS3</li><li>Flexbox</li></ul>
-      </article>
-
-      <article class="card-projeto" data-categorias="frontend">
-        <div class="projeto-cabecalho">
-          <span class="projeto-marca">JS</span>
-          <div class="projeto-links">
-            <a href="https://github.com/thalesalvs21/darkmode-e-modal" target="_blank" rel="noopener" aria-label="Ver Dark mode e modal no GitHub">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.1.82-.26.82-.58v-2.2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.1-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.13-.3-.54-1.53.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.23 0 4.63-2.8 5.65-5.48 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"/></svg>
-            </a>
-          </div>
-        </div>
-        <h3 class="projeto-titulo">Dark mode e modal</h3>
-        <p class="projeto-descricao">
-          Botão que troca o tema da página e uma janela que abre por cima do conteúdo.
-          Sem biblioteca: é DOM e variável CSS na mão.
-        </p>
-        <ul class="projeto-tecnologias"><li>JavaScript</li><li>CSS</li><li>DOM</li></ul>
       </article>
 
     </div>

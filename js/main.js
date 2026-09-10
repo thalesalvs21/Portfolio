@@ -76,10 +76,9 @@ botaoTopo.addEventListener('click', function () {
 const campoDigitado = document.getElementById('texto-digitado');
 
 const frases = [
-  'Desenvolvedor em formação',
-  'Técnico em Informática — Cotemig',
-  'Estagiário de suporte técnico',
-  'Python, Flask, C# e front-end'
+  "Estagiário de suporte técnico", 
+  "Desenvolvedor em formação", 
+  "Procurando estágio em desenvolvimento"
 ];
 
 let fraseAtual = 0;

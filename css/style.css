@@ -678,7 +678,7 @@ strong { color: var(--text); font-weight: 600; }
   position: absolute; left: 5px; top: 8px; bottom: 8px;
   width: 1px;
   background: linear-gradient(180deg,
-    var(--accent-line) 0%, var(--border) 14%, var(--border) 84%, transparent 100%);
+    var(--border) 14%, var(--border) 84%, transparent 100%);
 }
 
 .item-formacao { position: relative; padding-bottom: 32px; }
@@ -709,6 +709,9 @@ strong { color: var(--text); font-weight: 600; }
 .formacao-instituicao   { font-size: .88rem; color: var(--text-2); margin-bottom: 4px; }
 .formacao-descricao  { font-size: .87rem; color: var(--muted); margin: 0; }
 
+.formacao-instituicao a{
+  color: var(--accent);
+}
 
 .contato {
   display: grid;

@@ -1155,6 +1155,14 @@ strong {
   border-bottom: 1px solid var(--border-2);
 }
 
+.area-icone {
+  display: block;
+  flex-shrink: 0;
+  width: 17px;
+  height: 17px;
+  color: var(--accent);
+}
+
 .area-titulo {
   font-size: .95rem;
   font-weight: 600;
@@ -1192,6 +1200,37 @@ strong {
 
 .curso-detalhe a:hover {
   text-decoration: underline;
+}
+
+.curso-selo {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 8px;
+  vertical-align: 1px;
+  padding: 2px 8px;
+  border-radius: var(--raio-pequeno);
+  border: 1px solid var(--accent-line);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: .6rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  line-height: 1.6;
+  white-space: nowrap;
+  transition: background .2s var(--ease), border-color .2s var(--ease);
+}
+
+.curso-selo:hover {
+  background: rgba(107, 140, 255, .24);
+  border-color: var(--accent);
+}
+
+.curso-selo svg {
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
 }
 
 .formacao-principal {
@@ -1592,6 +1631,8 @@ strong {
   *::before,
   *::after {
     transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
 

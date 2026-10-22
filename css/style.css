@@ -330,11 +330,17 @@ p {
   background: var(--acento);
   transform: scaleX(0);
   transform-origin: left;
-  animation: abertura-encher .7s var(--mov) forwards;
+  animation: abertura-encher .9s linear forwards;
 }
 
+/* os saltos desiguais imitam um carregamento de verdade */
 @keyframes abertura-encher {
-  to { transform: scaleX(1); }
+  0% { transform: scaleX(0); }
+  16% { transform: scaleX(.34); }
+  40% { transform: scaleX(.5); }
+  66% { transform: scaleX(.72); }
+  86% { transform: scaleX(.85); }
+  100% { transform: scaleX(1); }
 }
 
 

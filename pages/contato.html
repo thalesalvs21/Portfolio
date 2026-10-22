@@ -5,24 +5,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-  /* Esqueleto da tela de abertura: precisa valer antes do style.css. */
-  html.carregando { overflow: hidden; }
-  html.carregando body > :not(.abertura) { visibility: hidden; }
-  .abertura { display: none; }
-  html.carregando .abertura,
-  html.abertura-saindo .abertura {
-    display: grid; position: fixed; inset: 0; z-index: 3000;
-    place-items: center; align-content: center; background: #1A1816;
-  }
-  html.abertura-saindo .abertura { opacity: 0; pointer-events: none; transition: opacity .5s ease; }
-</style>
 <script>
 (function () {
   var raiz = document.documentElement;
-  raiz.classList.add('js');
-
-  /* quem pediu menos movimento no sistema pula a abertura */
+  /* quem desliga animacao no sistema pula a abertura */
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   raiz.classList.add('carregando');
@@ -87,7 +73,7 @@
 <main class="pagina" id="conteudo">
   <div class="container">
 
-    <header class="pagina-topo revelar">
+    <header class="pagina-topo">
       <h1>Vamos <em>conversar?</em></h1>
       <div class="pagina-intro">
         <p>
@@ -96,7 +82,7 @@
       </div>
     </header>
 
-    <section class="secao-pagina revelar">
+    <section class="secao-pagina">
       <div class="secao-cabeca">
         <span class="secao-numero">01</span>
         <div>
@@ -104,7 +90,7 @@
           <p>Preencha os campos e seu aplicativo de e-mail abre com a mensagem pronta.</p>
         </div>
       </div>
-      <form class="formulario revelar" id="formulario" novalidate>
+      <form class="formulario" id="formulario" novalidate>
         <div class="campo">
           <label for="nome">Nome</label>
           <input type="text" id="nome" name="nome" required autocomplete="name" placeholder="Como posso te chamar?">
@@ -138,7 +124,7 @@
       </form>
     </section>
 
-    <section class="secao-pagina revelar">
+    <section class="secao-pagina">
       <div class="secao-cabeca">
         <span class="secao-numero">02</span>
         <div>
@@ -147,31 +133,31 @@
         </div>
       </div>
       <div class="grade-cartoes">
-        <a class="canal cartao-largo revelar" href="mailto:thalesalvs21@gmail.com">
+        <a class="canal cartao-largo" href="mailto:thalesalvs21@gmail.com">
           <span class="canal-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="3"/><path d="m3.5 7 8.5 6 8.5-6"/></svg></span>
           <span><span class="canal-tipo">E-mail</span><span class="canal-valor">thalesalvs21@gmail.com</span></span>
           <span class="canal-seta" aria-hidden="true">&rarr;</span>
         </a>
 
-        <a class="canal cartao-largo revelar" href="tel:+5531991599422">
+        <a class="canal cartao-largo" href="tel:+5531991599422">
           <span class="canal-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 5.5 5.5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3Z"/></svg></span>
           <span><span class="canal-tipo">Telefone</span><span class="canal-valor">(31) 99159-9422</span></span>
           <span class="canal-seta" aria-hidden="true">&rarr;</span>
         </a>
 
-        <a class="canal cartao-largo revelar" href="https://github.com/thalesalvs21" target="_blank" rel="noopener">
+        <a class="canal cartao-largo" href="https://github.com/thalesalvs21" target="_blank" rel="noopener">
           <span class="canal-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.1.82-.26.82-.58v-2.2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.1-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.13-.3-.54-1.53.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.23 0 4.63-2.8 5.65-5.48 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"/></svg></span>
           <span><span class="canal-tipo">GitHub</span><span class="canal-valor">@thalesalvs21</span></span>
           <span class="canal-seta" aria-hidden="true">&nearr;</span>
         </a>
 
-        <a class="canal cartao-largo revelar" href="https://www.behance.net/thalesgomes21" target="_blank" rel="noopener">
+        <a class="canal cartao-largo" href="https://www.behance.net/thalesgomes21" target="_blank" rel="noopener">
           <span class="canal-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.2 5.5c1.9 0 3.4.6 3.4 2.6 0 1.1-.6 1.8-1.5 2.2 1.3.4 2 1.4 2 2.8 0 2.3-1.9 3.2-4 3.2H2V5.5h6.2Zm-.4 4.3c.9 0 1.4-.4 1.4-1.2 0-.9-.6-1.1-1.4-1.1H4.6v2.3h3.2Zm.2 4.7c1 0 1.7-.4 1.7-1.4 0-1-.6-1.4-1.7-1.4H4.6v2.8h3.4ZM18.6 8.4c2.4 0 3.9 1.7 3.9 4.3v.6h-5.9c.1 1.2.8 1.9 2 1.9.8 0 1.4-.3 1.7-.9h2c-.5 1.7-1.9 2.6-3.8 2.6-2.5 0-4.1-1.7-4.1-4.2 0-2.5 1.7-4.3 4.2-4.3Zm1.8 3.4c-.1-1.1-.8-1.7-1.8-1.7s-1.8.6-1.9 1.7h3.7ZM21.4 6.2v1.3h-4.7V6.2h4.7Z"/></svg></span>
           <span><span class="canal-tipo">Behance</span><span class="canal-valor">thalesgomes21</span></span>
           <span class="canal-seta" aria-hidden="true">&nearr;</span>
         </a>
 
-        <a class="canal cartao-largo revelar" href="../assets/cv-thales-alves.pdf" target="_blank" rel="noopener">
+        <a class="canal cartao-largo" href="../assets/cv-thales-alves.pdf" target="_blank" rel="noopener">
           <span class="canal-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span>
           <span><span class="canal-tipo">Currículo</span><span class="canal-valor">Abrir em PDF</span></span>
           <span class="canal-seta" aria-hidden="true">&nearr;</span>

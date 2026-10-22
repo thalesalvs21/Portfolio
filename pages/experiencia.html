@@ -5,24 +5,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-  /* Esqueleto da tela de abertura: precisa valer antes do style.css. */
-  html.carregando { overflow: hidden; }
-  html.carregando body > :not(.abertura) { visibility: hidden; }
-  .abertura { display: none; }
-  html.carregando .abertura,
-  html.abertura-saindo .abertura {
-    display: grid; position: fixed; inset: 0; z-index: 3000;
-    place-items: center; align-content: center; background: #1A1816;
-  }
-  html.abertura-saindo .abertura { opacity: 0; pointer-events: none; transition: opacity .5s ease; }
-</style>
 <script>
 (function () {
   var raiz = document.documentElement;
-  raiz.classList.add('js');
-
-  /* quem pediu menos movimento no sistema pula a abertura */
+  /* quem desliga animacao no sistema pula a abertura */
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   raiz.classList.add('carregando');
@@ -87,7 +73,7 @@
 <main class="pagina" id="conteudo">
   <div class="container">
 
-    <header class="pagina-topo revelar">
+    <header class="pagina-topo">
       <h1>Onde eu <em>trabalho</em><br>hoje.</h1>
       <div class="pagina-intro">
         <p>
@@ -97,7 +83,7 @@
       </div>
     </header>
 
-    <section class="secao-pagina revelar">
+    <section class="secao-pagina">
       <div class="secao-cabeca">
         <span class="secao-numero">01</span>
         <div>
@@ -107,7 +93,7 @@
       </div>
       <div class="processo">
 
-        <article class="processo-item revelar">
+        <article class="processo-item">
           <span class="processo-marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13.5v-1.2a8 8 0 0 1 16 0v1.2"/><rect x="2" y="13" width="4.5" height="6.5" rx="2"/><rect x="17.5" y="13" width="4.5" height="6.5" rx="2"/><path d="M20 19.5a2.5 2.5 0 0 1-2.5 2.5H13"/></svg></span>
           <div class="processo-copo">
             <p class="processo-quando"><span class="etiqueta"><span class="led"></span> Atual</span> mai/2026 &mdash; hoje</p>
@@ -127,7 +113,7 @@
           </div>
         </article>
 
-        <article class="processo-item revelar">
+        <article class="processo-item">
           <span class="processo-marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.5 3.5a4.5 4.5 0 0 0-5.9 5.6L3 15.7V21h5.3l6.6-6.6a4.5 4.5 0 0 0 5.6-5.9l-3 3-2.4-2.4 3-3Z"/></svg></span>
           <div class="processo-copo">
             <p class="processo-quando"><span class="etiqueta"><span class="led"></span> Atual</span> 2025 &mdash; hoje</p>

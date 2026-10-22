@@ -32,7 +32,7 @@ Nenhuma biblioteca externa. As únicas requisições para fora são as fontes no
 index.html        # bancada: a capa do site
 pages/            # uma página por seção
 css/style.css     # tokens de cor, tipografia e todos os componentes
-js/main.js        # abertura, transição de página, revelação e formulário
+js/main.js        # abertura, transição de página e formulário
 assets/           # currículo em PDF
 ```
 
@@ -44,14 +44,13 @@ Os links de navegação ficam escritos no HTML de cada página, então mudar um 
 - **Funnel Display** no nome e nos títulos de página, **Instrument Sans** no corpo e **Spline Sans Mono** nos rótulos.
 - **As pastas não têm caixa.** Elas flutuam direto sobre o fundo; o que responde ao mouse é a pasta, não um card.
 - **As pastas cercam o texto.** Em tela larga a capa vira uma tela só, com o texto no meio e as seis pastas sobre uma elipse em volta, todas retas e à mesma distância do centro. A posição de cada uma é um par de variáveis em `vw` e `vh`, então o arranjo acompanha o tamanho da janela. Abaixo de 1240px elas voltam para duas colunas.
-- **A revelação no scroll usa `translate`**, separado do `transform`, senão ela zerava a posição e a inclinação das pastas.
 - **Páginas internas em seções numeradas.** Cada seção abre com o número, o título e um parágrafo, separada por um fio, e o conteúdo vem numa grade de dois cartões.
 - **Cartões de prosa.** Em vez de listas soltas, cada competência e cada curso é um cartão com ícone, nome, legenda e um parágrafo explicando.
 - **Prévias dos projetos em CSS.** Os mockups de janela e o bloco de código são desenhados com CSS, sem nenhuma imagem.
 - **Tela de abertura em toda página**, mostrando o nome da seção que está abrindo. O esqueleto dela mora num `<style>` no topo do `<head>` de cada arquivo, antes das fontes — um stylesheet pendente trava o script seguinte e a tela chegaria atrasada. Tem um timer de 4 segundos que mostra o site de qualquer jeito se algo falhar.
 - **Transição entre páginas em dois tempos.** A entrada é uma animação CSS de 0.3s (funciona sem JavaScript); a saída acende a cortina em 0.18s antes de trocar de página.
 - **Um easing só.** Todo movimento do site usa `cubic-bezier(.16, 1, .3, 1)`, o que dá a mesma sensação em qualquer interação.
-- **Funciona sem JavaScript.** As animações de entrada só escondem o conteúdo quando há JS; sem ele, tudo aparece normalmente.
+- **Nada de animação de entrada no scroll.** O conteúdo já está lá quando a página abre.
 - **Respeita `prefers-reduced-motion`.** Quem desliga animação no sistema recebe o site parado.
 
 ## Como rodar

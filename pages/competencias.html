@@ -5,24 +5,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-  /* Esqueleto da tela de abertura: precisa valer antes do style.css. */
-  html.carregando { overflow: hidden; }
-  html.carregando body > :not(.abertura) { visibility: hidden; }
-  .abertura { display: none; }
-  html.carregando .abertura,
-  html.abertura-saindo .abertura {
-    display: grid; position: fixed; inset: 0; z-index: 3000;
-    place-items: center; align-content: center; background: #1A1816;
-  }
-  html.abertura-saindo .abertura { opacity: 0; pointer-events: none; transition: opacity .5s ease; }
-</style>
 <script>
 (function () {
   var raiz = document.documentElement;
-  raiz.classList.add('js');
-
-  /* quem pediu menos movimento no sistema pula a abertura */
+  /* quem desliga animacao no sistema pula a abertura */
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   raiz.classList.add('carregando');
@@ -87,7 +73,7 @@
 <main class="pagina" id="conteudo">
   <div class="container">
 
-    <header class="pagina-topo revelar">
+    <header class="pagina-topo">
       <h1>Minhas <em>competências.</em></h1>
       <div class="pagina-intro">
         <p>
@@ -97,7 +83,7 @@
       </div>
     </header>
 
-    <section class="secao-pagina revelar">
+    <section class="secao-pagina">
       <div class="secao-cabeca">
         <span class="secao-numero">01</span>
         <div>
@@ -106,7 +92,7 @@
         </div>
       </div>
       <div class="grade-cartoes">
-        <article class="cartao revelar cartao-destaque">
+        <article class="cartao cartao-destaque">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="2.5"/><path d="m7 10 2.5 2.5L7 15M13 15h4"/></svg></span>
             <span class="cartao-titulo"><strong>Python e Flask</strong><small>Back-end · foco atual</small></span>
@@ -114,7 +100,7 @@
           <p class="cartao-texto">É onde eu mais estudo. Fiz uma API REST de gestão escolar separada em rotas, controllers, repositories e models, com SQLAlchemy, validação do que chega e o status HTTP certo quando dá erro.</p>
 <div class="cartao-rodape"><span class="nivel" data-nivel="1"><span class="nivel-barras" aria-hidden="true"><i></i><i></i><i></i></span><span class="nivel-texto">Básico</span></span></div>
         </article>
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="2.5"/><path d="M2.5 9h19"/><circle cx="6" cy="6.5" r=".9" fill="currentColor"/><circle cx="9" cy="6.5" r=".9" fill="currentColor"/></svg></span>
             <span class="cartao-titulo"><strong>Java e JavaFX</strong><small>Desktop</small></span>
@@ -122,7 +108,7 @@
           <p class="cartao-texto">Estou construindo o HW Atendimento com Java 17, JavaFX e MySQL. A interface é feita em FXML com CSS próprio e o acesso ao banco fica isolado em repositories, separado das telas.</p>
 <div class="cartao-rodape"><span class="nivel" data-nivel="1"><span class="nivel-barras" aria-hidden="true"><i></i><i></i><i></i></span><span class="nivel-texto">Básico</span></span></div>
         </article>
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 6-5 6 5 6M16 6l5 6-5 6M13.5 4l-3 16"/></svg></span>
             <span class="cartao-titulo"><strong>HTML e CSS</strong><small>Front-end</small></span>
@@ -130,7 +116,7 @@
           <p class="cartao-texto">Semântica, responsivo, Flexbox e Grid. Fiz a CoreTech e o Bitmap só com HTML e CSS, e este portfólio é feito do zero, sem framework.</p>
 <div class="cartao-rodape"><span class="nivel" data-nivel="2"><span class="nivel-barras" aria-hidden="true"><i></i><i></i><i></i></span><span class="nivel-texto">Intermediário</span></span></div>
         </article>
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6.5" cy="6" r="2.5"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="8.5" r="2.5"/><path d="M6.5 8.5v7M15.3 10.3A6.5 6.5 0 0 1 9 15.6"/></svg></span>
             <span class="cartao-titulo"><strong>Git e GitHub</strong><small>Versionamento</small></span>
@@ -138,7 +124,7 @@
           <p class="cartao-texto">Todos os meus projetos ficam versionados no GitHub &mdash; é lá que está o histórico do que eu estudei até aqui.</p>
 <div class="cartao-rodape"><span class="nivel" data-nivel="2"><span class="nivel-barras" aria-hidden="true"><i></i><i></i><i></i></span><span class="nivel-texto">Intermediário</span></span></div>
         </article>
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="2.5"/><path d="M2.5 9h19"/><circle cx="6" cy="6.5" r=".9" fill="currentColor"/><circle cx="9" cy="6.5" r=".9" fill="currentColor"/></svg></span>
             <span class="cartao-titulo"><strong>C# e Windows Forms</strong><small>Desktop</small></span>
@@ -146,7 +132,7 @@
           <p class="cartao-texto">Sistema de varejo para cadastro de clientes e fornecedores, com orientação a objetos e as consultas SQL escritas na mão.</p>
 <div class="cartao-rodape"><span class="nivel" data-nivel="1"><span class="nivel-barras" aria-hidden="true"><i></i><i></i><i></i></span><span class="nivel-texto">Básico</span></span></div>
         </article>
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 3.5c-2 0-2 2.5-2 4s-1.5 2.5-2.5 2.5h-.5v4h.5c1 0 2.5 1 2.5 2.5s0 4 2 4M15.5 3.5c2 0 2 2.5 2 4s1.5 2.5 2.5 2.5h.5v4h-.5c-1 0-2.5 1-2.5 2.5s0 4-2 4"/></svg></span>
             <span class="cartao-titulo"><strong>JavaScript</strong><small>Interação</small></span>
@@ -157,7 +143,7 @@
       </div>
     </section>
 
-    <section class="secao-pagina revelar">
+    <section class="secao-pagina">
       <div class="secao-cabeca">
         <span class="secao-numero">02</span>
         <div>
@@ -166,7 +152,7 @@
         </div>
       </div>
       <div class="grade-cartoes">
-        <article class="cartao revelar cartao-destaque">
+        <article class="cartao cartao-destaque">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="6.5" width="11" height="11" rx="2"/><path d="M9.5 3v3.5M14.5 3v3.5M9.5 17.5V21M14.5 17.5V21M3 9.5h3.5M3 14.5h3.5M17.5 9.5H21M17.5 14.5H21"/></svg></span>
             <span class="cartao-titulo"><strong>Montagem de computadores</strong><small>Hardware</small></span>
@@ -174,7 +160,7 @@
           <p class="cartao-texto">Seleção de componentes conforme o orçamento e a finalidade de uso, montagem, instalação do sistema operacional e dos drivers e configuração do ambiente.</p>
 <div class="cartao-rodape"><span class="nivel" data-nivel="3"><span class="nivel-barras" aria-hidden="true"><i></i><i></i><i></i></span><span class="nivel-texto">Avançado</span></span></div>
         </article>
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.5 3.5a4.5 4.5 0 0 0-5.9 5.6L3 15.7V21h5.3l6.6-6.6a4.5 4.5 0 0 0 5.6-5.9l-3 3-2.4-2.4 3-3Z"/></svg></span>
             <span class="cartao-titulo"><strong>Manutenção preventiva e corretiva</strong><small>Hardware</small></span>
@@ -182,7 +168,7 @@
           <p class="cartao-texto">Diagnóstico e substituição de peças com defeito, limpeza e manutenção dos equipamentos.</p>
 <div class="cartao-rodape"><span class="nivel" data-nivel="3"><span class="nivel-barras" aria-hidden="true"><i></i><i></i><i></i></span><span class="nivel-texto">Avançado</span></span></div>
         </article>
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13.5v-1.2a8 8 0 0 1 16 0v1.2"/><rect x="2" y="13" width="4.5" height="6.5" rx="2"/><rect x="17.5" y="13" width="4.5" height="6.5" rx="2"/><path d="M20 19.5a2.5 2.5 0 0 1-2.5 2.5H13"/></svg></span>
             <span class="cartao-titulo"><strong>Atendimento a usuários</strong><small>Suporte</small></span>
@@ -190,7 +176,7 @@
           <p class="cartao-texto">Suporte por telefone e acesso remoto a clínicas, hospitais e profissionais de saúde que usam os sistemas ECG V6, Ergo 13 e ErgoMET.</p>
 <div class="cartao-rodape"><span class="nivel" data-nivel="3"><span class="nivel-barras" aria-hidden="true"><i></i><i></i><i></i></span><span class="nivel-texto">Avançado</span></span></div>
         </article>
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="2.5"/><path d="M2.5 9h19"/><circle cx="6" cy="6.5" r=".9" fill="currentColor"/><circle cx="9" cy="6.5" r=".9" fill="currentColor"/></svg></span>
             <span class="cartao-titulo"><strong>Windows</strong><small>Sistema operacional</small></span>
@@ -198,7 +184,7 @@
           <p class="cartao-texto">Instalação, configuração e atualização do sistema e dos programas nas estações dos clientes.</p>
 <div class="cartao-rodape"><span class="nivel" data-nivel="3"><span class="nivel-barras" aria-hidden="true"><i></i><i></i><i></i></span><span class="nivel-texto">Avançado</span></span></div>
         </article>
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="6" rx="2"/><rect x="3" y="13.5" width="18" height="6" rx="2"/><path d="M6.5 7.5h.01M6.5 16.5h.01"/></svg></span>
             <span class="cartao-titulo"><strong>Sistemas de arquivos e particionamento</strong><small>Sistema operacional</small></span>
@@ -206,7 +192,7 @@
           <p class="cartao-texto">Particionamento, formatação e organização do disco na hora de preparar uma máquina.</p>
 <div class="cartao-rodape"><span class="nivel" data-nivel="2"><span class="nivel-barras" aria-hidden="true"><i></i><i></i><i></i></span><span class="nivel-texto">Intermediário</span></span></div>
         </article>
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="2.5"/><path d="m7 10 2.5 2.5L7 15M13 15h4"/></svg></span>
             <span class="cartao-titulo"><strong>Linux</strong><small>Sistema operacional</small></span>
@@ -214,7 +200,7 @@
           <p class="cartao-texto">Uso CachyOS no meu computador: terminal e gerenciamento de pacotes no dia a dia.</p>
 <div class="cartao-rodape"><span class="nivel" data-nivel="1"><span class="nivel-barras" aria-hidden="true"><i></i><i></i><i></i></span><span class="nivel-texto">Básico</span></span></div>
         </article>
-        <article class="cartao revelar cartao-largo">
+        <article class="cartao cartao-largo">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/></svg></span>
             <span class="cartao-titulo"><strong>Fundamentos de redes TCP/IP</strong><small>Redes</small></span>
@@ -225,7 +211,7 @@
       </div>
     </section>
 
-    <section class="secao-pagina revelar">
+    <section class="secao-pagina">
       <div class="secao-cabeca">
         <span class="secao-numero">03</span>
         <div>
@@ -234,7 +220,7 @@
         </div>
       </div>
       <div class="grade-cartoes">
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></span>
             <span class="cartao-titulo"><strong>MySQL</strong><small>Banco relacional</small></span>
@@ -242,7 +228,7 @@
           <p class="cartao-texto">Banco do HW Atendimento e do sistema de varejo, acessado por JDBC no Java e direto no C#.</p>
 <div class="cartao-rodape"><span class="nivel" data-nivel="1"><span class="nivel-barras" aria-hidden="true"><i></i><i></i><i></i></span><span class="nivel-texto">Básico</span></span></div>
         </article>
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></span>
             <span class="cartao-titulo"><strong>SQLite</strong><small>Banco relacional</small></span>
@@ -250,7 +236,7 @@
           <p class="cartao-texto">Usado nos estudos e nos projetos menores em Python.</p>
 <div class="cartao-rodape"><span class="nivel" data-nivel="1"><span class="nivel-barras" aria-hidden="true"><i></i><i></i><i></i></span><span class="nivel-texto">Básico</span></span></div>
         </article>
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 6-5 6 5 6M16 6l5 6-5 6M13.5 4l-3 16"/></svg></span>
             <span class="cartao-titulo"><strong>Consultas, JOIN e agregações</strong><small>SQL</small></span>
@@ -258,7 +244,7 @@
           <p class="cartao-texto">Consultas escritas na mão, incluindo o endpoint da API de gestão escolar que devolve estatísticas agregadas.</p>
 <div class="cartao-rodape"><span class="nivel" data-nivel="1"><span class="nivel-barras" aria-hidden="true"><i></i><i></i><i></i></span><span class="nivel-texto">Básico</span></span></div>
         </article>
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.8"/><rect x="14" y="14" width="7" height="7" rx="1.8"/><path d="M10 6.5h3.5a2 2 0 0 1 2 2V14"/></svg></span>
             <span class="cartao-titulo"><strong>Modelagem relacional</strong><small>Projeto do banco</small></span>
@@ -269,7 +255,7 @@
       </div>
     </section>
 
-    <section class="secao-pagina revelar">
+    <section class="secao-pagina">
       <div class="secao-cabeca">
         <span class="secao-numero">04</span>
         <div>
@@ -278,7 +264,7 @@
         </div>
       </div>
       <div class="grade-cartoes">
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><circle cx="8.6" cy="10" r="1.6"/><path d="m3.6 17.4 4.8-4.8 4.3 4.3 2.8-2.8 4.5 4.5"/></svg></span>
             <span class="cartao-titulo"><strong>Edição profissional de imagem</strong><small>Certificado de 8 horas, 2025</small></span>
@@ -286,7 +272,7 @@
           <p class="cartao-texto">Tratamento e composição de imagem. Faço o curso técnico de design gráfico na Escola Zion desde 2025, em andamento.</p>
 <div class="cartao-rodape"><span class="nivel" data-nivel="2"><span class="nivel-barras" aria-hidden="true"><i></i><i></i><i></i></span><span class="nivel-texto">Intermediário</span></span></div>
         </article>
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 4.8-9 4.8-9-4.8 9-4.8Z"/><path d="m3 12.8 9 4.8 9-4.8"/></svg></span>
             <span class="cartao-titulo"><strong>Ferramentas Adobe</strong><small>Photoshop, Premiere Pro, After Effects</small></span>
@@ -294,7 +280,7 @@
           <p class="cartao-texto">Edição de imagem, de vídeo e animação.</p>
 <div class="cartao-rodape"><span class="nivel" data-nivel="2"><span class="nivel-barras" aria-hidden="true"><i></i><i></i><i></i></span><span class="nivel-texto">Intermediário</span></span></div>
         </article>
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5"/></svg></span>
             <span class="cartao-titulo"><strong>Pacote Office</strong><small>Word, Excel, PowerPoint</small></span>
@@ -302,7 +288,7 @@
           <p class="cartao-texto">Uso no curso e no trabalho.</p>
 <div class="cartao-rodape"><span class="nivel" data-nivel="2"><span class="nivel-barras" aria-hidden="true"><i></i><i></i><i></i></span><span class="nivel-texto">Intermediário</span></span></div>
         </article>
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/></svg></span>
             <span class="cartao-titulo"><strong>Inglês</strong><small>Idioma</small></span>

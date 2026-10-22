@@ -5,24 +5,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-  /* Esqueleto da tela de abertura: precisa valer antes do style.css. */
-  html.carregando { overflow: hidden; }
-  html.carregando body > :not(.abertura) { visibility: hidden; }
-  .abertura { display: none; }
-  html.carregando .abertura,
-  html.abertura-saindo .abertura {
-    display: grid; position: fixed; inset: 0; z-index: 3000;
-    place-items: center; align-content: center; background: #1A1816;
-  }
-  html.abertura-saindo .abertura { opacity: 0; pointer-events: none; transition: opacity .5s ease; }
-</style>
 <script>
 (function () {
   var raiz = document.documentElement;
-  raiz.classList.add('js');
-
-  /* quem pediu menos movimento no sistema pula a abertura */
+  /* quem desliga animacao no sistema pula a abertura */
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   raiz.classList.add('carregando');
@@ -87,7 +73,7 @@
 <main class="pagina" id="conteudo">
   <div class="container">
 
-    <header class="pagina-topo revelar">
+    <header class="pagina-topo">
       <h1>Formação <em>e cursos.</em></h1>
       <div class="pagina-intro">
         <p>
@@ -97,7 +83,7 @@
       </div>
     </header>
 
-    <section class="secao-pagina revelar">
+    <section class="secao-pagina">
       <div class="secao-cabeca">
         <span class="secao-numero">01</span>
         <div>
@@ -105,7 +91,7 @@
           <p>Três anos, com formatura prevista para dezembro de 2026.</p>
         </div>
       </div>
-      <div class="cartao cartao-largo revelar">
+      <div class="cartao cartao-largo">
         <div class="cartao-topo">
           <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5.5A1.5 1.5 0 0 1 5.5 4h9A1.5 1.5 0 0 1 16 5.5V21"/><path d="M16 10h2.5A1.5 1.5 0 0 1 20 11.5V21M2.5 21h19M7.5 8h2M7.5 12h2M7.5 16h2M12 8h.5M12 12h.5M12 16h.5"/></svg></span>
           <span class="cartao-titulo"><strong>Técnico em Informática</strong><small>Cotemig &mdash; Colégio e Faculdade &middot; Unidade Floresta</small></span>
@@ -120,7 +106,7 @@
       </div>
     </section>
 
-    <section class="secao-pagina revelar">
+    <section class="secao-pagina">
       <div class="secao-cabeca">
         <span class="secao-numero">02</span>
         <div>
@@ -129,7 +115,7 @@
         </div>
       </div>
       <div class="grade-cartoes">
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.2 18.8 6v5.3c0 4.2-2.8 7.5-6.8 8.4-4-.9-6.8-4.2-6.8-8.4V6L12 3.2Z"/><path d="m9.2 12.1 2 2 3.6-3.9"/></svg></span>
             <span class="cartao-titulo"><strong>Introduction to Cybersecurity</strong><small>Cisco Networking Academy &middot; 2026</small></span>
@@ -139,7 +125,7 @@
             <a class="selo" href="https://www.credly.com/badges/c714fc73-1720-44e8-bdc9-ebdfdf791f5b/public_url" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg> credencial verificada</a>
           </div>
         </article>
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/></svg></span>
             <span class="cartao-titulo"><strong>Digital Awareness</strong><small>Cisco Networking Academy &middot; 2025</small></span>
@@ -152,7 +138,7 @@
       </div>
     </section>
 
-    <section class="secao-pagina revelar">
+    <section class="secao-pagina">
       <div class="secao-cabeca">
         <span class="secao-numero">03</span>
         <div>
@@ -161,7 +147,7 @@
         </div>
       </div>
       <div class="grade-cartoes">
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="6.5" width="11" height="11" rx="2"/><path d="M9.5 3v3.5M14.5 3v3.5M9.5 17.5V21M14.5 17.5V21M3 9.5h3.5M3 14.5h3.5M17.5 9.5H21M17.5 14.5H21"/></svg></span>
             <span class="cartao-titulo"><strong>Computer Hardware Basics</strong><small>Cisco Networking Academy &middot; 2025</small></span>
@@ -171,7 +157,7 @@
             <a class="selo" href="https://www.credly.com/badges/af88373e-a69d-4188-8acf-26df34a6a424/public_url" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg> credencial verificada</a>
           </div>
         </article>
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.5 3.5a4.5 4.5 0 0 0-5.9 5.6L3 15.7V21h5.3l6.6-6.6a4.5 4.5 0 0 0 5.6-5.9l-3 3-2.4-2.4 3-3Z"/></svg></span>
             <span class="cartao-titulo"><strong>MCC &mdash; Montagem e Configuração de Computadores</strong><small>Certificado &middot; 2024</small></span>
@@ -182,7 +168,7 @@
       </div>
     </section>
 
-    <section class="secao-pagina revelar">
+    <section class="secao-pagina">
       <div class="secao-cabeca">
         <span class="secao-numero">04</span>
         <div>
@@ -191,7 +177,7 @@
         </div>
       </div>
       <div class="grade-cartoes">
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 4.8-9 4.8-9-4.8 9-4.8Z"/><path d="m3 12.8 9 4.8 9-4.8"/></svg></span>
             <span class="cartao-titulo"><strong>Curso Técnico de Design Gráfico</strong><small>Escola Zion &middot; desde 2025</small></span>
@@ -199,7 +185,7 @@
           <p class="cartao-texto">Em andamento. Composição, tipografia e tratamento de imagem.</p>
 
         </article>
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><circle cx="8.6" cy="10" r="1.6"/><path d="m3.6 17.4 4.8-4.8 4.3 4.3 2.8-2.8 4.5 4.5"/></svg></span>
             <span class="cartao-titulo"><strong>Edição Profissional de Imagem</strong><small>Certificado &middot; 8 horas &middot; 2025</small></span>
@@ -210,7 +196,7 @@
       </div>
     </section>
 
-    <section class="secao-pagina revelar">
+    <section class="secao-pagina">
       <div class="secao-cabeca">
         <span class="secao-numero">05</span>
         <div>
@@ -219,7 +205,7 @@
         </div>
       </div>
       <div class="grade-cartoes">
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 6-5 6 5 6M16 6l5 6-5 6M13.5 4l-3 16"/></svg></span>
             <span class="cartao-titulo"><strong>Code Club</strong><small>Certificado &middot; 2025</small></span>
@@ -227,7 +213,7 @@
           <p class="cartao-texto">Lógica de programação e projetos práticos.</p>
 
         </article>
-        <article class="cartao revelar">
+        <article class="cartao">
           <div class="cartao-topo">
             <span class="cartao-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="8.5" width="16" height="10.5" rx="2.5"/><path d="M12 4.8v3.7M9.6 12.6v1.6M14.4 12.6v1.6M9.6 16.4h4.8"/><circle cx="12" cy="3.6" r="1.2"/></svg></span>
             <span class="cartao-titulo"><strong>Robótica</strong><small>Certificado &middot; 2024</small></span>

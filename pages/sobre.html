@@ -5,24 +5,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-  /* Esqueleto da tela de abertura: precisa valer antes do style.css. */
-  html.carregando { overflow: hidden; }
-  html.carregando body > :not(.abertura) { visibility: hidden; }
-  .abertura { display: none; }
-  html.carregando .abertura,
-  html.abertura-saindo .abertura {
-    display: grid; position: fixed; inset: 0; z-index: 3000;
-    place-items: center; align-content: center; background: #1A1816;
-  }
-  html.abertura-saindo .abertura { opacity: 0; pointer-events: none; transition: opacity .5s ease; }
-</style>
 <script>
 (function () {
   var raiz = document.documentElement;
-  raiz.classList.add('js');
-
-  /* quem pediu menos movimento no sistema pula a abertura */
+  /* quem desliga animacao no sistema pula a abertura */
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   raiz.classList.add('carregando');
@@ -87,7 +73,7 @@
 <main class="pagina" id="conteudo">
   <div class="container">
 
-    <header class="pagina-topo revelar">
+    <header class="pagina-topo">
       <h1>Código, <em>suporte</em><br>e bancada.</h1>
       <div class="pagina-intro">
         <p>
@@ -103,7 +89,7 @@
       </div>
     </header>
 
-    <section class="secao-pagina revelar">
+    <section class="secao-pagina">
       <div class="secao-cabeca">
         <span class="secao-numero">01</span>
         <div>
@@ -111,7 +97,7 @@
           <p>Atendimento a quem usa os sistemas de eletrocardiograma da empresa.</p>
         </div>
       </div>
-      <div class="prosa revelar">
+      <div class="prosa">
         <p class="solta">
           Atendo clínica, hospital e médico que usam os sistemas de eletrocardiograma da empresa.
         </p>
@@ -123,7 +109,7 @@
       </div>
     </section>
 
-    <section class="secao-pagina revelar">
+    <section class="secao-pagina">
       <div class="secao-cabeca">
         <span class="secao-numero">02</span>
         <div>
@@ -131,7 +117,7 @@
           <p>Back-end em Python, interface no desktop e front-end na web.</p>
         </div>
       </div>
-      <div class="prosa revelar">
+      <div class="prosa">
         <p>
           No código, meu foco é <strong>Python com Flask</strong>. O projeto mais completo que fiz é uma
           API de gestão escolar separada em camadas. Agora estou construindo em
@@ -146,7 +132,7 @@
       </div>
     </section>
 
-    <section class="secao-pagina revelar">
+    <section class="secao-pagina">
       <div class="secao-cabeca">
         <span class="secao-numero">03</span>
         <div>
@@ -154,7 +140,7 @@
           <p>O que dá para contar. Os dados do GitHub são buscados na hora que a página abre.</p>
         </div>
       </div>
-      <div class="numeros revelar">
+      <div class="numeros">
         <a class="numero" href="https://github.com/thalesalvs21" target="_blank" rel="noopener">
           <span class="numero-valor" id="repos-github">17</span>
           <span class="numero-rotulo">repositórios no GitHub</span>
@@ -174,7 +160,7 @@
       </div>
     </section>
 
-    <section class="secao-pagina revelar">
+    <section class="secao-pagina">
       <div class="secao-cabeca">
         <span class="secao-numero">04</span>
         <div>
@@ -182,7 +168,7 @@
           <p>O resumo, para quem só quer os dados.</p>
         </div>
       </div>
-      <div class="cartao cartao-largo revelar">
+      <div class="cartao cartao-largo">
         <ul class="ficha">
           <li class="ficha-linha"><span class="ficha-nome">Localização</span><span class="ficha-pontos" aria-hidden="true"></span><span class="ficha-valor">Belo Horizonte, MG</span></li>
           <li class="ficha-linha"><span class="ficha-nome">Curso</span><span class="ficha-pontos" aria-hidden="true"></span><span class="ficha-valor">Téc. Informática &mdash; Cotemig</span></li>

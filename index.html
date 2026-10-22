@@ -5,24 +5,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-  /* Esqueleto da tela de abertura: precisa valer antes do style.css. */
-  html.carregando { overflow: hidden; }
-  html.carregando body > :not(.abertura) { visibility: hidden; }
-  .abertura { display: none; }
-  html.carregando .abertura,
-  html.abertura-saindo .abertura {
-    display: grid; position: fixed; inset: 0; z-index: 3000;
-    place-items: center; align-content: center; background: #1A1816;
-  }
-  html.abertura-saindo .abertura { opacity: 0; pointer-events: none; transition: opacity .5s ease; }
-</style>
 <script>
 (function () {
   var raiz = document.documentElement;
-  raiz.classList.add('js');
-
-  /* quem pediu menos movimento no sistema pula a abertura */
+  /* quem desliga animacao no sistema pula a abertura */
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   raiz.classList.add('carregando');
@@ -68,7 +54,6 @@
 <a class="link-pular" href="#bancada">Pular para o conteúdo</a>
 
 
-<!-- ===================== cromo ===================== -->
 <header class="cromo">
   <a href="index.html" class="marca" aria-label="Início" aria-current="page">
     <span class="marca-simbolo">&lt;/&gt;</span>
@@ -86,13 +71,11 @@
 </header>
 
 
-<!-- ===================== bancada ===================== -->
 <main class="bancada" id="bancada">
 
-  <!-- coluna esquerda -->
   <div class="coluna-modulos">
 
-    <a class="modulo revelar" href="pages/sobre.html">
+    <a class="modulo" href="pages/sobre.html">
       <span class="pasta" aria-hidden="true">
         <span class="pasta-aba"></span>
         <span class="pasta-tras"></span>
@@ -110,7 +93,7 @@
       </span>
     </a>
 
-    <a class="modulo revelar" href="pages/experiencia.html">
+    <a class="modulo" href="pages/experiencia.html">
       <span class="pasta" aria-hidden="true">
         <span class="pasta-aba"></span>
         <span class="pasta-tras"></span>
@@ -128,7 +111,7 @@
       </span>
     </a>
 
-    <a class="modulo revelar" href="pages/competencias.html">
+    <a class="modulo" href="pages/competencias.html">
       <span class="pasta" aria-hidden="true">
         <span class="pasta-aba"></span>
         <span class="pasta-tras"></span>
@@ -149,7 +132,6 @@
   </div>
 
 
-  <!-- coluna central -->
   <div class="nucleo">
 
     <h1 class="nucleo-nome">Thales Alves</h1>
@@ -192,10 +174,9 @@
   </div>
 
 
-  <!-- coluna direita -->
   <div class="coluna-modulos">
 
-    <a class="modulo revelar" href="pages/projetos.html">
+    <a class="modulo" href="pages/projetos.html">
       <span class="pasta" aria-hidden="true">
         <span class="pasta-aba"></span>
         <span class="pasta-tras"></span>
@@ -213,7 +194,7 @@
       </span>
     </a>
 
-    <a class="modulo revelar" href="pages/formacao.html">
+    <a class="modulo" href="pages/formacao.html">
       <span class="pasta" aria-hidden="true">
         <span class="pasta-aba"></span>
         <span class="pasta-tras"></span>
@@ -231,7 +212,7 @@
       </span>
     </a>
 
-    <a class="modulo revelar" href="pages/contato.html">
+    <a class="modulo" href="pages/contato.html">
       <span class="pasta" aria-hidden="true">
         <span class="pasta-aba"></span>
         <span class="pasta-tras"></span>

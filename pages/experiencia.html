@@ -18,7 +18,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@600;700;800&family=Instrument+Sans:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -38,13 +38,15 @@
 
 <a class="link-pular" href="#conteudo">Pular para o conteúdo</a>
 
-<header class="cromo">
-  <a href="../index.html" class="marca" aria-label="Início">
-    <span class="marca-simbolo">&lt;/&gt;</span>
-    <span>thales<span class="destaque">.dev</span></span>
-  </a>
+<div class="container folha-pagina">
 
-  <nav class="nav-topo" aria-label="Navegação principal">
+  <nav class="indice" aria-label="Navegação">
+    <a class="indice-voltar" href="../index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      Voltar ao início
+    </a>
+
+    <p class="indice-rotulo">Páginas</p>
     <a href="sobre.html">Sobre mim</a>
     <a href="experiencia.html" aria-current="page">Experiência</a>
     <a href="competencias.html">Competências</a>
@@ -52,10 +54,8 @@
     <a href="formacao.html">Formação</a>
     <a href="contato.html">Contato</a>
   </nav>
-</header>
 
-<main class="pagina" id="conteudo">
-  <div class="container">
+  <main class="texto-pagina" id="conteudo">
 
     <header class="pagina-topo">
       <h1>Onde eu <em>trabalho</em><br>hoje.</h1>
@@ -120,6 +120,11 @@
 
       </div>
     </section>
+
+  </main>
+</div>
+
+<div class="container">
 
     <nav class="nav-paginas" aria-label="Navegação entre páginas">
       <a class="nav-pagina" href="sobre.html">

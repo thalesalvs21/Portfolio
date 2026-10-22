@@ -2,7 +2,7 @@
 
 Site pessoal com meu currículo, projetos e formas de contato. Feito do zero com HTML, CSS e JavaScript, sem frameworks e sem etapa de build.
 
-A página inicial não rola: é um painel com uma pasta para cada seção. Passando o mouse, a capa da pasta tomba para a frente e as folhas saltam de dentro. Clicando, abre a página.
+A página inicial não rola: é um painel com uma pasta para cada seção. Passando o mouse, a capa da pasta tomba para a frente e as folhas saltam de dentro. Clicando, abre a página. Ela não tem menu, porque as pastas já são a navegação.
 
 ## Páginas
 
@@ -44,6 +44,7 @@ Os links de navegação ficam escritos no HTML de cada página, então mudar um 
 - **Funnel Display** no nome e nos títulos de página, **Instrument Sans** no corpo e **Spline Sans Mono** nos rótulos.
 - **As pastas não têm caixa.** Elas flutuam direto sobre o fundo; o que responde ao mouse é a pasta, não um card.
 - **As pastas cercam o texto.** Em tela larga a capa vira uma tela só, com o texto no meio e as seis pastas sobre uma elipse em volta, todas retas e à mesma distância do centro. A posição de cada uma é um par de variáveis em `vw` e `vh`, então o arranjo acompanha o tamanho da janela. Abaixo de 1240px elas voltam para duas colunas.
+- **Menu lateral nas páginas internas.** Não há barra no topo: cada página tem, à esquerda, um link de voltar ao início e a lista de páginas, com a atual em negrito. O menu fica grudado enquanto a página rola.
 - **Páginas internas em seções numeradas.** Cada seção abre com o número, o título e um parágrafo, separada por um fio, e o conteúdo vem numa grade de dois cartões.
 - **Cartões de prosa.** Em vez de listas soltas, cada competência e cada curso é um cartão com ícone, nome, legenda e um parágrafo explicando.
 - **Prévias dos projetos em CSS.** Os mockups de janela e o bloco de código são desenhados com CSS, sem nenhuma imagem.

@@ -1,29 +1,30 @@
 
 
 :root {
-  --fundo: #1A1816;
-  --fundo-2: #141211;
-  --fundo-3: #262220;
+  --fundo: #ECEBEF;
+  --fundo-2: #DEDDE4;
+  --fundo-3: #FFFFFF;
 
-  --vidro: linear-gradient(145deg, rgba(255, 248, 240, .10), rgba(255, 248, 240, .035));
-  --vidro-forte: linear-gradient(145deg, rgba(255, 248, 240, .19), rgba(255, 248, 240, .075));
-  --borda: rgba(255, 246, 236, .12);
-  --borda-forte: rgba(255, 246, 236, .26);
+  --vidro: rgba(255, 255, 255, .8);
+  --vidro-forte: #FFFFFF;
+  --borda: rgba(255, 255, 255, .95);
+  --borda-forte: #FFFFFF;
+  --fio: #D3D2DB;
 
-  --luz-interna: inset 0 1px 0 rgba(255, 246, 236, .14);
-  --sombra: 0 24px 56px -22px rgba(0, 0, 0, .80);
-  --sombra-alta: 0 36px 80px -26px rgba(0, 0, 0, .88);
+  --luz-interna: inset 0 1px 0 rgba(255, 255, 255, .9);
+  --sombra: 0 12px 34px rgba(28, 28, 30, .12);
+  --sombra-alta: 0 20px 46px rgba(28, 28, 30, .18);
 
-  --texto: #F4F0EA;
-  --texto-2: #CBC4B9;
-  --texto-3: #9C948A;
+  --texto: #1C1C1E;
+  --texto-2: #35353A;
+  --texto-3: #5A5A63;
 
-  --acento: #45B3A3;
-  --acento-claro: #92DACF;
-  --acento-10: rgba(69, 179, 163, .14);
-  --acento-20: rgba(69, 179, 163, .30);
-  --acento-40: rgba(69, 179, 163, .55);
-  --vermelho: #E0776E;
+  --acento: #005CE6;
+  --acento-claro: #005CE6;
+  --acento-10: rgba(0, 92, 230, .09);
+  --acento-20: rgba(0, 92, 230, .22);
+  --acento-40: rgba(0, 92, 230, .42);
+  --vermelho: #D7373B;
 
   --fonte-display: "Funnel Display", "Segoe UI", system-ui, sans-serif;
   --fonte-titulo: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
@@ -60,7 +61,8 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: var(--fundo);
+  /* transparente: o fundo do body cobriria a .placa, que fica em z-index -1 */
+  background: transparent;
   color: var(--texto);
   font-family: var(--fonte-corpo);
   font-size: 16px;
@@ -172,20 +174,12 @@ p {
   pointer-events: none;
   background-color: var(--fundo);
   background-image:
-    radial-gradient(62rem 42rem at 10% -14%, rgba(255, 236, 214, .055), transparent 60%),
-    radial-gradient(circle, rgba(255, 246, 236, .045) 1px, transparent 1.3px),
-    repeating-linear-gradient(90deg, rgba(255, 246, 236, .025) 0 1px, transparent 1px 88px),
-    repeating-linear-gradient(0deg, rgba(255, 246, 236, .025) 0 1px, transparent 1px 88px);
-  background-size: auto, 88px 88px, auto, auto;
-  background-position: center;
+    linear-gradient(116deg, rgba(167, 201, 243, .85) 0%, rgba(236, 235, 239, 0) 46%),
+    linear-gradient(200deg, rgba(190, 216, 247, .8) 2%, rgba(236, 235, 239, 0) 44%),
+    radial-gradient(64rem 46rem at 88% 6%, rgba(178, 209, 246, .9), transparent 58%),
+    radial-gradient(56rem 42rem at 6% 98%, rgba(198, 216, 240, .85), transparent 56%);
 }
 
-.placa::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(80% 80% at 50% 40%, transparent, rgba(10, 9, 8, .78));
-}
 
 
 /* veu que dissolve o conteudo que passa por baixo do topo */
@@ -195,7 +189,7 @@ p {
   inset: -10px 0 -28px;
   z-index: -1;
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(24, 22, 20, .94), rgba(24, 22, 20, 0));
+  background: linear-gradient(180deg, rgba(236, 235, 239, .92), rgba(236, 235, 239, 0));
   backdrop-filter: blur(7px);
   -webkit-backdrop-filter: blur(7px);
   -webkit-mask-image: linear-gradient(180deg, #000 58%, transparent);
@@ -220,6 +214,7 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  padding: 10px 0;
   font-family: var(--fonte-mono);
   font-size: .9rem;
   color: var(--texto-2);
@@ -321,7 +316,7 @@ p {
   margin-top: 24px;
   overflow: hidden;
   border-radius: 2px;
-  background: rgba(255, 255, 255, .12);
+  background: rgba(28, 28, 30, .1);
 }
 
 .abertura-barra i {
@@ -402,14 +397,14 @@ body.saindo .cortina {
 .botao-acento {
   background: var(--acento);
   border-color: var(--acento);
-  color: #221913;
+  color: #FFFFFF;
   font-weight: 600;
   box-shadow: none;
 }
 
 .botao-acento:hover {
-  background: var(--acento-claro);
-  border-color: var(--acento-claro);
+  background: #0047BE;
+  border-color: #0047BE;
   box-shadow: none;
   transform: translateY(-2px);
 }
@@ -427,7 +422,7 @@ body.saindo .cortina {
   font-size: .72rem;
   letter-spacing: .04em;
   color: var(--texto-2);
-  background: rgba(255, 255, 255, .04);
+  background: rgba(28, 28, 30, .05);
   border: 1px solid var(--borda);
   border-radius: var(--raio-pilula);
 }
@@ -483,7 +478,7 @@ body.saindo .cortina {
   width: 260px;
   height: 260px;
   translate: -50% -50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, .11), transparent 68%);
+  background: radial-gradient(circle, rgba(0, 92, 230, .09), transparent 68%);
   opacity: 0;
   transition: opacity var(--t8) var(--mov);
   pointer-events: none;
@@ -516,8 +511,8 @@ body.saindo .cortina {
   width: 46px;
   height: 16px;
   border-radius: 7px 7px 0 0;
-  background: rgba(255, 255, 255, .30);
-  border: 1px solid rgba(255, 255, 255, .34);
+  background: #D9D8E2;
+  border: 1px solid #FFFFFF;
   border-bottom: 0;
   z-index: 1;
   transition: transform var(--t8) var(--mov);
@@ -530,8 +525,8 @@ body.saindo .cortina {
   bottom: 0;
   height: 84px;
   border-radius: 5px 14px 14px 14px;
-  background: rgba(255, 255, 255, .22);
-  border: 1px solid rgba(255, 255, 255, .26);
+  background: #CFCEDA;
+  border: 1px solid #FFFFFF;
   z-index: 2;
 }
 
@@ -543,8 +538,8 @@ body.saindo .cortina {
   height: 52px;
   margin-left: -23px;
   border-radius: 4px;
-  background: linear-gradient(160deg, rgba(255, 255, 255, .92), rgba(255, 255, 255, .62));
-  box-shadow: 0 6px 14px rgba(0, 0, 0, .25);
+  background: #FFFFFF;
+  box-shadow: 0 6px 14px rgba(28, 28, 30, .14);
   z-index: 3;
   /* escondidas na pasta fechada, aparecem conforme saltam */
   opacity: 0;
@@ -565,9 +560,9 @@ body.saindo .cortina {
   bottom: 0;
   height: 84px;
   border-radius: 5px 14px 14px 14px;
-  background: linear-gradient(150deg, rgba(255, 255, 255, .40) 0%, rgba(255, 255, 255, .20) 100%);
-  border: 1px solid rgba(255, 255, 255, .42);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, .28);
+  background: linear-gradient(150deg, #FFFFFF 0%, #DCDBE6 100%);
+  border: 1px solid #FFFFFF;
+  box-shadow: 0 10px 26px rgba(28, 28, 30, .16);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   z-index: 5;
@@ -585,7 +580,7 @@ body.saindo .cortina {
   display: block;
   height: 3px;
   border-radius: 2px;
-  background: rgba(255, 255, 255, .42);
+  background: #AFAEBC;
 }
 
 .pasta-frente i:nth-child(1) { width: 42px; }
@@ -661,7 +656,7 @@ body.saindo .cortina {
   font-family: var(--fonte-mono);
   font-size: .73rem;
   color: var(--texto-2);
-  background: rgba(255, 255, 255, .10);
+  background: rgba(28, 28, 30, .06);
   border: 1px solid var(--borda);
   border-radius: var(--raio-pilula);
   transition: color var(--t4) var(--mov), background var(--t4) var(--mov), border-color var(--t4) var(--mov);
@@ -669,7 +664,7 @@ body.saindo .cortina {
 
 .modulo:hover .modulo-abrir {
   color: var(--texto);
-  background: rgba(255, 255, 255, .20);
+  background: rgba(28, 28, 30, .1);
   border-color: var(--borda-forte);
 }
 
@@ -846,7 +841,7 @@ body.saindo .cortina {
 
 .rede:hover {
   color: var(--texto);
-  background: rgba(255, 255, 255, .07);
+  background: rgba(28, 28, 30, .05);
   transform: translateY(-2px);
 }
 
@@ -949,7 +944,7 @@ body.saindo .cortina {
 .secao-pagina {
   margin-top: clamp(56px, 11vh, 112px);
   padding-top: 30px;
-  border-top: 1px solid var(--borda);
+  border-top: 1px solid var(--fio);
 }
 
 .secao-cabeca {
@@ -1086,7 +1081,7 @@ body.saindo .cortina {
   grid-template-columns: 56px minmax(0, 1fr);
   gap: 16px;
   padding: 26px 0;
-  border-top: 1px solid var(--borda);
+  border-top: 1px solid var(--fio);
 }
 
 .processo-item:first-child {
@@ -1224,7 +1219,7 @@ a.numero:hover {
 }
 
 .ficha-pontos {
-  border-bottom: 1px dotted rgba(255, 255, 255, .22);
+  border-bottom: 1px dotted rgba(28, 28, 30, .22);
   translate: 0 -.3em;
 }
 
@@ -1249,7 +1244,7 @@ a.numero:hover {
   width: 14px;
   height: 6px;
   border-radius: 2px;
-  background: rgba(255, 255, 255, .16);
+  background: rgba(28, 28, 30, .12);
 }
 
 .nivel-texto {
@@ -1293,7 +1288,7 @@ a.numero:hover {
   gap: clamp(22px, 4vw, 52px);
   align-items: center;
   padding: clamp(28px, 5vh, 52px) 0;
-  border-top: 1px solid var(--borda);
+  border-top: 1px solid var(--fio);
 }
 
 .projeto-linha:first-of-type {
@@ -1331,7 +1326,7 @@ a.numero:hover {
   font-family: var(--fonte-mono);
   font-size: .74rem;
   color: var(--texto-2);
-  background: rgba(255, 255, 255, .07);
+  background: rgba(28, 28, 30, .05);
   border: 1px solid var(--borda);
   border-radius: var(--raio-pilula);
 }
@@ -1350,7 +1345,7 @@ a.numero:hover {
   aspect-ratio: 16 / 11;
   border: 1px solid var(--borda);
   border-radius: 20px;
-  background: linear-gradient(150deg, rgba(255, 255, 255, .10), rgba(0, 0, 0, .14));
+  background: linear-gradient(160deg, #FFFFFF, #EDECF2);
   box-shadow: var(--luz-interna), var(--sombra);
   transition: transform var(--t6) var(--mov), box-shadow var(--t6) var(--mov);
 }
@@ -1366,15 +1361,15 @@ a.numero:hover {
   gap: 6px;
   height: 32px;
   padding: 0 14px;
-  background: rgba(255, 255, 255, .08);
-  border-bottom: 1px solid var(--borda);
+  background: rgba(28, 28, 30, .05);
+  border-bottom: 1px solid var(--fio);
 }
 
 .previa-barra i {
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, .22);
+  background: rgba(28, 28, 30, .14);
 }
 
 .previa-barra span {
@@ -1403,7 +1398,7 @@ a.numero:hover {
 .previa-menu i {
   height: 8px;
   border-radius: 3px;
-  background: rgba(255, 255, 255, .14);
+  background: rgba(28, 28, 30, .1);
 }
 
 .previa-menu i:first-child {
@@ -1418,7 +1413,7 @@ a.numero:hover {
 .previa-tabela i {
   height: 11px;
   border-radius: 3px;
-  background: rgba(255, 255, 255, .11);
+  background: rgba(28, 28, 30, .09);
 }
 
 .previa-tabela i:nth-child(1) {
@@ -1426,6 +1421,8 @@ a.numero:hover {
 }
 
 .previa-codigo {
+  background: #1C1C1E;
+  color: #E7E6EC;
   padding: 16px 18px;
   font-family: var(--fonte-mono);
   font-size: .72rem;
@@ -1464,7 +1461,7 @@ a.numero:hover {
 .previa-cards i {
   height: 38px;
   border-radius: 7px;
-  background: rgba(255, 255, 255, .12);
+  background: rgba(28, 28, 30, .1);
 }
 
 
@@ -1499,7 +1496,7 @@ a.numero:hover {
   font: inherit;
   font-size: .95rem;
   color: var(--texto);
-  background: rgba(255, 255, 255, .06);
+  background: #FFFFFF;
   border: 1px solid var(--borda);
   border-radius: 14px;
   transition: border-color var(--t2) var(--mov), background var(--t2) var(--mov);
@@ -1649,7 +1646,7 @@ a.numero:hover {
   gap: 9px;
   padding: 10px 0;
   color: var(--texto-2);
-  border-bottom: 1px solid var(--borda);
+  border-bottom: 1px solid var(--fio);
   transition: color var(--t2) var(--mov), border-color var(--t2) var(--mov);
 }
 
@@ -1677,7 +1674,7 @@ a.numero:hover {
   grid-template-columns: 1fr 1fr;
   gap: 12px;
   padding: clamp(28px, 5vh, 48px) 0;
-  border-top: 1px solid var(--borda);
+  border-top: 1px solid var(--fio);
 }
 
 .nav-pagina {
@@ -1716,19 +1713,20 @@ a.numero:hover {
 
 .rodape {
   padding: 28px 0 36px;
-  border-top: 1px solid var(--borda);
+  border-top: 1px solid var(--fio);
 }
 
 .rodape-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 24px;
-  padding-bottom: 22px;
+  gap: 0 18px;
+  padding-bottom: 12px;
   margin-bottom: 22px;
-  border-bottom: 1px solid var(--borda);
+  border-bottom: 1px solid var(--fio);
 }
 
 .rodape-nav a {
+  padding: 10px 6px;
   font-size: .92rem;
   color: var(--texto-2);
   transition: color var(--t2) var(--mov);
@@ -1908,5 +1906,170 @@ a.numero:hover {
   .cortina,
   .abertura {
     display: none;
+  }
+}
+
+
+.folha-pagina {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 86px);
+  align-items: start;
+  padding: clamp(40px, 7vh, 76px) 0 clamp(60px, 10vh, 120px);
+}
+
+.indice {
+  position: sticky;
+  top: clamp(40px, 7vh, 76px);
+  display: grid;
+  gap: 2px;
+}
+
+.indice-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 0 28px;
+  font-size: .95rem;
+  color: var(--texto);
+  border-bottom: 1px solid var(--fio);
+  margin-bottom: 22px;
+  transition: color var(--t2) var(--mov);
+}
+
+.indice-voltar svg {
+  width: 15px;
+  height: 15px;
+}
+
+.indice-voltar:hover {
+  color: var(--acento);
+}
+
+.indice-rotulo {
+  margin-bottom: 10px;
+  font-size: .78rem;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--texto-3);
+}
+
+.indice a:not(.indice-voltar) {
+  padding: 7px 0;
+  font-size: .96rem;
+  color: var(--texto-3);
+  transition: color var(--t2) var(--mov), padding-left var(--t4) var(--mov);
+}
+
+.indice a:not(.indice-voltar):hover {
+  padding-left: 7px;
+  color: var(--texto);
+}
+
+.indice a[aria-current="page"] {
+  padding-left: 7px;
+  font-weight: 600;
+  color: var(--texto);
+}
+
+.texto-pagina {
+  min-width: 0;
+}
+
+.migalha {
+  margin-bottom: 26px;
+  font-size: .82rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--texto-3);
+}
+
+.titulo-grande {
+  font-family: var(--fonte-display);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  line-height: 1.02;
+  letter-spacing: -.045em;
+}
+
+.entrada {
+  max-width: 720px;
+  margin-top: clamp(40px, 7vh, 72px);
+}
+
+.entrada p {
+  font-size: 1.12rem;
+  line-height: 1.55;
+  letter-spacing: -.012em;
+  color: var(--texto-2);
+}
+
+.entrada p:first-child {
+  font-size: 1.23rem;
+  color: var(--texto);
+}
+
+.entrada p + p {
+  margin-top: 18px;
+}
+
+.capitulo {
+  margin-top: clamp(48px, 8vh, 72px);
+  padding-top: clamp(32px, 5vh, 50px);
+  border-top: 1px solid var(--fio);
+  scroll-margin-top: 24px;
+}
+
+.capitulo-numero {
+  display: block;
+  margin-bottom: 25px;
+  font-size: .94rem;
+  color: var(--texto-3);
+}
+
+.capitulo h2 {
+  margin-bottom: 18px;
+  font-family: var(--fonte-display);
+  font-weight: 500;
+  font-size: clamp(1.65rem, 3vw, 2.2rem);
+  line-height: 1.16;
+  letter-spacing: -.04em;
+}
+
+.capitulo p {
+  max-width: 720px;
+  font-size: 1.12rem;
+  line-height: 1.55;
+  letter-spacing: -.012em;
+  color: var(--texto-2);
+}
+
+.capitulo p + p {
+  margin-top: 18px;
+}
+
+.capitulo strong {
+  color: var(--texto);
+  font-weight: 600;
+}
+
+@media (max-width: 920px) {
+  .folha-pagina {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .indice {
+    position: static;
+  }
+
+  .indice a:not(.indice-voltar) {
+    display: none;
+  }
+
+  .indice-voltar {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
   }
 }

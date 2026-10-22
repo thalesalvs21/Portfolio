@@ -50,11 +50,11 @@
   --texto-3: #9C948A;
 
   /* Cores de sinal */
-  --acento: #EDE8E0;
-  --acento-claro: #FFFFFF;
-  --acento-10: rgba(237, 232, 224, .14);
-  --acento-20: rgba(237, 232, 224, .30);
-  --acento-40: rgba(237, 232, 224, .55);
+  --acento: #45B3A3;
+  --acento-claro: #92DACF;
+  --acento-10: rgba(69, 179, 163, .14);
+  --acento-20: rgba(69, 179, 163, .30);
+  --acento-40: rgba(69, 179, 163, .55);
   --vermelho: #E0776E;
 
   /* Tipografia */
@@ -811,7 +811,7 @@ body.saindo .cortina {
   }
 
   .nucleo {
-    max-width: 38vw;
+    max-width: 34vw;
   }
 
   .modulo {
@@ -831,18 +831,24 @@ body.saindo .cortina {
   .coluna-modulos .modulo:hover,
   .coluna-modulos .modulo:focus-visible {
     --lift: -10px;
-    --giro: 0deg;
   }
 
+  /* As seis pastas ficam sobre uma elipse em volta do texto, todas à
+     mesma distância do centro. Os valores saem de raio 31vw por 56vh,
+     nos ângulos 30, 0 e -30 graus de cada lado:
+        topo e base  ->  x = 31 x cos(30) = 26.8vw ;  y = 56 x sen(30)/2 = 28vh
+        meio         ->  x = 31vw          ;  y = 0
+     Ficam retas: sem rotação nenhuma. */
+
   /* lado esquerdo, de cima para baixo */
-  .coluna-modulos:first-of-type .modulo:nth-child(1) { --x: -33vw; --y: -30vh; --giro: -3deg; }
-  .coluna-modulos:first-of-type .modulo:nth-child(2) { --x: -38vw; --y:   1vh; --giro:  2deg; }
-  .coluna-modulos:first-of-type .modulo:nth-child(3) { --x: -33vw; --y:  30vh; --giro: -2deg; }
+  .coluna-modulos:first-of-type .modulo:nth-child(1) { --x: -26.8vw; --y: -28vh; }
+  .coluna-modulos:first-of-type .modulo:nth-child(2) { --x: -31vw;   --y: 0vh; }
+  .coluna-modulos:first-of-type .modulo:nth-child(3) { --x: -26.8vw; --y:  28vh; }
 
   /* lado direito */
-  .coluna-modulos:last-of-type .modulo:nth-child(1)  { --x:  33vw; --y: -30vh; --giro:  3deg; }
-  .coluna-modulos:last-of-type .modulo:nth-child(2)  { --x:  38vw; --y:   2vh; --giro: -2deg; }
-  .coluna-modulos:last-of-type .modulo:nth-child(3)  { --x:  33vw; --y:  30vh; --giro: 2.5deg; }
+  .coluna-modulos:last-of-type .modulo:nth-child(1)  { --x:  26.8vw; --y: -28vh; }
+  .coluna-modulos:last-of-type .modulo:nth-child(2)  { --x:  31vw;   --y: 0vh; }
+  .coluna-modulos:last-of-type .modulo:nth-child(3)  { --x:  26.8vw; --y:  28vh; }
 
   .modulo-desc {
     max-width: 24ch;

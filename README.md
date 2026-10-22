@@ -40,10 +40,10 @@ Os links de navegação ficam escritos no HTML de cada página, então mudar um 
 
 ## Decisões
 
-- **Carvão quente com vidro.** O fundo é carvão amarronzado e existe uma cor de destaque só no site inteiro, definida em `--acento`. Todo painel é o mesmo gradiente branco translúcido com `backdrop-filter`, sempre com a mesma borda e a mesma luz interna.
+- **Carvão quente com vidro.** O fundo é carvão amarronzado e existe uma cor de destaque só no site inteiro, um verde-petróleo definido em `--acento`. Todo painel é o mesmo gradiente branco translúcido com `backdrop-filter`, sempre com a mesma borda e a mesma luz interna.
 - **Funnel Display** no nome e nos títulos de página, **Instrument Sans** no corpo e **Spline Sans Mono** nos rótulos.
 - **As pastas não têm caixa.** Elas flutuam direto sobre o fundo; o que responde ao mouse é a pasta, não um card.
-- **As pastas cercam o texto.** Em tela larga a capa vira uma tela só, com o texto no meio e as seis pastas em arco em volta, cada uma num ângulo. A posição de cada uma é um par de variáveis em `vw` e `vh`, então o arranjo acompanha o tamanho da janela. Abaixo de 1240px elas voltam para duas colunas.
+- **As pastas cercam o texto.** Em tela larga a capa vira uma tela só, com o texto no meio e as seis pastas sobre uma elipse em volta, todas retas e à mesma distância do centro. A posição de cada uma é um par de variáveis em `vw` e `vh`, então o arranjo acompanha o tamanho da janela. Abaixo de 1240px elas voltam para duas colunas.
 - **A revelação no scroll usa `translate`**, separado do `transform`, senão ela zerava a posição e a inclinação das pastas.
 - **Páginas internas em seções numeradas.** Cada seção abre com o número, o título e um parágrafo, separada por um fio, e o conteúdo vem numa grade de dois cartões.
 - **Cartões de prosa.** Em vez de listas soltas, cada competência e cada curso é um cartão com ícone, nome, legenda e um parágrafo explicando.

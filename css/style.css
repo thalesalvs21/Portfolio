@@ -6,56 +6,57 @@
    01. Tokens
    02. Base e utilitários
    03. Fundo (placa de circuito)
-   04. Cromo do site (marca + menu)
-   05. Cortina de transição entre páginas
-   06. Botões e pílulas
-   07. Bancada (página inicial)
-   08. Módulos (cards de pasta)
-   09. Núcleo (coluna central da inicial)
-   10. Páginas internas
-   11. Cartões de conteúdo
-   12. Nível das competências
-   13. Projetos
-   14. Contato e formulário
-   15. Link de texto com seta
-   16. Rodapé e navegação entre páginas
-   17. Revelação no scroll
-   18. Responsivo
+   04. Cromo do site (marca + links)
+   05. Tela de abertura
+   06. Cortina de transição entre páginas
+   07. Botões e pílulas
+   08. Bancada (página inicial)
+   09. Módulos (cards de pasta)
+   10. Núcleo (coluna central da inicial)
+   11. Páginas internas
+   12. Cartões de conteúdo
+   13. Nível das competências
+   14. Projetos
+   15. Contato e formulário
+   16. Link de texto com seta
+   17. Rodapé e navegação entre páginas
+   18. Revelação no scroll
+   19. Responsivo
    =========================================================== */
 
 
 /* ======================= 01. Tokens ======================= */
 
 :root {
-  /* Fundos — cinza médio, com o painel sempre mais claro que a base */
-  --fundo: #38383C;
-  --fundo-2: #2F2F33;
-  --fundo-3: #45454B;
+  /* Fundos — grafite com veio azul, não cinza neutro */
+  --fundo: #1A1C24;
+  --fundo-2: #15171E;
+  --fundo-3: #242836;
 
   /* Vidro: um gradiente branco translúcido reaproveitado em tudo */
-  --vidro: linear-gradient(145deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, .06));
-  --vidro-forte: linear-gradient(145deg, rgba(255, 255, 255, .26), rgba(255, 255, 255, .12));
-  --borda: rgba(255, 255, 255, .17);
-  --borda-forte: rgba(255, 255, 255, .34);
+  --vidro: linear-gradient(145deg, rgba(255, 255, 255, .10), rgba(255, 255, 255, .038));
+  --vidro-forte: linear-gradient(145deg, rgba(255, 255, 255, .19), rgba(255, 255, 255, .08));
+  --borda: rgba(255, 255, 255, .11);
+  --borda-forte: rgba(255, 255, 255, .26);
 
   /* Luz e sombra */
-  --luz-interna: inset 0 1px 0 rgba(255, 255, 255, .24);
-  --sombra: 0 20px 44px -20px rgba(0, 0, 0, .55);
-  --sombra-alta: 0 32px 70px -24px rgba(0, 0, 0, .65);
+  --luz-interna: inset 0 1px 0 rgba(255, 255, 255, .13);
+  --sombra: 0 24px 56px -22px rgba(0, 0, 0, .78);
+  --sombra-alta: 0 36px 80px -26px rgba(0, 0, 0, .86);
 
   /* Texto */
-  --texto: #F7F7F9;
-  --texto-2: #DEDEE4;
-  --texto-3: #C0C0C8;
+  --texto: #F2F3F8;
+  --texto-2: #C5C9D6;
+  --texto-3: #979CAD;
 
   /* Cores de sinal */
   --azul: #6B8CFF;
-  --azul-claro: #D3DCFF;
-  --azul-10: rgba(107, 140, 255, .16);
-  --azul-20: rgba(107, 140, 255, .30);
+  --azul-claro: #B9C7FF;
+  --azul-10: rgba(107, 140, 255, .14);
+  --azul-20: rgba(107, 140, 255, .28);
   --azul-40: rgba(107, 140, 255, .55);
-  --led: #5BE38E;
-  --cobre: #F0B47A;
+  --led: #4ADE80;
+  --cobre: #E8A765;
   --vermelho: #FF8F8B;
 
   /* Tipografia */
@@ -214,16 +215,16 @@ p {
   pointer-events: none;
   background-color: var(--fundo);
   background-image:
-    /* brilho azul no alto à esquerda */
-    radial-gradient(62rem 42rem at 10% -12%, rgba(107, 140, 255, .22), transparent 62%),
-    /* brilho quente embaixo à direita, para o cinza não ficar chapado */
-    radial-gradient(54rem 38rem at 102% 104%, rgba(255, 255, 255, .10), transparent 60%),
+    /* luz azul entrando pelo alto à esquerda */
+    radial-gradient(64rem 44rem at 8% -14%, rgba(107, 140, 255, .26), transparent 62%),
+    /* um roxo frio no canto oposto, para o fundo não ficar de uma cor só */
+    radial-gradient(56rem 40rem at 104% 106%, rgba(138, 110, 255, .16), transparent 62%),
     /* pontos de solda */
-    radial-gradient(circle, rgba(255, 255, 255, .07) 1px, transparent 1.3px),
+    radial-gradient(circle, rgba(255, 255, 255, .05) 1px, transparent 1.3px),
     /* trilhas verticais */
-    repeating-linear-gradient(90deg, rgba(0, 0, 0, .05) 0 1px, transparent 1px 88px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .028) 0 1px, transparent 1px 88px),
     /* trilhas horizontais */
-    repeating-linear-gradient(0deg, rgba(0, 0, 0, .05) 0 1px, transparent 1px 88px);
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, .028) 0 1px, transparent 1px 88px);
   background-size: auto, auto, 88px 88px, auto, auto;
   background-position: center;
 }
@@ -233,11 +234,11 @@ p {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(78% 78% at 50% 42%, transparent, rgba(24, 24, 27, .55));
+  background: radial-gradient(80% 80% at 50% 40%, transparent, rgba(8, 9, 14, .78));
 }
 
 
-/* ============ 04. Cromo do site (marca + menu) ============ */
+/* ============ 04. Cromo do site (marca + links) ============ */
 
 /* Um véu que desaparece para baixo, só para o conteúdo não passar
    por cima do texto do topo. Não tem borda nem caixa: a máscara
@@ -248,7 +249,7 @@ p {
   inset: -10px 0 -28px;
   z-index: -1;
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(48, 48, 52, .92), rgba(48, 48, 52, 0));
+  background: linear-gradient(180deg, rgba(23, 25, 33, .94), rgba(23, 25, 33, 0));
   backdrop-filter: blur(7px);
   -webkit-backdrop-filter: blur(7px);
   -webkit-mask-image: linear-gradient(180deg, #000 58%, transparent);
@@ -320,9 +321,69 @@ p {
 }
 
 
-/* ====== 05. Cortina de transição entre páginas ====== */
+/* ============ 05. Tela de abertura ============ */
+/* O esqueleto dela (o que esconde o site) fica num <style> dentro do
+   <head> de cada página, porque precisa valer antes deste arquivo
+   carregar. Aqui só mora a animação. */
+
+.abertura-marca {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  font-family: var(--fonte-mono);
+  font-size: 1.35rem;
+  color: var(--texto);
+  animation: abertura-subir .55s var(--mov) backwards;
+}
+
+.abertura-sinal {
+  color: var(--azul);
+}
+
+.abertura-marca .destaque {
+  color: var(--azul);
+}
+
+@keyframes abertura-subir {
+  from { opacity: 0; transform: translateY(10px); }
+}
+
+.abertura-barra {
+  width: 170px;
+  height: 2px;
+  margin-top: 24px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, .12);
+}
+
+.abertura-barra i {
+  display: block;
+  height: 100%;
+  background: var(--azul);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: abertura-encher 1.05s var(--mov) forwards;
+}
+
+@keyframes abertura-encher {
+  to { transform: scaleX(1); }
+}
+
+
+/* ====== 06. Cortina de transição entre páginas ====== */
 /* Um retângulo fixo que cobre a tela. Entra ao sair da página e
    sai ao entrar — dá a sensação de navegação contínua. */
+
+/* Dois momentos, como no site que serviu de referência:
+
+   ENTRADA — a cortina nasce opaca e some em 0.3s. Quem faz isso é a
+   animação, não o JavaScript: o "backwards" aplica o estado inicial
+   antes dela começar, então a página já aparece coberta. Funciona
+   mesmo com o JavaScript desligado.
+
+   SAÍDA — o clique num link interno acende a cortina em 0.18s e só
+   então o navegador troca de página (js/main.js). */
 
 .cortina {
   position: fixed;
@@ -331,20 +392,22 @@ p {
   background: var(--fundo);
   pointer-events: none;
   opacity: 0;
-  transition: opacity .22s ease-in;
+  animation: entrar-pagina .3s ease-out backwards;
+  transition: opacity .18s ease-in;
 }
 
-body.entrando .cortina {
-  opacity: 1;
-  transition: none;
+@keyframes entrar-pagina {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
 body.saindo .cortina {
+  animation: none;
   opacity: 1;
 }
 
 
-/* ================ 06. Botões e pílulas ================ */
+/* ================ 07. Botões e pílulas ================ */
 
 .botao {
   display: inline-flex;
@@ -415,7 +478,7 @@ body.saindo .cortina {
 }
 
 
-/* ============ 07. Bancada (página inicial) ============ */
+/* ============ 08. Bancada (página inicial) ============ */
 
 .bancada {
   min-height: 100vh;
@@ -439,7 +502,7 @@ body.saindo .cortina {
 }
 
 
-/* ============ 08. Módulos (cards de pasta) ============ */
+/* ============ 09. Módulos (cards de pasta) ============ */
 /* Cada seção do site é uma pasta. Em repouso aparecem a pasta e o
    nome; no hover a capa tomba para a frente, as folhas saltam de
    dentro e a gaveta com a descrição se abre. */
@@ -553,7 +616,7 @@ body.saindo .cortina {
   bottom: 0;
   height: 84px;
   border-radius: 5px 14px 14px 14px;
-  background: linear-gradient(150deg, rgba(255, 255, 255, .46) 0%, rgba(255, 255, 255, .26) 100%);
+  background: linear-gradient(150deg, rgba(255, 255, 255, .40) 0%, rgba(255, 255, 255, .20) 100%);
   border: 1px solid rgba(255, 255, 255, .42);
   box-shadow: 0 10px 24px rgba(0, 0, 0, .28);
   backdrop-filter: blur(14px);
@@ -696,7 +759,7 @@ body.saindo .cortina {
 }
 
 
-/* ====== 09. Núcleo (coluna central da inicial) ====== */
+/* ====== 10. Núcleo (coluna central da inicial) ====== */
 
 .nucleo {
   display: grid;
@@ -825,7 +888,7 @@ body.saindo .cortina {
 }
 
 
-/* ================ 10. Páginas internas ================ */
+/* ================ 11. Páginas internas ================ */
 
 .pagina {
   padding: calc(var(--cromo-h) + clamp(28px, 6vh, 64px)) 0 0;
@@ -931,7 +994,7 @@ body.saindo .cortina {
 }
 
 
-/* ============== 11. Cartões de conteúdo ============== */
+/* ============== 12. Cartões de conteúdo ============== */
 
 .grade-cartoes {
   display: grid;
@@ -1192,7 +1255,7 @@ a.numero:hover {
 }
 
 
-/* ============ 12. Nível das competências ============ */
+/* ============ 13. Nível das competências ============ */
 /* Três segmentos, como a capacidade de um slot de memória. */
 
 .nivel {
@@ -1248,7 +1311,7 @@ a.numero:hover {
 }
 
 
-/* ================== 13. Projetos ================== */
+/* ================== 14. Projetos ================== */
 
 .projeto-linha {
   display: grid;
@@ -1436,7 +1499,7 @@ a.numero:hover {
 }
 
 
-/* ============ 14. Contato e formulário ============ */
+/* ============ 15. Contato e formulário ============ */
 
 .formulario {
   display: grid;
@@ -1615,7 +1678,7 @@ a.numero:hover {
 }
 
 
-/* ============ 15. Link de texto com seta ============ */
+/* ============ 16. Link de texto com seta ============ */
 
 .link-seta {
   display: inline-flex;
@@ -1646,7 +1709,7 @@ a.numero:hover {
 }
 
 
-/* ====== 16. Rodapé e navegação entre páginas ====== */
+/* ====== 17. Rodapé e navegação entre páginas ====== */
 
 .nav-paginas {
   display: grid;
@@ -1768,7 +1831,7 @@ a.numero:hover {
 }
 
 
-/* ============ 17. Revelação no scroll ============ */
+/* ============ 18. Revelação no scroll ============ */
 
 /* O estado escondido só existe quando há JavaScript (a classe .js é
    posta no <html> por um script no <head>). Sem JS o conteúdo aparece
@@ -1785,7 +1848,7 @@ a.numero:hover {
 }
 
 
-/* ================== 18. Responsivo ================== */
+/* ================== 19. Responsivo ================== */
 
 @media (max-width: 1099px) {
   .bancada {

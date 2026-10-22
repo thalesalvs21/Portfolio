@@ -7,12 +7,13 @@
 
    01. Preferência de movimento
    02. Ano do rodapé
-   03. Transição entre páginas
-   04. Revelação no scroll
-   05. Texto digitado (início)
-   06. Botão de voltar ao topo
-   07. Formulário de contato
-   08. Números do GitHub
+   03. Tela de abertura
+   04. Transição entre páginas
+   05. Revelação no scroll
+   06. Texto digitado (início)
+   07. Botão de voltar ao topo
+   08. Formulário de contato
+   09. Números do GitHub
    =========================================================== */
 
 (function () {
@@ -37,20 +38,66 @@
   }
 
 
-  /* ============ 03. Transição entre páginas ============ */
+  /* ============== 03. Tela de abertura ============== */
+  /* O <head> já mostrou a tela e ligou um timer de segurança de 4s.
+     Aqui ela é fechada do jeito certo: espera a página carregar,
+     garante um tempo mínimo na tela para a animação não piscar, e
+     grava na sessão que já foi vista — assim ela não aparece de novo
+     a cada página que você abrir. */
+
+  function iniciarAbertura() {
+    var raiz = document.documentElement;
+    if (!raiz.classList.contains('carregando')) return;
+
+    var MINIMO = 1150;
+    var FADE = 500;
+    var comeco = Date.now();
+
+    function fechar() {
+      var falta = Math.max(0, MINIMO - (Date.now() - comeco));
+
+      window.setTimeout(function () {
+        raiz.classList.remove('carregando');
+        raiz.classList.add('abertura-saindo');
+
+        try {
+          sessionStorage.setItem('abertura', '1');
+        } catch (erro) {
+          /* navegação privada ou cookies bloqueados: tudo bem */
+        }
+
+        window.setTimeout(function () {
+          raiz.classList.remove('abertura-saindo');
+        }, FADE);
+      }, falta);
+    }
+
+    if (document.readyState === 'complete') {
+      fechar();
+    } else {
+      window.addEventListener('load', fechar);
+    }
+  }
+
+
+  /* ============ 04. Transição entre páginas ============ */
   /* Antes de sair, a cortina cobre a tela. Como todas as páginas
      têm o mesmo fundo, a troca fica contínua em vez de piscar. */
 
   function iniciarTransicao() {
     if (semAnimacao) return;
 
-    var ESPERA = 220; /* igual à transição da .cortina no CSS */
+    /* a cortina leva 0.18s para acender; os 220ms dão a folga
+       antes de trocar de página, igual ao site de referência */
+    var ESPERA = 220;
 
     document.addEventListener('click', function (evento) {
       /* clique com Ctrl, Cmd, Shift ou botão do meio abre em outra
          aba — não é para interceptar */
       if (evento.metaKey || evento.ctrlKey || evento.shiftKey || evento.altKey) return;
       if (evento.button !== 0) return;
+      /* já está saindo: ignora o segundo clique */
+      if (document.body.classList.contains('saindo')) return;
 
       var link = evento.target.closest('a');
       if (!link) return;
@@ -86,7 +133,7 @@
   }
 
 
-  /* ============= 04. Revelação no scroll ============= */
+  /* ============= 05. Revelação no scroll ============= */
   /* IntersectionObserver avisa quando o elemento entra na tela.
      É mais barato que ouvir o evento de scroll, porque o próprio
      navegador faz a conta. */
@@ -126,7 +173,7 @@
   }
 
 
-  /* =========== 05. Texto digitado (início) =========== */
+  /* =========== 06. Texto digitado (início) =========== */
 
   function iniciarDigitacao() {
     var campo = document.getElementById('texto-digitado');
@@ -171,7 +218,7 @@
   }
 
 
-  /* ========= 06. Botão de voltar ao topo ========= */
+  /* ========= 07. Botão de voltar ao topo ========= */
 
   function iniciarBotaoTopo() {
     var botao = document.getElementById('botao-topo');
@@ -193,7 +240,7 @@
   }
 
 
-  /* =========== 07. Formulário de contato =========== */
+  /* =========== 08. Formulário de contato =========== */
   /* O site é estático, não tem servidor para receber o envio.
      Então o formulário valida os campos e monta um mailto já
      preenchido, que abre no programa de e-mail de quem escreveu. */
@@ -279,7 +326,7 @@
   }
 
 
-  /* ============= 08. Números do GitHub ============= */
+  /* ============= 09. Números do GitHub ============= */
   /* Busca os números na API pública do GitHub. Se a chamada falhar
      o site continua mostrando o valor que já está no HTML. */
 
@@ -319,6 +366,7 @@
   /* ==================== partida ==================== */
 
   iniciarAno();
+  iniciarAbertura();
   iniciarTransicao();
   iniciarRevelacao();
   iniciarDigitacao();

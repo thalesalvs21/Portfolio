@@ -50,17 +50,17 @@
   --texto-3: #9C948A;
 
   /* Cores de sinal */
-  --acento: #45B3A3;
-  --acento-claro: #92DACF;
-  --acento-10: rgba(69, 179, 163, .14);
-  --acento-20: rgba(69, 179, 163, .30);
-  --acento-40: rgba(69, 179, 163, .55);
+  --acento: #EDE8E0;
+  --acento-claro: #FFFFFF;
+  --acento-10: rgba(237, 232, 224, .14);
+  --acento-20: rgba(237, 232, 224, .30);
+  --acento-40: rgba(237, 232, 224, .55);
   --vermelho: #E0776E;
 
   /* Tipografia */
-  --fonte-display: "Archivo", "Segoe UI", system-ui, sans-serif;
-  --fonte-titulo: "Archivo", "Segoe UI", system-ui, sans-serif;
-  --fonte-corpo: "Archivo", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --fonte-display: "Funnel Display", "Segoe UI", system-ui, sans-serif;
+  --fonte-titulo: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --fonte-corpo: "Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
   --fonte-mono: "Spline Sans Mono", "Consolas", ui-monospace, monospace;
 
   /* Medidas */
@@ -757,7 +757,7 @@ body.saindo .cortina {
 
 /* Só em telas grandes com mouse a gaveta começa fechada. Em toque,
    a descrição fica sempre visível — não existe hover para abrir. */
-@media (min-width: 1100px) {
+@media (min-width: 1100px) and (max-width: 1239px) {
   .coluna-modulos:first-of-type .modulo:nth-child(1) { --dx: -14px; --dy: -8px; --giro: -2.4deg; }
   .coluna-modulos:first-of-type .modulo:nth-child(2) { --dx: 18px; --dy: 4px; --giro: 1.8deg; }
   .coluna-modulos:first-of-type .modulo:nth-child(3) { --dx: -6px; --dy: 12px; --giro: -1.2deg; }
@@ -783,6 +783,75 @@ body.saindo .cortina {
   .modulo:hover .modulo-gaveta > div,
   .modulo:focus-visible .modulo-gaveta > div {
     opacity: 1;
+  }
+}
+
+
+/* --- as pastas em volta do texto (tela larga) ---
+   A bancada vira uma tela só com o texto no meio. Cada pasta sai do
+   fluxo e é posicionada por um par de variáveis: --x e --y dizem a
+   que distância do centro ela fica, em vw e vh, então o arranjo
+   acompanha o tamanho da janela em vez de quebrar. */
+
+@media (min-width: 1240px) {
+  .bancada {
+    position: relative;
+    display: grid;
+    /* uma célula só: o texto no meio, e as pastas por cima, soltas */
+    grid-template-columns: 1fr;
+    place-items: center;
+    min-height: 100vh;
+    max-width: none;
+    padding: var(--cromo-h) 24px 24px;
+  }
+
+  /* some como caixa: as pastas passam a ser filhas da bancada */
+  .coluna-modulos {
+    display: contents;
+  }
+
+  .nucleo {
+    max-width: 38vw;
+  }
+
+  .modulo {
+    --lift: 0px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 210px;
+    /* altura fixa: a gaveta abre por dentro, sem empurrar a pasta
+       nem invadir a de baixo */
+    height: 230px;
+    transform:
+      translate(calc(-50% + var(--x)), calc(-50% + var(--y) + var(--lift)))
+      rotate(var(--giro));
+  }
+
+  .coluna-modulos .modulo:hover,
+  .coluna-modulos .modulo:focus-visible {
+    --lift: -10px;
+    --giro: 0deg;
+  }
+
+  /* lado esquerdo, de cima para baixo */
+  .coluna-modulos:first-of-type .modulo:nth-child(1) { --x: -33vw; --y: -30vh; --giro: -3deg; }
+  .coluna-modulos:first-of-type .modulo:nth-child(2) { --x: -38vw; --y:   1vh; --giro:  2deg; }
+  .coluna-modulos:first-of-type .modulo:nth-child(3) { --x: -33vw; --y:  30vh; --giro: -2deg; }
+
+  /* lado direito */
+  .coluna-modulos:last-of-type .modulo:nth-child(1)  { --x:  33vw; --y: -30vh; --giro:  3deg; }
+  .coluna-modulos:last-of-type .modulo:nth-child(2)  { --x:  38vw; --y:   2vh; --giro: -2deg; }
+  .coluna-modulos:last-of-type .modulo:nth-child(3)  { --x:  33vw; --y:  30vh; --giro: 2.5deg; }
+
+  .modulo-desc {
+    max-width: 24ch;
+    font-size: .8rem;
+  }
+
+  /* a pasta inteira é o link; a pílula só ocuparia altura */
+  .modulo-abrir {
+    display: none;
   }
 }
 

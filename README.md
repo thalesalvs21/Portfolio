@@ -40,10 +40,11 @@ Os links de navegação ficam escritos no HTML de cada página, então mudar um 
 
 ## Decisões
 
-- **Carvão quente com vidro.** O fundo é carvão amarronzado e o destaque é um verde-petróleo, usado sozinho: não há uma segunda cor de sinal no site. Todo painel é o mesmo gradiente branco translúcido com `backdrop-filter`, sempre com a mesma borda e a mesma luz interna.
-- **Duas famílias só.** Archivo nos títulos e no corpo, Spline Sans Mono nos rótulos e nos números.
+- **Carvão quente com vidro.** O fundo é carvão amarronzado e existe uma cor de destaque só no site inteiro, definida em `--acento`. Todo painel é o mesmo gradiente branco translúcido com `backdrop-filter`, sempre com a mesma borda e a mesma luz interna.
+- **Funnel Display** no nome e nos títulos de página, **Instrument Sans** no corpo e **Spline Sans Mono** nos rótulos.
 - **As pastas não têm caixa.** Elas flutuam direto sobre o fundo; o que responde ao mouse é a pasta, não um card.
-- **Nada alinhado na capa.** Cada pasta assenta num ângulo e numa altura diferente, como se tivessem sido largadas na mesa; ao passar o mouse ela se endireita. A revelação no scroll usa a propriedade `translate`, separada do `transform`, justamente para não apagar essa inclinação.
+- **As pastas cercam o texto.** Em tela larga a capa vira uma tela só, com o texto no meio e as seis pastas em arco em volta, cada uma num ângulo. A posição de cada uma é um par de variáveis em `vw` e `vh`, então o arranjo acompanha o tamanho da janela. Abaixo de 1240px elas voltam para duas colunas.
+- **A revelação no scroll usa `translate`**, separado do `transform`, senão ela zerava a posição e a inclinação das pastas.
 - **Páginas internas em seções numeradas.** Cada seção abre com o número, o título e um parágrafo, separada por um fio, e o conteúdo vem numa grade de dois cartões.
 - **Cartões de prosa.** Em vez de listas soltas, cada competência e cada curso é um cartão com ícone, nome, legenda e um parágrafo explicando.
 - **Prévias dos projetos em CSS.** Os mockups de janela e o bloco de código são desenhados com CSS, sem nenhuma imagem.

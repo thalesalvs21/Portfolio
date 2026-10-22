@@ -40,16 +40,16 @@
 
   /* ============== 03. Tela de abertura ============== */
   /* O <head> já mostrou a tela e ligou um timer de segurança de 4s.
-     Aqui ela é fechada do jeito certo: espera a página carregar,
-     garante um tempo mínimo na tela para a animação não piscar, e
-     grava na sessão que já foi vista — assim ela não aparece de novo
-     a cada página que você abrir. */
+     Aqui ela é fechada do jeito certo: espera a página carregar e
+     garante um tempo mínimo na tela para a animação não piscar.
+     Ela aparece em toda página, como no site que serviu de
+     referência — por isso é curta. */
 
   function iniciarAbertura() {
     var raiz = document.documentElement;
     if (!raiz.classList.contains('carregando')) return;
 
-    var MINIMO = 1150;
+    var MINIMO = 700;
     var FADE = 500;
     var comeco = Date.now();
 
@@ -59,12 +59,6 @@
       window.setTimeout(function () {
         raiz.classList.remove('carregando');
         raiz.classList.add('abertura-saindo');
-
-        try {
-          sessionStorage.setItem('abertura', '1');
-        } catch (erro) {
-          /* navegação privada ou cookies bloqueados: tudo bem */
-        }
 
         window.setTimeout(function () {
           raiz.classList.remove('abertura-saindo');

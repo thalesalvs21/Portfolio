@@ -348,6 +348,16 @@ p {
   from { opacity: 0; transform: translateY(10px); }
 }
 
+.abertura-pagina {
+  margin-top: 14px;
+  font-family: var(--fonte-titulo);
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -.03em;
+  color: var(--azul-claro);
+  animation: abertura-subir .55s var(--mov) .06s backwards;
+}
+
 .abertura-barra {
   width: 170px;
   height: 2px;
@@ -363,7 +373,7 @@ p {
   background: var(--azul);
   transform: scaleX(0);
   transform-origin: left;
-  animation: abertura-encher 1.05s var(--mov) forwards;
+  animation: abertura-encher .7s var(--mov) forwards;
 }
 
 @keyframes abertura-encher {

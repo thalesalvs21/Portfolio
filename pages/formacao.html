@@ -22,10 +22,8 @@
   var raiz = document.documentElement;
   raiz.classList.add('js');
 
-  var parado = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var javiu = false;
-  try { javiu = sessionStorage.getItem('abertura') === '1'; } catch (e) {}
-  if (parado || javiu) return;
+  /* quem pediu menos movimento no sistema pula a abertura */
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   raiz.classList.add('carregando');
 
@@ -61,6 +59,7 @@
     <span class="abertura-sinal">&lt;/&gt;</span>
     <span>thales<span class="destaque">.dev</span></span>
   </p>
+  <p class="abertura-pagina">Formação</p>
   <span class="abertura-barra"><i></i></span>
 </div>
 

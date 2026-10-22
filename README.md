@@ -40,8 +40,10 @@ Os links de navegação ficam escritos no HTML de cada página, então mudar um 
 
 ## Decisões
 
-- **Grafite azulado com vidro.** O fundo tem veio de cor em vez de cinza neutro, e todo painel é o mesmo gradiente branco translúcido com `backdrop-filter`, sempre com a mesma borda e a mesma luz interna.
+- **Carvão quente com vidro.** Não há azul na base: o fundo é carvão amarronzado e o destaque é um cobre. Todo painel é o mesmo gradiente branco translúcido com `backdrop-filter`, sempre com a mesma borda e a mesma luz interna.
+- **Serifa nos títulos grandes.** Instrument Serif em peso normal nos títulos de página e no nome, Archivo no corpo e Spline Sans Mono nos rótulos. A palavra destacada do título sai em itálico, não pintada de outra cor.
 - **As pastas não têm caixa.** Elas flutuam direto sobre o fundo; o que responde ao mouse é a pasta, não um card.
+- **Nada alinhado na capa.** Cada pasta assenta num ângulo e numa altura diferente, como se tivessem sido largadas na mesa; ao passar o mouse ela se endireita. A revelação no scroll usa a propriedade `translate`, separada do `transform`, justamente para não apagar essa inclinação.
 - **Páginas internas em seções numeradas.** Cada seção abre com o número, o título e um parágrafo, separada por um fio, e o conteúdo vem numa grade de dois cartões.
 - **Cartões de prosa.** Em vez de listas soltas, cada competência e cada curso é um cartão com ícone, nome, legenda e um parágrafo explicando.
 - **Prévias dos projetos em CSS.** Os mockups de janela e o bloco de código são desenhados com CSS, sem nenhuma imagem.

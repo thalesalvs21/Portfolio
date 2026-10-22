@@ -10,10 +10,9 @@
    03. Tela de abertura
    04. Transição entre páginas
    05. Revelação no scroll
-   06. Texto digitado (início)
-   07. Botão de voltar ao topo
-   08. Formulário de contato
-   09. Números do GitHub
+   06. Botão de voltar ao topo
+   07. Formulário de contato
+   08. Números do GitHub
    =========================================================== */
 
 (function () {
@@ -167,52 +166,7 @@
   }
 
 
-  /* =========== 06. Texto digitado (início) =========== */
-
-  function iniciarDigitacao() {
-    var campo = document.getElementById('texto-digitado');
-    if (!campo) return;
-
-    var frases = [
-      'Estagiário de suporte técnico',
-      'Desenvolvedor em formação',
-      'Procurando estágio em desenvolvimento'
-    ];
-
-    if (semAnimacao) {
-      campo.textContent = frases[0];
-      return;
-    }
-
-    var indice = 0;
-    var letras = 0;
-    var apagando = false;
-
-    function digitar() {
-      var frase = frases[indice];
-
-      letras = apagando ? letras - 1 : letras + 1;
-      campo.textContent = frase.slice(0, letras);
-
-      var espera = apagando ? 35 : 65;
-
-      if (!apagando && letras === frase.length) {
-        apagando = true;
-        espera = 2000;
-      } else if (apagando && letras === 0) {
-        apagando = false;
-        indice = (indice + 1) % frases.length;
-        espera = 300;
-      }
-
-      window.setTimeout(digitar, espera);
-    }
-
-    window.setTimeout(digitar, 600);
-  }
-
-
-  /* ========= 07. Botão de voltar ao topo ========= */
+  /* ========= 06. Botão de voltar ao topo ========= */
 
   function iniciarBotaoTopo() {
     var botao = document.getElementById('botao-topo');
@@ -234,7 +188,7 @@
   }
 
 
-  /* =========== 08. Formulário de contato =========== */
+  /* =========== 07. Formulário de contato =========== */
   /* O site é estático, não tem servidor para receber o envio.
      Então o formulário valida os campos e monta um mailto já
      preenchido, que abre no programa de e-mail de quem escreveu. */
@@ -320,7 +274,7 @@
   }
 
 
-  /* ============= 09. Números do GitHub ============= */
+  /* ============= 08. Números do GitHub ============= */
   /* Busca os números na API pública do GitHub. Se a chamada falhar
      o site continua mostrando o valor que já está no HTML. */
 
@@ -363,7 +317,6 @@
   iniciarAbertura();
   iniciarTransicao();
   iniciarRevelacao();
-  iniciarDigitacao();
   iniciarBotaoTopo();
   iniciarFormulario();
   iniciarNumerosGithub();

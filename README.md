@@ -32,11 +32,11 @@ Nenhuma biblioteca externa. As únicas requisições para fora são as fontes no
 index.html        # bancada: a capa do site
 pages/            # uma página por seção
 css/style.css     # tokens de cor, tipografia e todos os componentes
-js/main.js        # menu, transição de página, revelação, filtros e formulário
+js/main.js        # abertura, transição de página, revelação e formulário
 assets/           # currículo em PDF
 ```
 
-O menu fica escrito no HTML de cada página, então mudar um item do menu significa mudar os sete arquivos. É o preço de não ter build.
+Os links de navegação ficam escritos no HTML de cada página, então mudar um item significa mudar os sete arquivos. É o preço de não ter build.
 
 ## Decisões
 

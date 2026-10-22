@@ -265,20 +265,7 @@ p {
 
 /* o que esconde o site fica num style no head de cada pagina */
 
-html.carregando {
-  overflow: hidden;
-}
-
-html.carregando body > :not(.abertura) {
-  visibility: hidden;
-}
-
 .abertura {
-  display: none;
-}
-
-html.carregando .abertura,
-html.abertura-saindo .abertura {
   position: fixed;
   inset: 0;
   z-index: 3000;
@@ -286,12 +273,14 @@ html.abertura-saindo .abertura {
   place-items: center;
   align-content: center;
   background: var(--fundo);
+  animation: abertura-sair .45s var(--mov) .9s forwards;
 }
 
-html.abertura-saindo .abertura {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .5s ease;
+@keyframes abertura-sair {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 .abertura-marca {
@@ -1910,7 +1899,8 @@ a.numero:hover {
     opacity: 1 !important;
   }
 
-  .cortina {
+  .cortina,
+  .abertura {
     display: none;
   }
 }

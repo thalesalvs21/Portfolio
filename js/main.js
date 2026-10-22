@@ -1,30 +1,8 @@
 const semAnimacao = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const raiz = document.documentElement;
 
 document.querySelectorAll('#ano').forEach(function (campo) {
   campo.textContent = new Date().getFullYear();
 });
-
-
-/* o head ja mostrou a tela e ligou um timer de 4s de seguranca */
-const comecoDaAbertura = Date.now();
-
-function fecharAbertura() {
-  const falta = Math.max(0, 700 - (Date.now() - comecoDaAbertura));
-
-  setTimeout(function () {
-    raiz.classList.remove('carregando');
-    raiz.classList.add('abertura-saindo');
-
-    setTimeout(function () {
-      raiz.classList.remove('abertura-saindo');
-    }, 500);
-  }, falta);
-}
-
-if (raiz.classList.contains('carregando')) {
-  window.addEventListener('load', fecharAbertura);
-}
 
 
 /* a cortina leva 0.18s; os 220ms dao a folga antes de trocar */

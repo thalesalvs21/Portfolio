@@ -4,22 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<script>
-(function () {
-  var raiz = document.documentElement;
-  /* quem desliga animacao no sistema pula a abertura */
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  raiz.classList.add('carregando');
-
-  /* seguranca: se algo falhar, o site aparece de qualquer jeito */
-  window.setTimeout(function () {
-    raiz.classList.remove('carregando');
-    raiz.classList.remove('abertura-saindo');
-  }, 4000);
-})();
-</script>
 <title>Contato — Thales Alves</title>
 
 <meta name="description" content="Entre em contato com Thales Alves por e-mail, telefone, GitHub ou Behance.">

@@ -1,157 +1,70 @@
 const semAnimacao = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-document.getElementById('ano').textContent = new Date().getFullYear();
+document.querySelectorAll('#ano').forEach(function (campo) {
+  campo.textContent = new Date().getFullYear();
+});
 
 
-const menu = document.getElementById('menu');
-const menuLinks = document.getElementById('menu-links');
-const menuBotao = document.getElementById('menu-botao');
+/* a cortina leva 0.18s; os 220ms dao a folga antes de trocar */
+const esperaDaCortina = 220;
+
+function ehLinkDeOutraPagina(link) {
+  if (link.target === '_blank' || link.hasAttribute('download')) return false;
+
+  const destino = new URL(link.href, window.location.href);
+
+  if (destino.origin !== window.location.origin) return false;
+  if (destino.pathname === window.location.pathname) return false;
+
+  return /\.html?$|\/$/.test(destino.pathname);
+}
+
+document.addEventListener('click', function (evento) {
+  if (semAnimacao) return;
+  /* ctrl, cmd, shift ou botao do meio abrem em outra aba */
+  if (evento.metaKey || evento.ctrlKey || evento.shiftKey || evento.altKey) return;
+  if (evento.button !== 0) return;
+  if (document.body.classList.contains('saindo')) return;
+
+  const link = evento.target.closest('a');
+  if (!link || !ehLinkDeOutraPagina(link)) return;
+
+  evento.preventDefault();
+  document.body.classList.add('saindo');
+
+  setTimeout(function () {
+    window.location.href = link.href;
+  }, esperaDaCortina);
+});
+
+/* voltar pelo navegador pode trazer a cortina ainda levantada */
+window.addEventListener('pageshow', function () {
+  document.body.classList.remove('saindo');
+});
+
+
 const botaoTopo = document.getElementById('botao-topo');
 
-const secoes = document.querySelectorAll('main section[id]');
-const linksDoMenu = document.querySelectorAll('#menu-links a[href^="#"]');
+if (botaoTopo) {
+  window.addEventListener('scroll', function () {
+    botaoTopo.classList.toggle('visivel', window.scrollY > 600);
+  }, { passive: true });
 
-
-function marcarLinkAtivo(posicao) {
-  let secaoAtual = '';
-
-
-  secoes.forEach(function (secao) {
-    if (posicao >= secao.offsetTop - 200) {
-      secaoAtual = secao.id;
-    }
-  });
-
-  linksDoMenu.forEach(function (link) {
-    const ativo = link.getAttribute('href') === '#' + secaoAtual;
-    link.classList.toggle('link-ativo', ativo);
+  botaoTopo.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: semAnimacao ? 'auto' : 'smooth' });
   });
 }
-
-function aoRolar() {
-  const posicao = window.scrollY;
-
-  menu.classList.toggle('menu-com-fundo', posicao > 20);
-  botaoTopo.classList.toggle('visivel', posicao > 600);
-
-  marcarLinkAtivo(posicao);
-}
-
-window.addEventListener('scroll', aoRolar);
-aoRolar();
-
-function fecharMenu() {
-  menuLinks.classList.remove('menu-aberto');
-  menuBotao.setAttribute('aria-expanded', 'false');
-  menuBotao.setAttribute('aria-label', 'Abrir menu');
-}
-
-menuBotao.addEventListener('click', function () {
-  const aberto = menuLinks.classList.toggle('menu-aberto');
-  menuBotao.setAttribute('aria-expanded', aberto);
-  menuBotao.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
-});
-
-
-menuLinks.querySelectorAll('a').forEach(function (link) {
-  link.addEventListener('click', fecharMenu);
-});
-
-document.addEventListener('keydown', function (evento) {
-  if (evento.key === 'Escape') fecharMenu();
-});
-
-
-window.addEventListener('resize', function () {
-  if (window.innerWidth > 900) fecharMenu();
-});
-
-
-botaoTopo.addEventListener('click', function () {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-
-
-const campoDigitado = document.getElementById('texto-digitado');
-
-const frases = [
-  "Estagiário de suporte técnico", 
-  "Desenvolvedor em formação", 
-  "Procurando estágio em desenvolvimento"
-];
-
-let fraseAtual = 0;
-let letrasNaTela = 0;
-let apagando = false;
-
-function digitar() {
-  const frase = frases[fraseAtual];
-
-  letrasNaTela = apagando ? letrasNaTela - 1 : letrasNaTela + 1;
-  campoDigitado.textContent = frase.slice(0, letrasNaTela);
-
-  let espera = apagando ? 35 : 65;
-
-  if (!apagando && letrasNaTela === frase.length) {
-    apagando = true;
-    espera = 2000; 
-  } else if (apagando && letrasNaTela === 0) {
-    apagando = false;
-    fraseAtual = (fraseAtual + 1) % frases.length; 
-    espera = 300;
-  }
-
-  setTimeout(digitar, espera);
-}
-
-if (semAnimacao) {
-  campoDigitado.textContent = frases[0];
-} else {
-  setTimeout(digitar, 600);
-}
-
-
-
-const botoesFiltro = document.querySelectorAll('.filtro');
-const cardsDeProjeto = document.querySelectorAll('.card-projeto');
-const avisoVazio = document.getElementById('projetos-vazio');
-
-botoesFiltro.forEach(function (botao) {
-  botao.addEventListener('click', function () {
-    const categoria = botao.getAttribute('data-filtro');
-
-    
-    botoesFiltro.forEach(function (outro) {
-      const ativo = outro === botao;
-      outro.classList.toggle('link-ativo', ativo);
-      outro.setAttribute('aria-selected', ativo);
-    });
-
-    let visiveis = 0;
-
-    cardsDeProjeto.forEach(function (card) {
-      const categorias = card.getAttribute('data-categorias');
-      const mostrar = categoria === 'todos' || categorias.includes(categoria);
-
-      card.classList.toggle('escondido', !mostrar);
-      if (mostrar) visiveis = visiveis + 1;
-    });
-
-    avisoVazio.hidden = visiveis > 0;
-  });
-});
-
 
 
 const formulario = document.getElementById('formulario');
-const avisoDoFormulario = document.getElementById('formulario-aviso');
+const aviso = document.getElementById('formulario-aviso');
 
 const campoNome = document.getElementById('nome');
 const campoEmail = document.getElementById('email');
 const campoAssunto = document.getElementById('assunto');
 const campoMensagem = document.getElementById('mensagem');
 
+const formatoDeEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 function mostrarErro(campo, mensagem) {
   const bloco = campo.closest('.campo');
@@ -168,9 +81,6 @@ function validar() {
   } else {
     mostrarErro(campoNome, '');
   }
-
-
-  const formatoDeEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
   if (!formatoDeEmail.test(campoEmail.value.trim())) {
     mostrarErro(campoEmail, 'Digite um e-mail válido.');
@@ -189,53 +99,61 @@ function validar() {
   return tudoCerto;
 }
 
-
-formulario.querySelectorAll('input, textarea').forEach(function (campo) {
-  campo.addEventListener('input', function () {
-    if (campo.closest('.campo').classList.contains('campo-com-erro')) {
-      mostrarErro(campo, '');
-    }
+if (formulario) {
+  formulario.querySelectorAll('input, textarea').forEach(function (campo) {
+    campo.addEventListener('input', function () {
+      if (campo.closest('.campo').classList.contains('campo-com-erro')) {
+        mostrarErro(campo, '');
+      }
+    });
   });
-});
 
-formulario.addEventListener('submit', function (evento) {
-  evento.preventDefault();
+  /* site estatico, sem servidor: monta um mailto ja preenchido */
+  formulario.addEventListener('submit', function (evento) {
+    evento.preventDefault();
 
-  if (!validar()) {
-    avisoDoFormulario.textContent = 'Verifique os campos marcados acima.';
-    avisoDoFormulario.className = 'formulario-aviso aviso-erro';
-    return;
-  }
+    if (!validar()) {
+      aviso.textContent = 'Verifique os campos marcados acima.';
+      aviso.className = 'aviso-form erro';
+      return;
+    }
 
-  const assunto = campoAssunto.value.trim() || 'Contato pelo portfólio';
+    const assunto = campoAssunto.value.trim() || 'Contato pelo portfólio';
 
-  const corpo =
-    'Nome: ' + campoNome.value.trim() + '\n' +
-    'E-mail: ' + campoEmail.value.trim() + '\n\n' +
-    campoMensagem.value.trim();
+    const corpo =
+      'Nome: ' + campoNome.value.trim() + '\n' +
+      'E-mail: ' + campoEmail.value.trim() + '\n\n' +
+      campoMensagem.value.trim();
 
-  window.location.href =
-    'mailto:thalesalvs21@gmail.com' +
-    '?subject=' + encodeURIComponent(assunto) +
-    '&body=' + encodeURIComponent(corpo);
+    window.location.href =
+      'mailto:thalesalvs21@gmail.com' +
+      '?subject=' + encodeURIComponent(assunto) +
+      '&body=' + encodeURIComponent(corpo);
 
-  avisoDoFormulario.textContent = 'Abrindo seu aplicativo de e-mail com a mensagem preenchida...';
-  avisoDoFormulario.className = 'formulario-aviso aviso-sucesso';
-});
+    aviso.textContent = 'Abrindo seu aplicativo de e-mail com a mensagem preenchida...';
+    aviso.className = 'aviso-form ok';
+  });
+}
 
 
-  fetch("https://api.github.com/users/thalesalvs21")
+/* se a api falhar fica o valor que ja esta escrito no html */
+const campoRepos = document.getElementById('repos-github');
+const campoCommits = document.getElementById('commits-github');
+
+if (campoRepos) {
+  fetch('https://api.github.com/users/thalesalvs21')
     .then(resposta => resposta.json())
     .then(dados => {
-      document.getElementById("repos-github").textContent = dados.public_repos;
+      campoRepos.textContent = dados.public_repos;
     })
-    .catch(() => {
-    });
-    
-    
-    fetch("https://api.github.com/search/commits?q=author:thalesalvs21&per_page=1")
-  .then(resposta => resposta.json())
-  .then(dados => {
-    document.getElementById("commits-github").textContent = dados.total_count;
-  })
-  .catch(() => {});
+    .catch(() => {});
+}
+
+if (campoCommits) {
+  fetch('https://api.github.com/search/commits?q=author:thalesalvs21&per_page=1')
+    .then(resposta => resposta.json())
+    .then(dados => {
+      campoCommits.textContent = dados.total_count;
+    })
+    .catch(() => {});
+}

@@ -195,6 +195,14 @@ p {
   box-shadow: 0 0 0 0 rgba(69, 179, 163, .5);
   animation: pulsar 2.4s var(--mov) infinite;
 }
+.ledOff{
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #AFAEBC;
+  box-shadow: 0 0 0 0 rgba(69, 179, 163, .5);
+}
 
 @keyframes pulsar {
   0% { box-shadow: 0 0 0 0 rgba(69, 179, 163, .45); }

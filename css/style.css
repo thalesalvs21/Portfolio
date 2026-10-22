@@ -45,8 +45,14 @@
 }
 
 
-*,
-*::before,
+* {
+  box-sizing: border-box;
+}
+
+*::before {
+  box-sizing: border-box;
+}
+
 *::after {
   box-sizing: border-box;
 }
@@ -71,13 +77,22 @@ body {
   overflow-x: hidden;
 }
 
-img,
+img {
+  display: block;
+  max-width: 100%;
+}
+
 svg {
   display: block;
   max-width: 100%;
 }
 
-ul,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 ol {
   margin: 0;
   padding: 0;
@@ -97,9 +112,30 @@ button {
   cursor: pointer;
 }
 
-h1,
-h2,
-h3,
+h1 {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -.015em;
+}
+
+h2 {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -.015em;
+}
+
+h3 {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -.015em;
+}
+
 h4 {
   margin: 0;
   font-family: var(--fonte-titulo);
@@ -484,13 +520,20 @@ body.saindo .cortina {
   pointer-events: none;
 }
 
-.coluna-modulos .modulo:hover,
+.coluna-modulos .modulo:hover {
+  --dy: -10px;
+  --giro: 0deg;
+}
+
 .coluna-modulos .modulo:focus-visible {
   --dy: -10px;
   --giro: 0deg;
 }
 
-.modulo:hover::before,
+.modulo:hover::before {
+  opacity: 1;
+}
+
 .modulo:focus-visible::before {
   opacity: 1;
 }
@@ -548,7 +591,10 @@ body.saindo .cortina {
   transition: transform var(--t8) var(--mov), opacity var(--t4) var(--mov);
 }
 
-.modulo:hover .folha,
+.modulo:hover .folha {
+  opacity: 1;
+}
+
 .modulo:focus-visible .folha {
   opacity: 1;
 }
@@ -586,32 +632,50 @@ body.saindo .cortina {
 .pasta-frente i:nth-child(1) { width: 42px; }
 .pasta-frente i:nth-child(2) { width: 26px; }
 
-.modulo:hover .pasta-frente,
+.modulo:hover .pasta-frente {
+  transform: perspective(420px) rotateX(-34deg);
+}
+
 .modulo:focus-visible .pasta-frente {
   transform: perspective(420px) rotateX(-34deg);
 }
 
-.modulo:hover .pasta-aba,
+.modulo:hover .pasta-aba {
+  transform: translateY(-3px);
+}
+
 .modulo:focus-visible .pasta-aba {
   transform: translateY(-3px);
 }
 
-.modulo:hover .folha-1,
+.modulo:hover .folha-1 {
+  transform: translate(-30px, -20px) rotate(-15deg);
+}
+
 .modulo:focus-visible .folha-1 {
   transform: translate(-30px, -20px) rotate(-15deg);
 }
 
-.modulo:hover .folha-2,
+.modulo:hover .folha-2 {
+  transform: translateY(-28px) scale(1);
+}
+
 .modulo:focus-visible .folha-2 {
   transform: translateY(-28px) scale(1);
 }
 
-.modulo:hover .folha-3,
+.modulo:hover .folha-3 {
+  transform: translate(30px, -20px) rotate(15deg);
+}
+
 .modulo:focus-visible .folha-3 {
   transform: translate(30px, -20px) rotate(15deg);
 }
 
-.modulo:hover .pasta,
+.modulo:hover .pasta {
+  transform: translateY(-2px);
+}
+
 .modulo:focus-visible .pasta {
   transform: translateY(-2px);
 }
@@ -694,12 +758,18 @@ body.saindo .cortina {
     opacity: 0;
   }
 
-  .modulo:hover .modulo-gaveta,
+  .modulo:hover .modulo-gaveta {
+    grid-template-rows: 1fr;
+  }
+
   .modulo:focus-visible .modulo-gaveta {
     grid-template-rows: 1fr;
   }
 
-  .modulo:hover .modulo-gaveta > div,
+  .modulo:hover .modulo-gaveta > div {
+    opacity: 1;
+  }
+
   .modulo:focus-visible .modulo-gaveta > div {
     opacity: 1;
   }
@@ -740,12 +810,17 @@ body.saindo .cortina {
       rotate(var(--giro));
   }
 
-  .coluna-modulos .modulo:hover,
+  .coluna-modulos .modulo:hover {
+    --lift: -10px;
+  }
+
   .coluna-modulos .modulo:focus-visible {
     --lift: -10px;
   }
 
-  /* elipse de raio 31vw por 56vh nos angulos 30, 0 e -30 de cada lado */
+  /* elipse de raio 31vw por 56vh nos angulos 30 { --x: -26.8vw; --y: -28vh; }
+
+  0 e -30 de cada lado */
 
   .coluna-modulos:first-of-type .modulo:nth-child(1) { --x: -26.8vw; --y: -28vh; }
   .coluna-modulos:first-of-type .modulo:nth-child(2) { --x: -31vw;   --y: 0vh; }
@@ -1255,7 +1330,11 @@ a.numero:hover {
   color: var(--texto-3);
 }
 
-.nivel[data-nivel="1"] .nivel-barras i:nth-child(-n+1),
+.nivel[data-nivel="1"] .nivel-barras i:nth-child(-n+1) {
+  background: var(--acento);
+  box-shadow: 0 0 8px var(--acento-40);
+}
+
 .nivel[data-nivel="2"] .nivel-barras i:nth-child(-n+2) {
   background: var(--acento);
   box-shadow: 0 0 8px var(--acento-40);
@@ -1489,7 +1568,18 @@ a.numero:hover {
   color: var(--texto-3);
 }
 
-.campo input,
+.campo input {
+  width: 100%;
+  padding: 14px 16px;
+  font: inherit;
+  font-size: .95rem;
+  color: var(--texto);
+  background: #FFFFFF;
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  transition: border-color var(--t2) var(--mov), background var(--t2) var(--mov);
+}
+
 .campo textarea {
   width: 100%;
   padding: 14px 16px;
@@ -1507,12 +1597,20 @@ a.numero:hover {
   min-height: 150px;
 }
 
-.campo input::placeholder,
+.campo input::placeholder {
+  color: var(--texto-3);
+}
+
 .campo textarea::placeholder {
   color: var(--texto-3);
 }
 
-.campo input:focus,
+.campo input:focus {
+  outline: none;
+  border-color: var(--acento);
+  background: rgba(175, 201, 79, .10);
+}
+
 .campo textarea:focus {
   outline: none;
   border-color: var(--acento);
@@ -1524,7 +1622,10 @@ a.numero:hover {
   color: var(--vermelho);
 }
 
-.campo-com-erro input,
+.campo-com-erro input {
+  border-color: var(--vermelho);
+}
+
 .campo-com-erro textarea {
   border-color: var(--vermelho);
 }
@@ -1815,8 +1916,14 @@ a.numero:hover {
 }
 
 @media (max-width: 860px) {
-  .grade-cartoes,
-  .formulario,
+  .grade-cartoes {
+    grid-template-columns: 1fr;
+  }
+
+  .formulario {
+    grid-template-columns: 1fr;
+  }
+
   .projeto-linha {
     grid-template-columns: 1fr;
   }
@@ -1829,7 +1936,11 @@ a.numero:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .secao-cabeca,
+  .secao-cabeca {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
   .processo-item {
     grid-template-columns: 1fr;
     gap: 12px;
@@ -1887,8 +1998,18 @@ a.numero:hover {
     scroll-behavior: auto;
   }
 
-  *,
-  *::before,
+  * {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  *::before {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
   *::after {
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
@@ -1903,7 +2024,10 @@ a.numero:hover {
     opacity: 1 !important;
   }
 
-  .cortina,
+  .cortina {
+    display: none;
+  }
+
   .abertura {
     display: none;
   }

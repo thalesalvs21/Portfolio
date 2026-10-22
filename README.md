@@ -47,7 +47,7 @@ Os links de navegação ficam escritos no HTML de cada página, então mudar um 
 - **Páginas internas em seções numeradas.** Cada seção abre com o número, o título e um parágrafo, separada por um fio, e o conteúdo vem numa grade de dois cartões.
 - **Cartões de prosa.** Em vez de listas soltas, cada competência e cada curso é um cartão com ícone, nome, legenda e um parágrafo explicando.
 - **Prévias dos projetos em CSS.** Os mockups de janela e o bloco de código são desenhados com CSS, sem nenhuma imagem.
-- **Tela de abertura em toda página**, mostrando o nome da seção que está abrindo. O esqueleto dela mora num `<style>` no topo do `<head>` de cada arquivo, antes das fontes — um stylesheet pendente trava o script seguinte e a tela chegaria atrasada. Tem um timer de 4 segundos que mostra o site de qualquer jeito se algo falhar.
+- **Tela de abertura em toda página**, mostrando o nome da seção que está abrindo. O script que a liga fica no topo do `<head>`, antes do link das fontes — um stylesheet pendente trava o script seguinte e a tela chegaria atrasada. Tem um timer de 4 segundos que mostra o site de qualquer jeito se algo falhar.
 - **Transição entre páginas em dois tempos.** A entrada é uma animação CSS de 0.3s (funciona sem JavaScript); a saída acende a cortina em 0.18s antes de trocar de página.
 - **Um easing só.** Todo movimento do site usa `cubic-bezier(.16, 1, .3, 1)`, o que dá a mesma sensação em qualquer interação.
 - **Nada de animação de entrada no scroll.** O conteúdo já está lá quando a página abre.

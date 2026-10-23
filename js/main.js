@@ -136,28 +136,58 @@ if (formulario) {
 }
 
 
-/* se a api falhar fica o valor que ja esta escrito no html */
+/* o endpoint /api/numeros conta repositorio privado; sem ele fica o numero publico */
 const campoRepos = document.getElementById('repos-github');
 const campoCommits = document.getElementById('commits-github');
 
-if (campoRepos) {
-  fetch('https://api.github.com/users/thalesalvs21')
-    .then(function (resposta) {
-      return resposta.json();
-    })
-    .then(function (dados) {
-      campoRepos.textContent = dados.public_repos;
-    })
-    .catch(function () {});
+function escreverNumero(campo, valor) {
+  if (campo && typeof valor === 'number') {
+    campo.textContent = valor;
+  }
 }
 
-if (campoCommits) {
-  fetch('https://api.github.com/search/commits?q=author:thalesalvs21&per_page=1')
+function usarRotuloCompleto() {
+  document.querySelectorAll('.numero-rotulo[data-completo]').forEach(function (rotulo) {
+    rotulo.textContent = rotulo.dataset.completo;
+  });
+}
+
+function buscarPublicos() {
+  if (campoRepos) {
+    fetch('https://api.github.com/users/thalesalvs21')
+      .then(function (resposta) {
+        return resposta.json();
+      })
+      .then(function (dados) {
+        escreverNumero(campoRepos, dados.public_repos);
+      })
+      .catch(function () {});
+  }
+
+  if (campoCommits) {
+    fetch('https://api.github.com/search/commits?q=author:thalesalvs21&per_page=1')
+      .then(function (resposta) {
+        return resposta.json();
+      })
+      .then(function (dados) {
+        escreverNumero(campoCommits, dados.total_count);
+      })
+      .catch(function () {});
+  }
+}
+
+if (campoRepos || campoCommits) {
+  fetch('/api/numeros')
     .then(function (resposta) {
+      if (!resposta.ok) {
+        throw new Error('endpoint indisponivel');
+      }
       return resposta.json();
     })
     .then(function (dados) {
-      campoCommits.textContent = dados.total_count;
+      escreverNumero(campoRepos, dados.repos);
+      escreverNumero(campoCommits, dados.commits);
+      usarRotuloCompleto();
     })
-    .catch(function () {});
+    .catch(buscarPublicos);
 }

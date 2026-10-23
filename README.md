@@ -24,7 +24,13 @@ O currículo em PDF fica em `assets/cv-thales-alves.pdf`.
 - CSS
 - JavaScript
 
-Nenhuma biblioteca externa. As únicas requisições para fora são as fontes no Google Fonts e a API pública do GitHub, que preenche o número de repositórios e de commits na página Sobre.
+Nenhuma biblioteca externa. As únicas requisições para fora são as fontes no Google Fonts e o GitHub, que preenche o número de repositórios e de commits na página Sobre.
+
+## Contador do GitHub
+
+A página Sobre já vem com os números públicos escritos no HTML, então ela está certa mesmo sem JavaScript. Com o JavaScript, o site tenta `/api/numeros` e, se o endpoint responder, troca pelos números que incluem repositório privado. Se não responder, cai na API pública do GitHub, que só conhece a branch principal dos repositórios públicos.
+
+O endpoint é uma Pages Function da Cloudflare (`functions/api/numeros.js`), que roda no mesmo domínio do site. Ela consulta a GraphQL do GitHub com um token guardado como variável de ambiente `GITHUB_TOKEN`, marcada como secret no painel da Cloudflare. O token fica só no servidor: não vai para o navegador em nenhum momento. A resposta é cacheada por uma hora.
 
 ## Estrutura
 
@@ -33,6 +39,7 @@ index.html        # bancada: a capa do site
 pages/            # uma página por seção
 css/style.css     # tokens de cor, tipografia e todos os componentes
 js/main.js        # abertura, transição de página e formulário
+functions/api/    # endpoint do contador, com o token fora do navegador
 assets/           # currículo em PDF
 ```
 

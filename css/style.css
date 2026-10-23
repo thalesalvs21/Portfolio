@@ -1387,6 +1387,14 @@ a.numero:hover {
   order: 2;
 }
 
+.projeto-previa {
+  min-width: 0;
+}
+
+.projeto-copo {
+  min-width: 0;
+}
+
 .projeto-copo h3 {
   margin-top: 10px;
   font-size: clamp(1.5rem, 2.6vw, 2rem);
@@ -1429,6 +1437,8 @@ a.numero:hover {
 .previa {
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
   aspect-ratio: 16 / 11;
   border: 1px solid var(--borda);
   border-radius: 20px;
@@ -1467,8 +1477,10 @@ a.numero:hover {
 }
 
 .previa-corpo {
+  flex: 1;
   display: grid;
   gap: 10px;
+  align-content: start;
   padding: 18px;
 }
 
@@ -1508,6 +1520,8 @@ a.numero:hover {
 }
 
 .previa-codigo {
+  flex: 1;
+  margin: 0;
   background: #1C1C1E;
   color: #E7E6EC;
   padding: 16px 18px;
@@ -1901,21 +1915,19 @@ a.numero:hover {
 
 @media (max-width: 1099px) {
   .bancada {
-    grid-template-columns: 1fr;
-    gap: 36px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 34px 14px;
     padding-bottom: 56px;
   }
 
   .nucleo {
     order: -1;
+    grid-column: 1 / -1;
   }
 
+  /* as duas colunas somem para as seis pastas caberem numa grade so */
   .coluna-modulos {
-    height: auto;
-    max-height: none;
-    grid-template-columns: 1fr 1fr;
-    grid-auto-rows: auto;
-    gap: 14px;
+    display: contents;
   }
 
   .projeto-grande {
@@ -1956,7 +1968,7 @@ a.numero:hover {
 }
 
 @media (max-width: 620px) {
-  .coluna-modulos {
+  .bancada {
     grid-template-columns: 1fr;
   }
 
@@ -2047,7 +2059,8 @@ a.numero:hover {
   grid-template-columns: 220px minmax(0, 1fr);
   gap: clamp(28px, 5vw, 86px);
   align-items: start;
-  padding: clamp(40px, 7vh, 76px) 0 clamp(60px, 10vh, 120px);
+  padding-top: clamp(40px, 7vh, 76px);
+  padding-bottom: clamp(60px, 10vh, 120px);
 }
 
 .indice {
@@ -2188,20 +2201,86 @@ a.numero:hover {
 @media (max-width: 920px) {
   .folha-pagina {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 26px;
   }
 
   .indice {
     position: static;
-  }
-
-  .indice a:not(.indice-voltar) {
-    display: none;
+    display: block;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--fio);
   }
 
   .indice-voltar {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: 0;
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+  }
+
+  .indice-rotulo {
+    margin-bottom: 4px;
+  }
+
+  /* o menu deita: vira uma linha de links que quebra sozinha */
+  .indice a:not(.indice-voltar) {
+    display: inline-block;
+    padding: 9px 0;
+    margin-right: 20px;
+  }
+
+  .indice a:not(.indice-voltar):hover {
+    padding-left: 0;
+  }
+
+  .indice a[aria-current="page"] {
+    padding-left: 0;
+  }
+}
+
+
+/* rotulos abaixo de 12px ficam ilegiveis em tela pequena */
+@media (max-width: 900px) {
+  .nav-pagina span {
+    font-size: .78rem;
+  }
+
+  .nivel-texto {
+    font-size: .78rem;
+  }
+
+  .canal-tipo {
+    font-size: .78rem;
+  }
+
+  .nucleo-rodape {
+    font-size: .78rem;
+  }
+
+  .etiqueta {
+    font-size: .8rem;
+  }
+
+  .campo label {
+    font-size: .8rem;
+  }
+
+  .projeto-stack li {
+    font-size: .8rem;
+  }
+
+  .modulo-abrir {
+    font-size: .8rem;
+  }
+
+  .rodape-conteudo {
+    font-size: .8rem;
+  }
+
+  .cartao-titulo small {
+    font-size: .82rem;
+  }
+
+  .selo {
+    padding: 9px 14px;
+    font-size: .78rem;
   }
 }

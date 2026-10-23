@@ -1245,37 +1245,41 @@ body.saindo .cortina {
 
 .numeros {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
+  max-width: 720px;
+  margin-top: 26px;
 }
 
 .numero {
   display: grid;
-  gap: 4px;
-  padding: 22px;
+  gap: 6px;
+  padding: 24px;
   background: var(--vidro);
   border: 1px solid var(--borda);
-  border-radius: 22px;
-  box-shadow: var(--luz-interna);
-  transition: border-color var(--t4) var(--mov), background var(--t4) var(--mov), transform var(--t4) var(--mov);
+  border-radius: 14px;
+  box-shadow: var(--sombra);
+  transition: background var(--t4) var(--mov), transform var(--t4) var(--mov), box-shadow var(--t4) var(--mov);
 }
 
 a.numero:hover {
-  border-color: var(--borda-forte);
   background: var(--vidro-forte);
   transform: translateY(-2px);
+  box-shadow: var(--sombra-alta);
 }
 
 .numero-valor {
-  font-size: 2.2rem;
-  font-weight: 600;
-  letter-spacing: -.04em;
-  line-height: 1.1;
+  font-family: var(--fonte-display);
+  font-size: 2.6rem;
+  font-weight: 500;
+  letter-spacing: -.035em;
+  line-height: 1;
   color: var(--texto);
+  font-variant-numeric: tabular-nums;
 }
 
 .numero-rotulo {
-  font-size: .82rem;
+  font-size: .9rem;
   line-height: 1.4;
   color: var(--texto-3);
 }

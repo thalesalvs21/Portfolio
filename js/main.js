@@ -142,18 +142,22 @@ const campoCommits = document.getElementById('commits-github');
 
 if (campoRepos) {
   fetch('https://api.github.com/users/thalesalvs21')
-    .then(resposta => resposta.json())
-    .then(dados => {
+    .then(function (resposta) {
+      return resposta.json();
+    })
+    .then(function (dados) {
       campoRepos.textContent = dados.public_repos;
     })
-    .catch(() => {});
+    .catch(function () {});
 }
 
 if (campoCommits) {
   fetch('https://api.github.com/search/commits?q=author:thalesalvs21&per_page=1')
-    .then(resposta => resposta.json())
-    .then(dados => {
+    .then(function (resposta) {
+      return resposta.json();
+    })
+    .then(function (dados) {
       campoCommits.textContent = dados.total_count;
     })
-    .catch(() => {});
+    .catch(function () {});
 }

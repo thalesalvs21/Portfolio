@@ -17,6 +17,11 @@ async function consultar(query, variables) {
   });
 
   const json = await resposta.json();
+  
+  // se o github recusar o pedido (ex: token errado ou faltando), mostra o motivo
+  if (!resposta.ok) {
+    throw new Error(`erro ${resposta.status}: ${JSON.stringify(json)}`);
+  }
 
   // se a api devolver erro, para o script e mostra o motivo
   if (json.errors) {

@@ -163,20 +163,9 @@ function buscarPublicos() {
       })
       .catch(function () {});
   }
-
-  if (campoCommits) {
-    fetch('https://api.github.com/search/commits?q=author:thalesalvs21&per_page=1')
-      .then(function (resposta) {
-        return resposta.json();
-      })
-      .then(function (dados) {
-        escreverNumero(campoCommits, dados.total_count);
-      })
-      .catch(function () {});
-  }
 }
 
-if (campoRepos || campoCommits) {
+if (campoRepos) {
   fetch('/api/numeros')
     .then(function (resposta) {
       if (!resposta.ok) {
@@ -186,8 +175,19 @@ if (campoRepos || campoCommits) {
     })
     .then(function (dados) {
       escreverNumero(campoRepos, dados.repos);
-      escreverNumero(campoCommits, dados.commits);
       usarRotuloCompleto();
     })
     .catch(buscarPublicos);
+}
+
+// le o total de contribuicoes que o github actions atualiza todo dia
+if (campoCommits) {
+  fetch('/contribuicoes.json')
+    .then(function (resposta) {
+      return resposta.json();
+    })
+    .then(function (dados) {
+      escreverNumero(campoCommits, dados.total);
+    })
+    .catch(function () {});
 }

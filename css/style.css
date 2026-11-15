@@ -1526,7 +1526,6 @@ a.numero:hover {
 .previa-codigo {
   flex: 1;
   margin: 0;
-  background: #1C1C1E;
   color: #E7E6EC;
   padding: 16px 18px;
   font-family: var(--fonte-mono);

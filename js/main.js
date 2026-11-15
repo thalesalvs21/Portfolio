@@ -182,7 +182,7 @@ if (campoRepos) {
 
 // le o total de contribuicoes que o github actions atualiza todo dia
 if (campoCommits) {
-  fetch('/contribuicoes.json')
+  fetch('/api/contribuicoes')
     .then(function (resposta) {
       return resposta.json();
     })

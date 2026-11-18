@@ -1,212 +1,263 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thales Alves — Desenvolvedor em formação</title>
-
-<meta name="description" content="Portfólio de Thales Alves — 3º ano de Técnico em Informática e estagiário de TI. Projetos em Python, Flask, Java, C#, HTML e CSS.">
+<title>Thales Alves</title>
+<meta name="description" content="Thales Alves, estagiário de TI e desenvolvedor em formação em Belo Horizonte. Experiência, projetos e contato.">
 <meta name="author" content="Thales Alves">
-<meta name="theme-color" content="#1A1816">
-
 <meta property="og:type" content="website">
-<meta property="og:title" content="Thales Alves — Desenvolvedor em formação">
-<meta property="og:description" content="Técnico em Informática em formação e estagiário de TI. Projetos em Python, Flask, Java, C#, HTML e CSS.">
-
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231A1816'/><text x='50' y='71' font-size='58' font-family='monospace' font-weight='bold' fill='%23E0995A' text-anchor='middle'>T</text></svg>">
-
+<meta property="og:title" content="Thales Alves">
+<meta property="og:description" content="Estagiário de TI e desenvolvedor em formação em Belo Horizonte.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231d6a51'/><text x='50' y='71' font-size='60' font-family='Arial,sans-serif' font-weight='bold' fill='%23f3f4f2' text-anchor='middle'>T</text></svg>">
+<script>
+  (function () {
+    var salvo = null;
+    try { salvo = localStorage.getItem('tema'); } catch (e) {}
+    var sistema = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'escuro' : 'claro';
+    document.documentElement.dataset.tema = salvo === 'claro' || salvo === 'escuro' ? salvo : sistema;
+  })();
+</script>
+<meta name="theme-color" content="#f3f4f2">
+<!-- o tema é decidido antes de pintar a página, para não piscar -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
+<body>
 
-<body data-pagina="inicio">
-
-<div class="abertura" aria-hidden="true">
-  <p class="abertura-marca">
-    <span class="abertura-sinal">&lt;/&gt;</span>
-    <span>thales<span class="destaque">.dev</span></span>
-  </p>
-  <span class="abertura-barra"><i></i></span>
-</div>
-
-<div class="placa" aria-hidden="true"></div>
-<div class="cortina" aria-hidden="true"></div>
-
-<a class="link-pular" href="#bancada">Pular para o conteúdo</a>
-
-
-<header class="cromo">
-  <a href="index.html" class="marca" aria-current="page">
-    <span class="marca-simbolo" aria-hidden="true">&lt;/&gt;</span>
-    <span>thales<span class="destaque">.dev</span></span>
-  </a>
-
+<header class="topo" id="topo">
+  <div class="largo">
+    <a class="marca" href="#">Thales Alves</a>
+    <nav class="menu" aria-label="Seções">
+      <a href="#sobre">Sobre</a>
+      <a href="#experiencia">Experiência</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#competencias">Competências</a>
+      <a href="#formacao">Formação</a>
+      <a href="#contato">Contato</a>
+      <span class="menu-indicador" aria-hidden="true"></span>
+    </nav>
+    <button class="botao-tema" type="button" id="botao-tema" aria-label="Ativar tema escuro">
+      <svg class="icone-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg>
+      <svg class="icone-lua" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+    </button>
+  </div>
 </header>
 
-
-<main class="bancada" id="bancada">
-
-  <div class="coluna-modulos">
-
-    <a class="modulo" href="pages/sobre.html">
-      <span class="pasta" aria-hidden="true">
-        <span class="pasta-aba"></span>
-        <span class="pasta-tras"></span>
-        <span class="folha folha-1"></span>
-        <span class="folha folha-2"></span>
-        <span class="folha folha-3"></span>
-        <span class="pasta-frente"><i></i><i></i></span>
-      </span>
-      <span class="modulo-titulo">Sobre mim</span>
-      <span class="modulo-gaveta">
-        <div>
-          <span class="modulo-desc">Quem eu sou, onde estudo e o que faço no estágio.</span>
-          <span class="modulo-abrir">Ver Sobre mim <span aria-hidden="true">→</span></span>
-        </div>
-      </span>
-    </a>
-
-    <a class="modulo" href="pages/experiencia.html">
-      <span class="pasta" aria-hidden="true">
-        <span class="pasta-aba"></span>
-        <span class="pasta-tras"></span>
-        <span class="folha folha-1"></span>
-        <span class="folha folha-2"></span>
-        <span class="folha folha-3"></span>
-        <span class="pasta-frente"><i></i><i></i></span>
-      </span>
-      <span class="modulo-titulo">Experiência</span>
-      <span class="modulo-gaveta">
-        <div>
-          <span class="modulo-desc">Onde eu trabalho hoje e o que faço na bancada.</span>
-          <span class="modulo-abrir">Ver Experiência <span aria-hidden="true">→</span></span>
-        </div>
-      </span>
-    </a>
-
-    <a class="modulo" href="pages/competencias.html">
-      <span class="pasta" aria-hidden="true">
-        <span class="pasta-aba"></span>
-        <span class="pasta-tras"></span>
-        <span class="folha folha-1"></span>
-        <span class="folha folha-2"></span>
-        <span class="folha folha-3"></span>
-        <span class="pasta-frente"><i></i><i></i></span>
-      </span>
-      <span class="modulo-titulo">Competências</span>
-      <span class="modulo-gaveta">
-        <div>
-          <span class="modulo-desc">O que eu sei e em que nível, por área.</span>
-          <span class="modulo-abrir">Ver Competências <span aria-hidden="true">→</span></span>
-        </div>
-      </span>
-    </a>
-
-  </div>
-
-
-  <div class="nucleo">
-
-    <h1 class="nucleo-nome">Thales Alves</h1>
-
-    <p class="nucleo-cargo">Estagiário de TI &middot; Desenvolvedor em formação</p>
-
-    <p class="nucleo-texto">
-      Estou no 3º ano do <strong>Técnico em Informática no Cotemig</strong> e trabalho como estagiário de <strong>TI</strong> em uma empresa 
-      fornecedora de pedras para joalheria, onde montei e administro o <strong>servidor Linux</strong> que hospeda o e-commerce
-      No código eu foco em <span class="tec">Python</span>, <span class="tec">Flask</span>,
-      <span class="tec">Java</span>, <span class="tec">JavaFX</span>, <span class="tec">C#</span>,
-      <span class="tec">SQL</span>, <span class="tec">HTML</span>, <span class="tec">CSS</span> e <span class="tec">JavaScript</span>.
-    </p>
-
-    <div class="barra-redes">
-      <a class="rede" href="https://github.com/thalesalvs21" target="_blank" rel="noopener" aria-label="GitHub">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.1.82-.26.82-.58v-2.2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.1-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.13-.3-.54-1.53.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.23 0 4.63-2.8 5.65-5.48 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"/></svg>
-        <span class="rede-dica">GitHub</span>
-      </a>
-      <a class="rede" href="mailto:thalesalvs21@gmail.com" aria-label="E-mail">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="3"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
-        <span class="rede-dica">E-mail</span>
-      </a>
-      <a class="rede" href="tel:+5531991599422" aria-label="Telefone">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 5.5 5.5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3Z"/></svg>
-        <span class="rede-dica">Telefone</span>
-      </a>
-      <a class="rede" href="assets/cv-thales-alves.pdf" target="_blank" rel="noopener" aria-label="Currículo em PDF">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
-        <span class="rede-dica">Currículo</span>
-      </a>
-      <a class="botao botao-acento" href="pages/contato.html">Vamos conversar <span aria-hidden="true">→</span></a>
+<main>
+  <section class="abertura">
+    <div class="largo">
+      <h1>Thales Alves</h1>
+      <p class="cargo">Estagiário de TI e desenvolvedor em formação em Belo Horizonte.</p>
+      <p class="apresentacao">Estou no último ano do técnico em informática no Cotemig. No estágio, cuido do e-commerce de uma fornecedora de pedras para joalheria: mexo no código da loja e no servidor onde ela roda. Estou procurando estágio em desenvolvimento.</p>
+      <p class="atalhos">
+        <a href="mailto:thalesalvs21@gmail.com" aria-label="E-mail" title="thalesalvs21@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg>
+        </a>
+        <a href="https://github.com/thalesalvs21" aria-label="GitHub" title="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.1.82-.26.82-.58v-2.2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.1-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.13-.3-.54-1.53.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.23 0 4.63-2.8 5.65-5.48 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"/></svg>
+        </a>
+        <a href="tel:+5531991599422" aria-label="Telefone" title="(31) 99159-9422">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 5.5 5.5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3Z"/></svg>
+        </a>
+        <a href="assets/cv-thales-alves.pdf" aria-label="Currículo em PDF" title="Currículo em PDF">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
+        </a>
+      </p>
     </div>
+  </section>
 
-    <p class="nucleo-rodape">© <span id="ano">2026</span> Thales Alves · Belo Horizonte, MG</p>
-  </div>
+  <section class="trajetoria" aria-label="Trajetória">
+    <div class="largo">
+      <ol class="linha-do-tempo">
+        <li class="marco"><time>2024</time><p>Entro no técnico em informática do Cotemig</p></li>
+        <li class="marco"><time>2025</time><p>Começo a montar computadores e a estudar design gráfico</p></li>
+        <li class="marco"><time>mai 2026</time><p>Estágio de suporte técnico na HeartWare</p></li>
+        <li class="marco"><time>out 2026</time><p>Estágio de TI na Romulo Moissanite</p></li>
+        <li class="marco futuro"><time>dez 2026</time><p>Formatura no Cotemig</p></li>
+      </ol>
+    </div>
+  </section>
 
+  <section class="secao" id="sobre">
+    <div class="largo"><div class="coluna">
+      <h2>Sobre</h2>
+      <p>Comecei montando e consertando computador, passei pelo suporte técnico e hoje divido o tempo entre código e infraestrutura. Uso IA como ferramenta para entregar mais rápido.</p>
+      <p>No estágio atual, montei o servidor da empresa reaproveitando um computador que estava parado e migrei a loja para ele, com deploy automático a cada commit. No suporte, aprendi a perguntar antes de mexer: metade dos chamados que chegam como “o programa travou” é outra coisa.</p>
+      <p>No código, estudo principalmente Python com Flask. Também já fiz projetos em Java e C#, e no estágio uso Next.js com Supabase. Faço o curso técnico de design gráfico na Escola Zion desde 2025, e ele me ajuda bastante na hora de montar uma tela.</p>
+      <p>Tenho <span data-numero="repos">22</span> <span data-rotulo-repos>repositórios públicos</span> e <span data-numero="contribuicoes">267</span> contribuições no <a href="https://github.com/thalesalvs21">GitHub</a>.</p>
+    </div></div>
+  </section>
 
-  <div class="coluna-modulos">
-
-    <a class="modulo" href="pages/projetos.html">
-      <span class="pasta" aria-hidden="true">
-        <span class="pasta-aba"></span>
-        <span class="pasta-tras"></span>
-        <span class="folha folha-1"></span>
-        <span class="folha folha-2"></span>
-        <span class="folha folha-3"></span>
-        <span class="pasta-frente"><i></i><i></i></span>
-      </span>
-      <span class="modulo-titulo">Projetos</span>
-      <span class="modulo-gaveta">
+  <section class="secao" id="experiencia">
+    <div class="largo"><div class="coluna">
+      <h2>Experiência</h2>
+      <article class="item">
+        <p class="quando">out 2026 até hoje</p>
         <div>
-          <span class="modulo-desc">Cinco projetos, do CRUD em C# à API em Flask.</span>
-          <span class="modulo-abrir">Ver Projetos <span aria-hidden="true">→</span></span>
+          <h3>Estagiário de TI</h3>
+          <p class="onde">Romulo Moissanite, fornecedora de pedras para joalheria</p>
+          <ul>
+            <li>Desenvolvo melhorias no e-commerce, feito em Next.js e Supabase.</li>
+            <li>Estou construindo o novo site da empresa.</li>
+            <li>Montei o servidor da empresa em Ubuntu Server, num computador que estava parado.</li>
+            <li>Migrei a loja de uma VPS instável para esse servidor, com Cloudflare Tunnel e HTTPS.</li>
+            <li>Cuido do deploy automático com GitHub Actions e da segurança do servidor (SSH por chave e firewall).</li>
+          </ul>
         </div>
-      </span>
-    </a>
-
-    <a class="modulo" href="pages/formacao.html">
-      <span class="pasta" aria-hidden="true">
-        <span class="pasta-aba"></span>
-        <span class="pasta-tras"></span>
-        <span class="folha folha-1"></span>
-        <span class="folha folha-2"></span>
-        <span class="folha folha-3"></span>
-        <span class="pasta-frente"><i></i><i></i></span>
-      </span>
-      <span class="modulo-titulo">Formação</span>
-      <span class="modulo-gaveta">
+      </article>
+      <article class="item">
+        <p class="quando">mai a out 2026</p>
         <div>
-          <span class="modulo-desc">Curso técnico, design gráfico e certificações.</span>
-          <span class="modulo-abrir">Ver Formação <span aria-hidden="true">→</span></span>
+          <h3>Estagiário de suporte técnico</h3>
+          <p class="onde">HW Sistemas HeartWare, sistemas para cardiologia</p>
+          <ul>
+            <li>Atendia clínicas e hospitais que usam o ECG V6, o Ergo 13 e o ErgoMET, por telefone e acesso remoto.</li>
+            <li>Instalava, configurava e atualizava os sistemas nos computadores dos clientes.</li>
+          </ul>
         </div>
-      </span>
-    </a>
-
-    <a class="modulo" href="pages/contato.html">
-      <span class="pasta" aria-hidden="true">
-        <span class="pasta-aba"></span>
-        <span class="pasta-tras"></span>
-        <span class="folha folha-1"></span>
-        <span class="folha folha-2"></span>
-        <span class="folha folha-3"></span>
-        <span class="pasta-frente"><i></i><i></i></span>
-      </span>
-      <span class="modulo-titulo">Contato</span>
-      <span class="modulo-gaveta">
+      </article>
+      <article class="item">
+        <p class="quando">2025 até hoje</p>
         <div>
-          <span class="modulo-desc">E-mail, telefone, redes e formulário.</span>
-          <span class="modulo-abrir">Entrar em Contato <span aria-hidden="true">→</span></span>
+          <h3>Montagem e manutenção de computadores</h3>
+          <p class="onde">Por conta própria</p>
+          <ul>
+            <li>Escolho as peças de acordo com o orçamento e o uso, monto e instalo sistema e drivers.</li>
+            <li>Faço diagnóstico e troca de peças com defeito.</li>
+          </ul>
         </div>
-      </span>
-    </a>
+      </article>
+    </div></div>
+  </section>
 
-  </div>
+  <section class="secao" id="projetos">
+    <div class="largo"><div class="coluna">
+      <h2>Projetos</h2>
+      <article class="item">
+        <p class="quando">Java</p>
+        <div>
+          <h3>HW Atendimento</h3>
+          <p class="desc">Sistema desktop que fiz para registrar os atendimentos do meu estágio no suporte. Tem cadastro de cliente e equipamento, controle de início e término do atendimento e pesquisa. O acesso ao banco fica separado das telas.</p>
+          <p class="tec">Java 17, JavaFX, MySQL e JDBC</p>
+          <p class="links"><a href="https://github.com/thalesalvs21/hw-atendimento">Código</a></p>
+        </div>
+      </article>
+      <article class="item">
+        <p class="quando">Python</p>
+        <div>
+          <h3>API de gestão escolar</h3>
+          <p class="desc">API REST com cadastro de alunos, ativação e desativação de registros e um endpoint de estatísticas. O código é dividido em rotas, controllers, repositories e models, e a API devolve o status HTTP certo quando recebe dados errados.</p>
+          <p class="tec">Python, Flask e SQLAlchemy</p>
+          <p class="links"><a href="https://github.com/thalesalvs21/mvc">Código</a></p>
+        </div>
+      </article>
+      <article class="item">
+        <p class="quando">C#</p>
+        <div>
+          <h3>Sistema de varejo</h3>
+          <p class="desc">Cadastro de clientes e fornecedores com Windows Forms, com as consultas SQL escritas à mão.</p>
+          <p class="tec">C#, Windows Forms e MySQL</p>
+          <p class="links"><a href="https://github.com/thalesalvs21/ProjetoCrud">Código</a></p>
+        </div>
+      </article>
+      <article class="item">
+        <p class="quando">HTML e CSS</p>
+        <div>
+          <h3>CoreTech e Bitmap</h3>
+          <p class="desc">Dois sites de estudo: uma loja de hardware e um blog de fotografia feito só com Flexbox.</p>
+          <p class="links">
+            <a href="https://thalesalvs21.github.io/Site-Hardware/">CoreTech</a>
+            <a href="https://thalesalvs21.github.io/Site-Flex/">Bitmap</a>
+            <a href="https://github.com/thalesalvs21?tab=repositories">Código dos dois</a>
+          </p>
+        </div>
+      </article>
+    </div></div>
+  </section>
 
+  <section class="secao" id="competencias">
+    <div class="largo"><div class="coluna">
+      <h2>Competências</h2>
+      <div class="niveis">
+        <div>
+          <h3>O que eu faço com segurança</h3>
+          <p>Montagem e manutenção de computadores, atendimento a usuários e Windows.</p>
+        </div>
+        <div>
+          <h3>O que eu uso com frequência</h3>
+          <p>HTML e CSS, Git e GitHub, particionamento de disco, edição de imagem, Photoshop, Premiere, After Effects e Pacote Office.</p>
+        </div>
+        <div>
+          <h3>O que eu estou aprendendo</h3>
+          <p>Python e Flask, Java e JavaFX, C#, JavaScript, Next.js, Linux (Ubuntu Server), redes, MySQL, SQLite e modelagem de banco. Inglês em nível básico.</p>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="secao" id="formacao">
+    <div class="largo"><div class="coluna">
+      <h2>Formação</h2>
+      <article class="item">
+        <p class="quando">2024 a 2026</p>
+        <div>
+          <h3>Técnico em Informática</h3>
+          <p class="onde">Cotemig, unidade Floresta. Formatura em dezembro de 2026.</p>
+        </div>
+      </article>
+      <article class="item">
+        <p class="quando">desde 2025</p>
+        <div>
+          <h3>Técnico em Design Gráfico</h3>
+          <p class="onde">Escola Zion, em andamento</p>
+        </div>
+      </article>
+
+      <h3 class="subtitulo">Cursos e certificados</h3>
+      <article class="item">
+        <p class="quando">2026</p>
+        <div><h3>Introduction to Cybersecurity</h3><p class="onde">Cisco Networking Academy, <a href="https://www.credly.com/badges/c714fc73-1720-44e8-bdc9-ebdfdf791f5b/public_url">credencial</a></p></div>
+      </article>
+      <article class="item">
+        <p class="quando">2025</p>
+        <div><h3>Computer Hardware Basics</h3><p class="onde">Cisco Networking Academy, <a href="https://www.credly.com/badges/af88373e-a69d-4188-8acf-26df34a6a424/public_url">credencial</a></p></div>
+      </article>
+      <article class="item">
+        <p class="quando">2025</p>
+        <div><h3>Digital Awareness</h3><p class="onde">Cisco Networking Academy, <a href="https://www.credly.com/badges/ea5f8cdd-b855-40e3-86de-7fcb6d69c528/public_url">credencial</a></p></div>
+      </article>
+      <article class="item">
+        <p class="quando">2025</p>
+        <div><h3>Edição Profissional de Imagem e Code Club</h3></div>
+      </article>
+      <article class="item">
+        <p class="quando">2024</p>
+        <div><h3>Montagem e Configuração de Computadores e Robótica</h3></div>
+      </article>
+    </div></div>
+  </section>
+
+  <section class="secao" id="contato">
+    <div class="largo"><div class="coluna">
+      <h2>Contato</h2>
+      <p>Se tiver uma vaga de estágio ou quiser conversar, me mande um e-mail.</p>
+      <dl class="contato-lista">
+        <dt>E-mail</dt><dd><a href="mailto:thalesalvs21@gmail.com">thalesalvs21@gmail.com</a></dd>
+        <dt>Telefone</dt><dd><a href="tel:+5531991599422">(31) 99159-9422</a></dd>
+        <dt>GitHub</dt><dd><a href="https://github.com/thalesalvs21">github.com/thalesalvs21</a></dd>
+        <dt>Currículo</dt><dd><a href="assets/cv-thales-alves.pdf">cv-thales-alves.pdf</a></dd>
+      </dl>
+    </div></div>
+  </section>
 </main>
+
+<footer class="rodape">
+  <div class="largo">© 2026 Thales Alves</div>
+</footer>
 
 <script src="js/main.js"></script>
 </body>
-
 </html>

@@ -1,0 +1,12 @@
+/pages/sobre.html         /?secao=sobre         301
+/pages/sobre              /?secao=sobre         301
+/pages/experiencia.html   /?secao=experiencia   301
+/pages/experiencia        /?secao=experiencia   301
+/pages/competencias.html  /?secao=competencias  301
+/pages/competencias       /?secao=competencias  301
+/pages/projetos.html      /?secao=projetos      301
+/pages/projetos           /?secao=projetos      301
+/pages/formacao.html      /?secao=formacao      301
+/pages/formacao           /?secao=formacao      301
+/pages/contato.html       /?secao=contato       301
+/pages/contato            /?secao=contato       301

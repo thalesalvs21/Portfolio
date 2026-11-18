@@ -1,193 +1,165 @@
-const semAnimacao = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* ---------- menu acompanha a seção visível ---------- */
 
-document.querySelectorAll('#ano').forEach(function (campo) {
-  campo.textContent = new Date().getFullYear();
+const topo = document.getElementById('topo');
+const links = Array.from(document.querySelectorAll('.menu a'));
+const indicador = document.querySelector('.menu-indicador');
+const secoes = links.map(function (link) {
+  return document.querySelector(link.getAttribute('href'));
 });
 
+function marcar(link) {
+  links.forEach(function (l) {
+    l.classList.toggle('ativo', l === link);
+  });
 
-/* a cortina leva 0.18s; os 220ms dao a folga antes de trocar */
-const esperaDaCortina = 220;
+  if (!link) {
+    indicador.style.opacity = 0;
+    return;
+  }
 
-function ehLinkDeOutraPagina(link) {
-  if (link.target === '_blank' || link.hasAttribute('download')) return false;
-
-  const destino = new URL(link.href, window.location.href);
-
-  if (destino.origin !== window.location.origin) return false;
-  if (destino.pathname === window.location.pathname) return false;
-
-  return /\.html?$|\/$/.test(destino.pathname);
+  indicador.style.opacity = 1;
+  indicador.style.width = link.offsetWidth + 'px';
+  indicador.style.transform = 'translateX(' + link.offsetLeft + 'px)';
 }
 
-document.addEventListener('click', function (evento) {
-  if (semAnimacao) return;
-  /* ctrl, cmd, shift ou botao do meio abrem em outra aba */
-  if (evento.metaKey || evento.ctrlKey || evento.shiftKey || evento.altKey) return;
-  if (evento.button !== 0) return;
-  if (document.body.classList.contains('saindo')) return;
+function aoRolar() {
+  topo.classList.toggle('rolou', window.scrollY > 8);
 
-  const link = evento.target.closest('a');
-  if (!link || !ehLinkDeOutraPagina(link)) return;
+  const meio = window.innerHeight * 0.35;
+  let atual = null;
 
-  evento.preventDefault();
-  document.body.classList.add('saindo');
+  secoes.forEach(function (secao, i) {
+    if (secao.getBoundingClientRect().top < meio) atual = links[i];
+  });
 
-  setTimeout(function () {
-    window.location.href = link.href;
-  }, esperaDaCortina);
-});
+  /* no fim da página o contato pode não chegar ao meio da tela */
+  if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) {
+    atual = links[links.length - 1];
+  }
 
-/* voltar pelo navegador pode trazer a cortina ainda levantada */
-window.addEventListener('pageshow', function () {
-  document.body.classList.remove('saindo');
-});
+  marcar(atual);
+}
+
+window.addEventListener('scroll', aoRolar, { passive: true });
+window.addEventListener('resize', aoRolar);
+aoRolar();
 
 
-const botaoTopo = document.getElementById('botao-topo');
+/* ---------- tema claro e escuro ---------- */
 
-if (botaoTopo) {
-  window.addEventListener('scroll', function () {
-    botaoTopo.classList.toggle('visivel', window.scrollY > 600);
-  }, { passive: true });
+const raiz = document.documentElement;
+const botaoTema = document.getElementById('botao-tema');
+const corDaBarra = document.querySelector('meta[name="theme-color"]');
+const reduzMovimento = window.matchMedia('(prefers-reduced-motion: reduce)');
+const sistemaEscuro = window.matchMedia('(prefers-color-scheme: dark)');
 
-  botaoTopo.addEventListener('click', function () {
-    window.scrollTo({ top: 0, behavior: semAnimacao ? 'auto' : 'smooth' });
+function aplicarTema(tema) {
+  raiz.dataset.tema = tema;
+  botaoTema.setAttribute('aria-label', tema === 'escuro' ? 'Ativar tema claro' : 'Ativar tema escuro');
+  corDaBarra.content = tema === 'escuro' ? '#171918' : '#f3f4f2';
+}
+
+aplicarTema(raiz.dataset.tema);
+
+function trocarTema(tema) {
+  if (reduzMovimento.matches) {
+    aplicarTema(tema);
+    return;
+  }
+
+  /* navegadores sem View Transitions: as cores só esmaecem */
+  if (!document.startViewTransition) {
+    raiz.classList.add('tema-em-transicao');
+    aplicarTema(tema);
+    setTimeout(function () {
+      raiz.classList.remove('tema-em-transicao');
+    }, 500);
+    return;
+  }
+
+  /* o tema novo cresce num círculo a partir do botão */
+  const caixa = botaoTema.getBoundingClientRect();
+  const x = caixa.left + caixa.width / 2;
+  const y = caixa.top + caixa.height / 2;
+  const raio = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+
+  document.startViewTransition(function () {
+    aplicarTema(tema);
+  }).ready.then(function () {
+    raiz.animate(
+      { clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + raio + 'px at ' + x + 'px ' + y + 'px)'] },
+      { duration: 650, easing: 'cubic-bezier(.65,0,.35,1)', pseudoElement: '::view-transition-new(root)' }
+    );
   });
 }
 
+botaoTema.addEventListener('click', function () {
+  const novo = raiz.dataset.tema === 'escuro' ? 'claro' : 'escuro';
+  try {
+    localStorage.setItem('tema', novo);
+  } catch (erro) {}
+  trocarTema(novo);
+});
 
-const formulario = document.getElementById('formulario');
-const aviso = document.getElementById('formulario-aviso');
+/* quem nunca escolheu um tema acompanha o sistema */
+sistemaEscuro.addEventListener('change', function (evento) {
+  let salvo = null;
+  try {
+    salvo = localStorage.getItem('tema');
+  } catch (erro) {}
+  if (!salvo) trocarTema(evento.matches ? 'escuro' : 'claro');
+});
 
-const campoNome = document.getElementById('nome');
-const campoEmail = document.getElementById('email');
-const campoAssunto = document.getElementById('assunto');
-const campoMensagem = document.getElementById('mensagem');
 
-const formatoDeEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+/* ---------- links antigos (/pages/sobre.html chega como /?secao=sobre) ---------- */
 
-function mostrarErro(campo, mensagem) {
-  const bloco = campo.closest('.campo');
-  bloco.classList.toggle('campo-com-erro', mensagem !== '');
-  bloco.querySelector('.campo-erro').textContent = mensagem;
-}
+const secaoPedida = new URLSearchParams(window.location.search).get('secao');
 
-function validar() {
-  let tudoCerto = true;
-
-  if (campoNome.value.trim() === '') {
-    mostrarErro(campoNome, 'Digite seu nome.');
-    tudoCerto = false;
-  } else {
-    mostrarErro(campoNome, '');
-  }
-
-  if (!formatoDeEmail.test(campoEmail.value.trim())) {
-    mostrarErro(campoEmail, 'Digite um e-mail válido.');
-    tudoCerto = false;
-  } else {
-    mostrarErro(campoEmail, '');
-  }
-
-  if (campoMensagem.value.trim().length < 10) {
-    mostrarErro(campoMensagem, 'Escreva um pouco mais, com pelo menos 10 caracteres.');
-    tudoCerto = false;
-  } else {
-    mostrarErro(campoMensagem, '');
-  }
-
-  return tudoCerto;
-}
-
-if (formulario) {
-  formulario.querySelectorAll('input, textarea').forEach(function (campo) {
-    campo.addEventListener('input', function () {
-      if (campo.closest('.campo').classList.contains('campo-com-erro')) {
-        mostrarErro(campo, '');
-      }
-    });
-  });
-
-  /* site estatico, sem servidor: monta um mailto ja preenchido */
-  formulario.addEventListener('submit', function (evento) {
-    evento.preventDefault();
-
-    if (!validar()) {
-      aviso.textContent = 'Verifique os campos marcados acima.';
-      aviso.className = 'aviso-form erro';
-      return;
-    }
-
-    const assunto = campoAssunto.value.trim() || 'Contato pelo portfólio';
-
-    const corpo =
-      'Nome: ' + campoNome.value.trim() + '\n' +
-      'E-mail: ' + campoEmail.value.trim() + '\n\n' +
-      campoMensagem.value.trim();
-
-    window.location.href =
-      'mailto:thalesalvs21@gmail.com' +
-      '?subject=' + encodeURIComponent(assunto) +
-      '&body=' + encodeURIComponent(corpo);
-
-    aviso.textContent = 'Abrindo seu aplicativo de e-mail com a mensagem preenchida...';
-    aviso.className = 'aviso-form ok';
-  });
+if (secaoPedida && document.getElementById(secaoPedida)) {
+  history.replaceState(null, '', window.location.pathname + '#' + secaoPedida);
+  document.getElementById(secaoPedida).scrollIntoView();
 }
 
 
-/* o endpoint /api/numeros conta repositorio privado; sem ele fica o numero publico */
-const campoRepos = document.getElementById('repos-github');
-const campoCommits = document.getElementById('commits-github');
+/* ---------- números do GitHub ---------- */
 
-function escreverNumero(campo, valor) {
-  if (campo && typeof valor === 'number') {
+/* o HTML já traz os números; aqui só atualiza se os endpoints responderem */
+function escreverNumero(chave, valor) {
+  if (typeof valor !== 'number') return;
+  document.querySelectorAll('[data-numero="' + chave + '"]').forEach(function (campo) {
     campo.textContent = valor;
-  }
-}
-
-function usarRotuloCompleto() {
-  document.querySelectorAll('.numero-rotulo[data-completo]').forEach(function (rotulo) {
-    rotulo.textContent = rotulo.dataset.completo;
   });
 }
 
-function buscarPublicos() {
-  if (campoRepos) {
+/* /api/numeros conta também os repositórios privados; sem ele, fica o número público */
+fetch('/api/numeros')
+  .then(function (resposta) {
+    if (!resposta.ok) throw new Error('endpoint indisponivel');
+    return resposta.json();
+  })
+  .then(function (dados) {
+    escreverNumero('repos', dados.repos);
+    document.querySelectorAll('[data-rotulo-repos]').forEach(function (rotulo) {
+      rotulo.textContent = 'repositórios';
+    });
+  })
+  .catch(function () {
     fetch('https://api.github.com/users/thalesalvs21')
       .then(function (resposta) {
         return resposta.json();
       })
       .then(function (dados) {
-        escreverNumero(campoRepos, dados.public_repos);
+        escreverNumero('repos', dados.public_repos);
       })
       .catch(function () {});
-  }
-}
+  });
 
-if (campoRepos) {
-  fetch('/api/numeros')
-    .then(function (resposta) {
-      if (!resposta.ok) {
-        throw new Error('endpoint indisponivel');
-      }
-      return resposta.json();
-    })
-    .then(function (dados) {
-      escreverNumero(campoRepos, dados.repos);
-      usarRotuloCompleto();
-    })
-    .catch(buscarPublicos);
-}
-
-// le o total de contribuicoes que o github actions atualiza todo dia
-if (campoCommits) {
-  fetch('/api/contribuicoes')
-    .then(function (resposta) {
-      return resposta.json();
-    })
-    .then(function (dados) {
-      escreverNumero(campoCommits, dados.total);
-    })
-    .catch(function () {});
-}
+fetch('/api/contribuicoes')
+  .then(function (resposta) {
+    if (!resposta.ok) throw new Error('endpoint indisponivel');
+    return resposta.json();
+  })
+  .then(function (dados) {
+    escreverNumero('contribuicoes', dados.total);
+  })
+  .catch(function () {});

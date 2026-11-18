@@ -157,6 +157,68 @@ a:hover { color: var(--acento-forte); text-decoration-thickness: 2px; }
   .contato-lista { grid-template-columns: 1fr; gap: 0; }
   .contato-lista dd + dt { margin-top: 12px; }
 }
+/* ---------- resposta ao mouse ---------- */
+
+/* links do texto: o sublinhado cresce da esquerda */
+.secao a, .contato-lista a {
+  text-decoration: none;
+  background:
+    linear-gradient(var(--acento), var(--acento)) 0 100% / 0 2px no-repeat,
+    linear-gradient(color-mix(in srgb, var(--acento) 45%, transparent), color-mix(in srgb, var(--acento) 45%, transparent)) 0 100% / 100% 1px no-repeat;
+  padding-bottom: 2px;
+  transition: background-size .3s cubic-bezier(.2,.7,.2,1), color .2s;
+}
+.secao a:hover, .secao a:focus-visible { background-size: 100% 2px, 100% 1px; }
+
+/* ícones do topo: dica com o nome e um leve movimento */
+.atalhos a { position: relative; }
+.atalhos svg { transition: transform .25s cubic-bezier(.3,1.5,.5,1); }
+.atalhos a::after {
+  content: attr(data-dica);
+  position: absolute; top: calc(100% + 8px); left: 50%;
+  padding: 4px 9px; border-radius: 6px;
+  background: var(--texto); color: var(--fundo);
+  font-size: 13px; font-weight: 500; white-space: nowrap;
+  opacity: 0; transform: translate(-50%, -4px); pointer-events: none;
+  transition: opacity .15s, transform .2s;
+}
+.atalhos a:hover::after, .atalhos a:focus-visible::after { opacity: 1; transform: translate(-50%, 0); }
+/* a primeira dica é longa (o e-mail): alinha pela esquerda para não sair da tela */
+.atalhos a:first-child::after { left: 0; transform: translateY(-4px); }
+.atalhos a:first-child:hover::after, .atalhos a:first-child:focus-visible::after { transform: none; }
+.atalhos a:hover svg { transform: translateY(-2px) scale(1.08); }
+.atalhos a:nth-child(2):hover svg { transform: rotate(-12deg) scale(1.08); }
+.atalhos a:nth-child(3):hover svg { animation: tocar .5s ease-in-out; }
+@keyframes tocar { 0%, 100% { transform: rotate(0); } 20%, 60% { transform: rotate(-14deg); } 40%, 80% { transform: rotate(14deg); } }
+
+.botao-tema svg { transition: transform .5s cubic-bezier(.3,1.4,.5,1), opacity .25s, rotate .3s; }
+.botao-tema:hover svg { rotate: 25deg; }
+
+@media (hover: hover) {
+  /* itens: barra verde à esquerda, título e data em verde */
+  .item { position: relative; }
+  .item::before {
+    content: ""; position: absolute; left: -20px; top: 20px; bottom: 20px; width: 2px;
+    background: var(--acento); border-radius: 2px;
+    transform: scaleY(0); transform-origin: top; transition: transform .3s cubic-bezier(.2,.7,.2,1);
+  }
+  .item:first-of-type::before { top: 0; }
+  .item .quando, .item h3 { transition: color .2s, transform .3s cubic-bezier(.2,.7,.2,1); }
+  .item:hover::before { transform: scaleY(1); }
+  .item:hover h3 { color: var(--acento); }
+  .item:hover .quando { color: var(--acento); transform: translateX(4px); }
+
+  /* competências e contato: o grupo sob o mouse fica em destaque */
+  .niveis > div h3 { transition: color .2s; }
+  .niveis > div:hover h3 { color: var(--acento); }
+
+  /* linha do tempo: o marco sob o mouse cresce */
+  .marco::before { transition: transform .25s cubic-bezier(.3,1.5,.5,1); }
+  .marco p { transition: color .2s; }
+  .marco:hover::before { transform: scale(1.35); }
+  .marco:hover p { color: var(--texto); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }

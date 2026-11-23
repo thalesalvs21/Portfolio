@@ -7,6 +7,7 @@
   --linha: #dcdfdc;
   --acento: #1d6a51;
   --acento-forte: #15533f;
+  --faixa: #e8ebe7;
   color-scheme: light;
 }
 :root[data-tema="escuro"] {
@@ -16,12 +17,13 @@
   --linha: #2b2f2d;
   --acento: #84bfa2;
   --acento-forte: #a6d3bc;
+  --faixa: #1f2221;
   color-scheme: dark;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-tema]) {
     --fundo: #171918; --texto: #e6e8e6; --texto-2: #9ca29f; --linha: #2b2f2d;
-    --acento: #84bfa2; --acento-forte: #a6d3bc; color-scheme: dark;
+    --acento: #84bfa2; --acento-forte: #a6d3bc; --faixa: #1f2221; color-scheme: dark;
   }
 }
 
@@ -128,9 +130,21 @@ a:hover { color: var(--acento-forte); text-decoration-thickness: 2px; }
 
 .subtitulo { font-size: 17px; font-weight: 600; margin: 36px 0 12px; }
 
-.niveis { display: grid; gap: 20px; }
-.niveis h3 { font-size: 17px; font-weight: 600; }
-.niveis p { color: var(--texto-2); margin-top: 2px; }
+/* competências: faixa de largura total, uma coluna por nível */
+.faixa { background: var(--faixa); border-top: 0; padding: 80px 0 88px; }
+.faixa + .secao { border-top: 0; }
+.niveis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 8px; }
+.nivel h3 {
+  font-size: 15px; font-weight: 500; color: var(--texto-2);
+  padding-bottom: 14px; margin-bottom: 18px; border-bottom: 2px solid var(--acento);
+}
+.nivel:nth-child(2) h3 { border-bottom-color: color-mix(in srgb, var(--acento) 60%, var(--linha)); }
+.nivel:nth-child(3) h3 { border-bottom-color: color-mix(in srgb, var(--acento) 30%, var(--linha)); }
+.nivel ul { display: grid; gap: 10px; }
+.nivel li {
+  font-size: clamp(20px, 2.1vw, 26px); font-weight: 600; letter-spacing: -.015em; line-height: 1.2;
+  transition: color .2s, transform .25s cubic-bezier(.2,.7,.2,1);
+}
 
 .contato-lista { display: grid; grid-template-columns: 110px 1fr; gap: 8px 24px; margin-top: 24px; }
 .contato-lista dt { color: var(--texto-2); }
@@ -154,6 +168,8 @@ a:hover { color: var(--acento-forte); text-decoration-thickness: 2px; }
   .marco p { max-width: none; }
   .secao { padding: 48px 0; }
   .item { grid-template-columns: 1fr; gap: 4px; }
+  .niveis { grid-template-columns: 1fr; gap: 36px; }
+  .faixa { padding: 56px 0 64px; }
   .contato-lista { grid-template-columns: 1fr; gap: 0; }
   .contato-lista dd + dt { margin-top: 12px; }
 }
@@ -209,8 +225,7 @@ a:hover { color: var(--acento-forte); text-decoration-thickness: 2px; }
   .item:hover .quando { color: var(--acento); transform: translateX(4px); }
 
   /* competências e contato: o grupo sob o mouse fica em destaque */
-  .niveis > div h3 { transition: color .2s; }
-  .niveis > div:hover h3 { color: var(--acento); }
+  .nivel li:hover { color: var(--acento); transform: translateX(4px); }
 
   /* linha do tempo: o marco sob o mouse cresce */
   .marco::before { transition: transform .25s cubic-bezier(.3,1.5,.5,1); }
